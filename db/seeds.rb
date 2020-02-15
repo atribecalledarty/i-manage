@@ -19,6 +19,13 @@ users = User.create([
         email: "nymphaaaa@owl.com", 
         password: "icanchange",
         phone_number: "547-477-6122"
+    },
+    {
+        username: "severus_snape",
+        manager_status: "false",
+        email: "severus222@owl.com", 
+        password: "ilovelily",
+        phone_number: "547-561-9842"
     }
 ])
 
@@ -35,3 +42,8 @@ units = Unit.create([
     }
 ])
 
+residencies = Residency.create([
+    {
+        
+    }
+])

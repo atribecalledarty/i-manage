@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "residencies", force: :cascade do |t|
     t.datetime "start_date"
-    t.integer "rent_cost_per_month"
     t.integer "curr_balance"
     t.integer "user_id"
     t.integer "unit_id"
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_051034) do
     t.integer "unit_number"
     t.string "type_of_unit"
     t.integer "sq_ft"
+    t.integer "rent_cost_per_month"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
