@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "manager_status"
-    t.text "username"
-    t.text "email"
+    t.string "username"
+    t.string "email"
     t.string "password_digest"
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
