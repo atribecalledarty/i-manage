@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "units", force: :cascade do |t|
     t.integer "unit_number"
+    t.string "type_of_unit"
     t.integer "sq_ft"
-    t.integer "number_of_bedrooms"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
