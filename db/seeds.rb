@@ -24,7 +24,14 @@ users = User.create([
 
 units = Unit.create([
     {
-        
+        unit_number: 101,
+        type_of_unit: 'Studio',
+        sq_ft: 372
+    },
+    {
+        unit_number: 102,
+        type_of_unit: '1 Bedroom',
+        sq_ft: 517
     }
 ])
 
