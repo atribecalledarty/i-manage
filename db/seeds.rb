@@ -44,6 +44,15 @@ units = Unit.create([
 
 residencies = Residency.create([
     {
-        
+        start_date: DateTime.now,
+        curr_balance: 0,
+        user_id: 1,
+        unit_id: 0
+    },
+    {
+        start_date: DateTime.now,
+        curr_balance: 0,
+        user_id: 2,
+        unit_id: 1
     }
 ])
