@@ -33,12 +33,14 @@ units = Unit.create([
     {
         unit_number: 101,
         type_of_unit: 'Studio',
-        sq_ft: 372
+        sq_ft: 372,
+        rent_cost_per_month: 510
     },
     {
         unit_number: 102,
         type_of_unit: '1 Bedroom',
-        sq_ft: 517
+        sq_ft: 517,
+        rent_cost_per_month: 620
     }
 ])
 
@@ -46,13 +48,13 @@ residencies = Residency.create([
     {
         start_date: DateTime.now,
         curr_balance: 0,
-        user_id: 1,
-        unit_id: 0
+        user_id: 2,
+        unit_id: 1
     },
     {
         start_date: DateTime.now,
         curr_balance: 0,
-        user_id: 2,
-        unit_id: 1
+        user_id: 3,
+        unit_id: 2
     }
 ])
