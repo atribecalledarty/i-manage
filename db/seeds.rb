@@ -8,6 +8,8 @@
 users = User.create([
     {
         username: "luna_lovegood",
+        first_name: "Luna",
+        last_name: "Lovegood",
         manager_status: "true",
         email: "itsluna@owl.com", 
         password: "nargles",
@@ -15,6 +17,8 @@ users = User.create([
     },
     {
         username: "nymphy_tonks",
+        first_name: "Nymphadora",
+        last_name: "Tonks",
         manager_status: "false",
         email: "nymphaaaa@owl.com", 
         password: "icanchange",
@@ -22,6 +26,8 @@ users = User.create([
     },
     {
         username: "severus_snape",
+        first_name: "Severus",
+        last_name: "Snape",
         manager_status: "false",
         email: "severus222@owl.com", 
         password: "ilovelily",
