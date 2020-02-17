@@ -6,7 +6,7 @@ class UnitSerializer
     def to_serialized_json
         options = {
             include: {
-                user: {
+                resident: {
                     except: [:updated_at, :created_at]
                 }
             },
