@@ -6,16 +6,31 @@ class Login extends Component {
         password: ''
     }
 
+    changeHandler = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     render() {
         return(
             <div>
+
                 <form>
                     <label for="email">Email </label>
-                    <input type="text" name="email" id="email" />
+                    <input type="text"
+                        name="email" 
+                        id="email" 
+                        onChange={this.changeHandler} 
+                        value={this.state.email}/>
                     <br />
                     
                     <label for="password">Password </label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" 
+                        name="password" 
+                        id="password" 
+                        onChange={this.changeHandler} 
+                        value={this.state.password}/>
                     <br/>
 
                     <input type="submit" value="Sign In"/>
