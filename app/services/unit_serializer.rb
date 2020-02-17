@@ -7,7 +7,7 @@ class UnitSerializer
         options = {
             include: {
                 resident: {
-                    except: [:updated_at, :created_at]
+                    except: [:updated_at, :created_at, :password_digest]
                 }
             },
             except: [:updated_at, :created_at]
