@@ -15,7 +15,7 @@ class Login extends Component {
     render() {
         return(
             <div>
-
+                {console.log(this.state)}
                 <form>
                     <label for="email">Email </label>
                     <input type="text"
