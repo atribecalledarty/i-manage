@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Unit from './Unit';
 
 class UnitsList extends Component {
     renderUnits = () => {
         return (
-            this.props.units(unit => <Unit unitInfo={unit} />)
+            this.props.units.map(unit => <Unit unitInfo={unit} />)
         )
     }
 
@@ -12,6 +13,7 @@ class UnitsList extends Component {
             <div>
                 I am UnitsList Component!
                 <ul>
+                    {console.log('this is in unitslists', this.props.units)}
                     {this.renderUnits()}
                 </ul>
             </div>
