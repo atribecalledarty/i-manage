@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUnits } from './unitsAction';
+import { fetchUnits } from './unitsAction';]
+import UnitsList from './UnitsList';
 
 class UnitsContainer extends Component {
     componentDidMount(){
@@ -11,7 +12,8 @@ class UnitsContainer extends Component {
         return(
             <div>
                 I am UnitsContainer component!
-                {console.log(this.props.units)}
+                {/* {console.log(this.props.units)} */}
+                <UnitsList units={this.props.units}/>
             </div>
         )
     }
