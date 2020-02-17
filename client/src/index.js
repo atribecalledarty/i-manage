@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import manageResources from './manageResources';
 
+const store = createStore(manageResources);
 
 ReactDOM.render(
     <Provider store={store} >
