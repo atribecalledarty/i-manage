@@ -8,7 +8,7 @@ export default function manageResources (state = { units: [], users: [], loading
                 users: [ ...state.users ],
                 loading: true
             }
-        case 'ADDING_UNITS':
+        case 'ADD_UNITS':
             return {
                 ...state,
                 units: action.units,

@@ -1,6 +1,11 @@
 export const fetchUnits = () => {
-    dispatch({ type: 'LOADING_UNITS' })
-    fetch('localhost:3001/units')
-        .then(resp => resp.json())
-        .then(units => dispatch({ type: 'ADD_UNITS', units }))
+    return dispatch => {
+        dispatch({ type: 'LOADING_UNITS' })
+        fetch('http://localhost:3002/units')
+            .then(resp => resp.json())
+            .then(units => {
+                console.log(units) 
+                dispatch({ type: 'ADD_UNITS', units })
+            })
+    }    
 }
