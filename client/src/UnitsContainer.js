@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUnits } from './unitsAction';]
+import { fetchUnits } from './unitsAction';
 import UnitsList from './UnitsList';
 
 class UnitsContainer extends Component {
