@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import Unit from './Unit';
 
-class UnitsList extends Component {
-    renderUnits = () => {
-        return (
-            this.props.units.map(unit => <Unit unitInfo={unit} />)
-        )
-    }
-
-    render() {
-        return(
-            <div>
-                I am UnitsList Component!
-                <ul>
-                    {console.log('this is in unitslists', this.props.units)}
-                    {this.renderUnits()}
-                </ul>
-            </div>
-        )
-    }
+const UnitsList = ({ units }) => {
+    const renderUnits = Object.keys(units).map(unitId => 
+        <Link key={unitId} to={`/movies/${unitId}`}>{units[unitId].unit_number}</Link>
+    );
+    
+    return (
+        <div>
+            {renderUnits}
+        </div>
+    )
 }
 
 export default UnitsList
