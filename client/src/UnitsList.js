@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Unit from './Unit';
+// import Unit from './Unit';
 
 const UnitsList = ({ units }) => {
     const renderUnits = Object.keys(units).map(unitId => 
