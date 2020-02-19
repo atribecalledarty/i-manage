@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Route exact path="/" render={() => <h1>Welcome to Luna's Tavern</h1>} />
+        <Route path="/" render={() => <h1>Welcome to Luna's Tavern</h1>} />
         <Route exact path="/login" render={() => <Login />}/>
         <Route path="/units" render={routerProps => <UnitsContainer {...routerProps}/>}/>
 

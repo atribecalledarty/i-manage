@@ -16,7 +16,8 @@ class UnitsContainer extends Component {
                 I am UnitsContainer component!
                 {/* {console.log(this.props.units)} */}
                 <UnitsList units={this.props.units} />
-                <Route exact path={`${this.props.match.url}/:unitId`} component={UnitShow} />
+                <Route path={`${this.props.match.url}/:unitId`} 
+                    render={routerProps => <UnitShow {...routerProps} units={this.props.units}/>}/>
             </div>
         )
     }
