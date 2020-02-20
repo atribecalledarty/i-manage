@@ -13,7 +13,7 @@ class UnitsContainer extends Component {
     render() {
         return(
             <div>
-                I am UnitsContainer component!
+                {/* I am UnitsContainer component! */}
                 {/* {console.log(this.props.units)} */}
                 <UnitsList units={this.props.units} />
                 <Route path={`${this.props.match.url}/:unitId`} 

@@ -18,7 +18,7 @@ const UnitsList = ({ units }) => {
     
     return (
         <div>
-            I am UnitsList component!
+            {/* I am UnitsList component! */}
             {renderUnits}
         </div>
     )
