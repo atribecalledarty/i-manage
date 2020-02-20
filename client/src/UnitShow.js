@@ -2,7 +2,8 @@ import React from 'react';
 
 const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id == match.params.unitId)
-    const resident = unit.resident
+    const resident = unit.resident;
+    const residency = unit.residency;
 
     return (
         <div>
@@ -18,6 +19,11 @@ const UnitShow = ({ match, units }) => {
                 {resident.first_name} {resident.last_name}<br/>
                 {resident.email}<br/>
                 {resident.phone_number}
+            </p>
+
+            <p>
+                RESIDENCY {residency.start_date.strftime('')}
+                BALANCE {residency.balance}
             </p>
 
         </div>  
