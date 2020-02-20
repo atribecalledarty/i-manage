@@ -1,5 +1,5 @@
-import React from 'react';
 
+import React from 'react';
 const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id == match.params.unitId)
     const resident = unit.resident;
@@ -22,8 +22,9 @@ const UnitShow = ({ match, units }) => {
             </p>
 
             <p>
-                RESIDENCY {residency.start_date.strftime('')}
-                BALANCE {residency.balance}
+                {/* {console.log(residency.start_date.typeof)} */}
+                Move-In Date {residency.start_date}<br/>
+                BALANCE ${residency.curr_balance}
             </p>
 
         </div>  

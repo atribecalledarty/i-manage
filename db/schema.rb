@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "residencies", force: :cascade do |t|
-    t.datetime "start_date"
+    t.date "start_date"
     t.integer "curr_balance"
     t.integer "user_id"
     t.integer "unit_id"
