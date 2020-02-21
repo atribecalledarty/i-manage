@@ -5,7 +5,8 @@ const Home = () => {
     return (
         <div>
             <h1>Welcome to Luna's Tavern</h1>
-            <Link to="/units">See Units</Link>
+            <Link to="/units">See Units</Link>&nbsp;
+            <Link to="/users">See Users</Link>
         </div>
     )
 }
