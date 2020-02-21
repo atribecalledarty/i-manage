@@ -5,7 +5,6 @@ const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id == match.params.unitId)
     const resident = unit.resident;
     const residency = unit.residency;
-    const start_date = new Date(residency.start_date);
 
     return (
         <div>
@@ -29,7 +28,7 @@ const UnitShow = ({ match, units }) => {
                 {/* {console.log(start_date)} */}
                 {/* {console.log($.datepicker.formatDate('yy-mm-dd', mydate))} */}
                 {/* {console.log(new Date(start_date))} */}
-                {/* Start Date {start_date.strftime("%m/%d/%Y")}<br/> */}
+                Start Date {createDateFn(residency.start_date)}<br/>
 
                 Balance ${residency.curr_balance}
             </p>
