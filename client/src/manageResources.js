@@ -1,7 +1,7 @@
 export default function manageResources (state = { units: [], users: [], loading: false }, action) {
 
     switch(action.type) {
-        case 'LOADING_UNITS':
+        case 'LOADING_RESOURCE':
             return {
                 ...state,
                 units: [ ...state.units ],

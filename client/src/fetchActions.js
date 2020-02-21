@@ -1,6 +1,6 @@
 export const fetchUnits = () => {
     return dispatch => {
-        dispatch({ type: 'LOADING_UNITS' })
+        dispatch({ type: 'LOADING_RESOURCE' })
         fetch('http://localhost:3002/units')
             .then(resp => resp.json())
             .then(units => {
@@ -12,7 +12,7 @@ export const fetchUnits = () => {
 
 export const fetchUsers = () => {
     return dispatch => {
-        dispatch({ type: 'LOADING_USERS' })
+        dispatch({ type: 'LOADING_RESOURCE' })
         fetch('http://localhost:3002/users')
             .then(resp => resp.json())
             .then(users => {
