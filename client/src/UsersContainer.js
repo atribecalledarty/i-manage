@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUnits } from './fetchActions';
+import { fetchUsers } from './fetchActions';
 import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
 import { Route } from 'react-router-dom';
