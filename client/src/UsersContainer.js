@@ -5,7 +5,7 @@ import UsersList from './UsersList';
 import UserShow from './UnitShow';
 import { Route } from 'react-router-dom';
 
-class UnitsContainer extends Component {
+class UsersContainer extends Component {
     componentDidMount(){
         this.props.fetchUsers();
     }
@@ -13,6 +13,7 @@ class UnitsContainer extends Component {
     render() {
         return(
             <div>
+                {/* {console.log(this.props.users)} */}
                 <UsersList users={this.props.users} />
                 <Route path={`${this.props.match.url}/:userId`} 
                     render={routerProps => <UserShow {...routerProps} users={this.props.users}/>}/>
@@ -33,4 +34,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UnitsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
