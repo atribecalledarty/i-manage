@@ -23,8 +23,8 @@ const UnitShow = ({ match, units }) => {
 
             <p>
                 {/* {console.log(residency.start_date.typeof)} */}
-                Move-In Date {residency.start_date}<br/>
-                BALANCE ${residency.curr_balance}
+                Start Date {residency.start_date}<br/>
+                Balance ${residency.curr_balance}
             </p>
 
         </div>  
