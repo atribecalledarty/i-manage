@@ -12,7 +12,7 @@ function App() {
         <Route path="/" render={() => <Home />} />
         <Route exact path="/login" render={() => <Login />}/>
         <Route path="/units" render={routerProps => <UnitsContainer {...routerProps}/>}/>
-
+        <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
       </div>
     </Router>
   );
