@@ -2,6 +2,7 @@ import React from 'react';
 import createDateFn from './CreateDate';
 
 const UnitShow = ({ match, units }) => {
+    // eslint-disable-next-line
     const unit = units.find(unit => unit.id == match.params.unitId)
     const resident = unit.resident;
     const residency = unit.residency;

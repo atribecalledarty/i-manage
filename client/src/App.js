@@ -3,12 +3,13 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
 import UnitsContainer from './UnitsContainer';
+import Home from './Home';
 
 function App() {
   return (
     <Router>
       <div>
-        <Route path="/" render={() => <h1>Welcome to Luna's Tavern</h1>} />
+        <Route path="/" render={() => <Home />} />
         <Route exact path="/login" render={() => <Login />}/>
         <Route path="/units" render={routerProps => <UnitsContainer {...routerProps}/>}/>
 
