@@ -5,6 +5,7 @@ const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
     const resident = unit.resident;
     const residency = unit.residency;
+    console.log(unit);
 
     return (
         <div>
