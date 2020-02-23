@@ -1,5 +1,5 @@
 import React from 'react';
-import createDateFn from './CreateDate';
+import returnFormattedDate from './returnFormattedDate';
 
 const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
@@ -8,7 +8,7 @@ const UnitShow = ({ match, units }) => {
 
     return (
         <div>
-            {console.log(unit)}
+            {/* {console.log(unit)} */}
             <h3>Unit {unit.unit_number}</h3>
             <p>
                 {unit.type_of_unit}<br/>
@@ -28,7 +28,7 @@ const UnitShow = ({ match, units }) => {
                 {/* {console.log(start_date)} */}
                 {/* {console.log($.datepicker.formatDate('yy-mm-dd', mydate))} */}
                 {/* {console.log(new Date(start_date))} */}
-                Start Date {createDateFn(residency.start_date)}<br/>
+                Start Date {returnFormattedDate(residency.start_date)}<br/>
 
                 Balance ${residency.curr_balance}
             </p>
