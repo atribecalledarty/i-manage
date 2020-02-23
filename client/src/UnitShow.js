@@ -28,9 +28,8 @@ const UnitShow = ({ match, units }) => {
                 {/* {console.log(start_date)} */}
                 {/* {console.log($.datepicker.formatDate('yy-mm-dd', mydate))} */}
                 {/* {console.log(new Date(start_date))} */}
-                Start Date {returnFormattedDate(residency.start_date)}<br/>
-
-                Balance ${residency.curr_balance}
+                Resident since: {returnFormattedDate(residency.start_date)}<br/>
+                Balance: ${residency.curr_balance}
             </p>
 
         </div>  

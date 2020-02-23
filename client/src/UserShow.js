@@ -14,7 +14,7 @@ const UnitShow = ({ match, users }) => {
             </p>
             <p>
                 Resident since {returnFormattedDate(user.residency.start_date)}<br/>
-                Balance: {user.residency.curr_balance}<br/>
+                Balance: ${user.residency.curr_balance}<br/>
                 Unit {user.unit.unit_number}<br/>
             </p>
         </div>
