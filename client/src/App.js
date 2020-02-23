@@ -10,7 +10,7 @@ import { fetchUnits, fetchUsers } from './fetchActions';
 
 class App extends React.Component {  
   componentDidMount(){
-    this.props.fetchUnits();
+    this.props.fetchResources();
   }
 
   render() {
@@ -36,8 +36,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      fetchUnits: () => dispatch(fetchUnits()),
-      fetchUsers: () => dispatch(fetchUsers())
+      fetchResources: () => { 
+        dispatch(fetchUnits());
+        dispatch(fetchUsers());
+      }
   }
 }
 

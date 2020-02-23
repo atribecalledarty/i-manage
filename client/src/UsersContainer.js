@@ -1,6 +1,6 @@
 import React from 'react';
 import UsersList from './UsersList';
-import UserShow from './UnitShow';
+import UserShow from './UserShow';
 import { Route } from 'react-router-dom';
 
 const UsersContainer = ({ match, users }) => {
