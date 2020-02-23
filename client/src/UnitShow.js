@@ -23,11 +23,6 @@ const UnitShow = ({ match, units }) => {
             </p>
 
             <p>
-                {/* {console.log(residency.start_date.typeof)} */}
-                {/* {residency.created_at.strftime("%m/%d/%Y")} */}
-                {/* {console.log(start_date)} */}
-                {/* {console.log($.datepicker.formatDate('yy-mm-dd', mydate))} */}
-                {/* {console.log(new Date(start_date))} */}
                 Resident since: {returnFormattedDate(residency.start_date)}<br/>
                 Balance: ${residency.curr_balance}
             </p>

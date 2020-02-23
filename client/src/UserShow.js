@@ -1,7 +1,7 @@
 import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
 
-const UnitShow = ({ match, users }) => {
+const UserShow = ({ match, users }) => {
     const user = users.find(user => user.id === Number(match.params.userId))
 
     return (
@@ -21,4 +21,4 @@ const UnitShow = ({ match, users }) => {
     )
 }
 
-export default UnitShow;
+export default UserShow;
