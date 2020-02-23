@@ -1,37 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchUsers } from './fetchActions';
+import React from 'react';
 import UsersList from './UsersList';
 import UserShow from './UnitShow';
 import { Route } from 'react-router-dom';
 
-class UsersContainer extends Component {
-    componentDidMount(){
-        this.props.fetchUsers();
-    }
+const UsersContainer = ({ match, users }) => {
+    return(
+        <div>
+            {/* {console.log(this.props.users)} */}
+            <UsersList users={users} />
+            <Route path={`${match.url}/:userId`} 
+                render={routerProps => <UserShow {...routerProps} users={users}/>}/>
+        </div>
+    )
 
-    render() {
-        return(
-            <div>
-                {/* {console.log(this.props.users)} */}
-                <UsersList users={this.props.users} />
-                <Route path={`${this.props.match.url}/:userId`} 
-                    render={routerProps => <UserShow {...routerProps} users={this.props.users}/>}/>
-            </div>
-        )
-    }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchUsers: () => dispatch(fetchUsers())
-    }
-}
-
-const mapStateToProps = state => {
-    return {
-        users: state.users
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default UsersContainer;

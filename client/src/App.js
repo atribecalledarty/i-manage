@@ -19,8 +19,8 @@ class App extends React.Component {
         <div>
           <Route path="/" render={() => <Home />} />
           <Route exact path="/login" render={() => <Login />}/>
-          <Route path="/units" render={routerProps => <UnitsContainer {...routerProps}/>}/>
-          <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
+          <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} units={this.props.units}/>}/>
+          <Route path="/users" render={routerProps => <UsersContainer {...routerProps} users={this.props.users}/>}/>
         </div>
       </Router>
     );
