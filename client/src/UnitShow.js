@@ -5,7 +5,22 @@ const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
     const resident = unit.resident;
     const residency = unit.residency;
-    console.log(unit);
+    // console.log(unit);
+    const renderResidencyInfo = () => {
+        if (unit.residency !== undefined) {
+            return (
+                <p>
+                    {resident.first_name} {resident.last_name}<br/>
+                    {resident.email}<br/>
+                    {resident.phone_number}<br/><br/>
+                    
+                    Resident since: {returnFormattedDate(residency.start_date)}<br/>
+                    Balance: ${residency.curr_balance}
+                </p>
+            )
+
+        }
+    }
 
     return (
         <div>
@@ -17,16 +32,6 @@ const UnitShow = ({ match, units }) => {
                 ${unit.rent_cost_per_month}/month
             </p>
 
-            <p>
-                {resident.first_name} {resident.last_name}<br/>
-                {resident.email}<br/>
-                {resident.phone_number}
-            </p>
-
-            <p>
-                Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                Balance: ${residency.curr_balance}
-            </p>
 
         </div>  
     )
