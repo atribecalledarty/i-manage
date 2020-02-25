@@ -1,0 +1,7 @@
+- adding/deleting users feature
+- adding/removing users from a unit
+- create a model called payment
+    residencies have many payments
+    resdiency calculates current balance from
+        a. how many months have passed since start date
+        b. how many payments have been made

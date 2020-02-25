@@ -13,7 +13,7 @@ const UnitShow = ({ match, units }) => {
                     {resident.first_name} {resident.last_name}<br/>
                     {resident.email}<br/>
                     {resident.phone_number}<br/><br/>
-                    
+
                     Resident since: {returnFormattedDate(residency.start_date)}<br/>
                     Balance: ${residency.curr_balance}
                 </p>
@@ -31,8 +31,8 @@ const UnitShow = ({ match, units }) => {
                 {unit.sq_ft} sq ft<br/>
                 ${unit.rent_cost_per_month}/month
             </p>
-
-
+            
+            {renderResidencyInfo()}
         </div>  
     )
 }

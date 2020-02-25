@@ -9,7 +9,7 @@ const UnitsList = ({ units }) => {
             )
         } else {
             return (
-                <>Vacant</>
+                <>-</>
             )
         }
     }
