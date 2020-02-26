@@ -10,6 +10,7 @@ const UsersContainer = ({ match, users }) => {
             <UsersList users={users} />
             <Route path={`${match.url}/:userId`} 
                 render={routerProps => <UserShow {...routerProps} users={users}/>}/>
+            <Route path={`${match.url}/new`} component={CreateUser}/>
         </div>
     )
 

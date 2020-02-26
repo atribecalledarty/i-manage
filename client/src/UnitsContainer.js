@@ -12,7 +12,6 @@ const UnitsContainer = ({ match, units }) => {
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units}/>}/>
-            <Route path={`${match.url}/new`} component={CreateUser}/>
         </div>
     )
 }

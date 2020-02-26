@@ -26,7 +26,6 @@ const UnitsList = ({ units }) => {
     return (
         <div>
             {renderUnits}
-            <Link to={`/units/new`}>Create New User</Link>
         </div>
     )
 }
