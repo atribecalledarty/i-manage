@@ -12,7 +12,6 @@ const UsersList = ({ users }) => {
     return (
         <div>
             {renderUsers}
-            <Link to={`/users/new`}>Create New User</Link>
         </div>
     )
 }
