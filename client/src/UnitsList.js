@@ -20,10 +20,13 @@ const UnitsList = ({ units }) => {
             &nbsp;{renderUser(unit)}
         </div>
     );
+
+
     
     return (
         <div>
             {renderUnits}
+            <CreateUser />
         </div>
     )
 }
