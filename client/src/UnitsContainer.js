@@ -2,7 +2,6 @@ import React from 'react';
 import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
 import { Route } from 'react-router-dom';
-import CreateUser from './CreateUser';
 
 const UnitsContainer = ({ match, units }) => {
     return(
