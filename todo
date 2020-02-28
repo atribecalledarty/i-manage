@@ -9,3 +9,4 @@
         a. how many months have passed since start date
         b. how many payments have been made
 - add validations for models!
+- add params permit for create user action?
