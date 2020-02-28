@@ -1,3 +1,5 @@
+
+
 class UsersController < ApplicationController
     def index
         users = User.all
@@ -5,7 +7,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        binding.pry
     end
 
 
