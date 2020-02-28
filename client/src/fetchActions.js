@@ -28,7 +28,7 @@ export const postNewUser = formData => {
 
         const body = JSON.stringify(formData);
         fetch('http://localhost:3002/users', {
-            method: "post",
+            method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -36,8 +36,8 @@ export const postNewUser = formData => {
             body
         })
             .then(resp => resp.json())
-            .then(user => {
-                dispatch({ type: 'ADD_NEW_USER', user})
+            .then(users => {
+                dispatch({ type: 'ADD_USERS', users })
             })
     }
 }
