@@ -1,4 +1,6 @@
 import React from 'react';
+import { postNewUser } from './fetchActions';
+import { connect } from 'react-redux';
 
 class CreateUser extends React.Component {
     state = {
@@ -86,4 +88,10 @@ class CreateUser extends React.Component {
     }
 }
 
-export default CreateUser;
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: formData => dispatch(postNewUser(formData))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateUser);
