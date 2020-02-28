@@ -20,8 +20,8 @@ class CreateUser extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        console.log(this.state);
-        this.props.addUser()
+        // console.log(this.state);
+        this.props.addUser(this.state);
     }
 
     render() {
