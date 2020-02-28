@@ -1,4 +1,7 @@
 - adding/deleting users feature
+    => need to create the submit handler (Adding a User)
+        change API resource
+        change redux state..
 - adding/removing users from a unit
 - create a model called payment
     residencies have many payments

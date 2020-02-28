@@ -21,3 +21,23 @@ export const fetchUsers = () => {
             })
     }    
 }
+
+export const postNewUser = formData => {
+    return dispatch => {
+        dispatch({ type: 'LOADING_RESOURCE' })
+
+        const body = JSON.stringify(formData);
+        fetch('http://localhost:3002/users', {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body
+        })
+            .then(resp => resp.json())
+            .then(user => {
+                dispatch({ type: 'ADD_NEW_USER', user})
+            })
+    }
+}
