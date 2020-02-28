@@ -2,6 +2,7 @@
     => need to create the submit handler (Adding a User)
         change API resource
         change redux state..
+- add validations for user model
 - adding/removing users from a unit
 - create a model called payment
     residencies have many payments

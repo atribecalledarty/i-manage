@@ -1,4 +1,4 @@
-
+require 'pry'
 
 class UsersController < ApplicationController
     def index
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
             password: params[:password]
         )
         users = User.all
+        binding.pry
         render json: UserSerializer.new(users).to_serialized_json
     end
 
