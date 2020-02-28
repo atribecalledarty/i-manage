@@ -3,4 +3,10 @@ class UsersController < ApplicationController
         users = User.all
         render json: UserSerializer.new(users).to_serialized_json
     end
+
+    def create
+        binding.pry
+    end
+
+
 end
