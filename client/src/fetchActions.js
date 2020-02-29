@@ -22,11 +22,11 @@ export const fetchUsers = () => {
     }    
 }
 
-export const postNewUser = formData => {
+export const postNewUser = (state, setState) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
 
-        const body = JSON.stringify(formData);
+        const body = JSON.stringify(state);
         fetch('http://localhost:3002/users', {
             method: "POST",
             headers: {
@@ -37,7 +37,14 @@ export const postNewUser = formData => {
         })
             .then(resp => resp.json())
             .then(user => {
-                dispatch({ type: 'ADD_NEW_USER', user })
+                console.log(user);
+                if (user.errors) {
+                   setState({
+                       errors: user.errors
+                   })
+                } else {
+                // dispatch({ type: 'ADD_NEW_USER', user })
+                }
             })
     }
 }

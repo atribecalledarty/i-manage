@@ -1,6 +1,7 @@
 import React from 'react';
 import { postNewUser } from './fetchActions';
 import { connect } from 'react-redux';
+import FormErrors from './FormErrors';
 
 class CreateUser extends React.Component {
     state = {
@@ -9,7 +10,8 @@ class CreateUser extends React.Component {
         last_name: "",
         email: "",
         phone_number: "",
-        password: ""
+        password: "",
+        errors: []
     }
 
     changeHandler = event => {
@@ -21,12 +23,13 @@ class CreateUser extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         // console.log(this.state);
-        this.props.addUser(this.state);
+        this.props.addUser(this.state, this.setState);
     }
 
     render() {
         return(
             <div>
+                <FormErrors errors={this.state.errors}/>
                 <form onSubmit={this.submitHandler}>
                     <h3>New User</h3>
                     <label for="username">Username: </label>
