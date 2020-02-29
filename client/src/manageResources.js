@@ -22,6 +22,13 @@ export default function manageResources (state = { units: [], users: [], loading
                 users: action.users,
                 loading: false
             }
+        case 'ADD_NEW_USER':
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users, action.user ],
+                loading: false
+            }
         default:
             return state;
     }
