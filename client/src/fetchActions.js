@@ -39,9 +39,7 @@ export const postNewUser = (state, setState) => {
             .then(user => {
                 console.log(user);
                 if (user.errors) {
-                   setState({
-                       errors: user.errors
-                   })
+                   dispatch({ type: 'ADD_ERRORS', user })
                 } else {
                 // dispatch({ type: 'ADD_NEW_USER', user })
                 }

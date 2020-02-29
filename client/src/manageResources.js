@@ -1,4 +1,4 @@
-export default function manageResources (state = { units: [], users: [], loading: false }, action) {
+export default function manageResources (state = { units: [], users: [], loading: false, errors: [] }, action) {
 
     switch(action.type) {
         case 'LOADING_RESOURCE':
@@ -6,28 +6,40 @@ export default function manageResources (state = { units: [], users: [], loading
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: true
+                loading: true,
+                errors: []
             }
         case 'ADD_UNITS':
             return {
                 ...state,
                 units: action.units,
                 users: [ ...state.users ],
-                loading: false
+                loading: false,
+                errors: []
             }
         case 'ADD_USERS':
             return {
                 ...state,
                 units: [ ...state.units ],
                 users: action.users,
-                loading: false
+                loading: false,
+                errors: []
             }
         case 'ADD_NEW_USER':
             return {
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users, action.user ],
-                loading: false
+                loading: false,
+                errors: []
+            }
+        case 'ADD_ERRORS':
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading: false,
+                errors: [ ...action.user.errors ]
             }
         default:
             return state;

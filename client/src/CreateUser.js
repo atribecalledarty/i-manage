@@ -10,8 +10,7 @@ class CreateUser extends React.Component {
         last_name: "",
         email: "",
         phone_number: "",
-        password: "",
-        errors: []
+        password: ""
     }
 
     changeHandler = event => {
@@ -23,13 +22,13 @@ class CreateUser extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         // console.log(this.state);
-        this.props.addUser(this.state,  this.setState);
+        this.props.addUser(this.state);
     }
 
     render() {
         return(
             <div>
-                <FormErrors errors={this.state.errors}/>
+                <FormErrors errors={this.props.errors}/>
                 <form onSubmit={this.submitHandler}>
                     <h3>New User</h3>
                     <label htmlFor="username">Username: </label>
@@ -94,8 +93,15 @@ class CreateUser extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addUser: (state, setStateFn) => dispatch(postNewUser(state, setStateFn))
+        addUser: state => dispatch(postNewUser(state))
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateUser);
+const mapStateToProps = state => {
+    return {
+        errors: state.errors
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateUser);

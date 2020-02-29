@@ -1,17 +1,11 @@
 import React from 'react';
 
 const FormErrors = ({ errors }) => {
-    const displayErrors = () => {
-        if (errors.length > 0) {
-            return (errors.map(error => <p>{error}</p>))
-        } else {
-            return ''
-        }
-    }
+    const displayErrors = errors.map((error, i) => <li key={i}>{error}</li>)
 
     return (
         <div>
-            {displayErrors()}
+            {displayErrors}
         </div>
     )
 }
