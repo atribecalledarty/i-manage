@@ -22,7 +22,7 @@ export const fetchUsers = () => {
     }    
 }
 
-export const postNewUser = (state, setState) => {
+export const postNewUser = (state) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
 
@@ -39,9 +39,9 @@ export const postNewUser = (state, setState) => {
             .then(user => {
                 console.log(user);
                 if (user.errors) {
-                   dispatch({ type: 'ADD_ERRORS', user })
+                    dispatch({ type: 'ADD_ERRORS', user })
                 } else {
-                // dispatch({ type: 'ADD_NEW_USER', user })
+                    dispatch({ type: 'ADD_NEW_USER', user })
                 }
             })
     }

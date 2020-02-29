@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
+        binding.pry
         if user.save
         # users = User.all
         # binding.pry
@@ -18,6 +19,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:username, :first_name, :last_name, :email, :phone_number, :password)
+        params.permit(:username, :first_name, :last_name, :email, :phone_number, :password)
     end
 end
