@@ -36,8 +36,8 @@ export const postNewUser = formData => {
             body
         })
             .then(resp => resp.json())
-            .then(users => {
-                dispatch({ type: 'ADD_USERS', users })
+            .then(user => {
+                dispatch({ type: 'ADD_NEW_USER', user })
             })
     }
 }

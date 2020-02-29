@@ -28,6 +28,7 @@ class CreateUser extends React.Component {
         return(
             <div>
                 <form onSubmit={this.submitHandler}>
+                    <h3>New User</h3>
                     <label for="username">Username: </label>
                     <input 
                         onChange={this.changeHandler} 
