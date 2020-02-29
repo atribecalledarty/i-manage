@@ -23,7 +23,7 @@ class CreateUser extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         // console.log(this.state);
-        this.props.addUser(this.state, this.setState);
+        this.props.addUser(this.state,  this.setState);
     }
 
     render() {
@@ -32,7 +32,7 @@ class CreateUser extends React.Component {
                 <FormErrors errors={this.state.errors}/>
                 <form onSubmit={this.submitHandler}>
                     <h3>New User</h3>
-                    <label for="username">Username: </label>
+                    <label htmlFor="username">Username: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="text" id="username" 
@@ -40,7 +40,7 @@ class CreateUser extends React.Component {
                         placeholder="harry_potter"
                     /><br/>
 
-                    <label for="first_name">First Name: </label>
+                    <label htmlFor="first_name">First Name: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="text" 
@@ -49,7 +49,7 @@ class CreateUser extends React.Component {
                         placeholder="Harry"
                     /><br/>
 
-                    <label for="last_name">Last Name: </label>
+                    <label htmlFor="last_name">Last Name: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="text" 
@@ -58,7 +58,7 @@ class CreateUser extends React.Component {
                         placeholder="Potter"
                     /><br/>
 
-                    <label for="email">Email: </label>
+                    <label htmlFor="email">Email: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="text" 
@@ -67,7 +67,7 @@ class CreateUser extends React.Component {
                         placeholder="theboywholived22@owl.com"
                     /><br/>
 
-                    <label for="phone_number">Phone Number: </label>
+                    <label htmlFor="phone_number">Phone Number: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="text" 
@@ -76,7 +76,7 @@ class CreateUser extends React.Component {
                         placeholder="XXX-XXX-XXXX"
                     /><br/>
 
-                    <label for="password">Password: </label>
+                    <label htmlFor="password">Password: </label>
                     <input 
                         onChange={this.changeHandler} 
                         type="password" 
@@ -94,7 +94,7 @@ class CreateUser extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addUser: formData => dispatch(postNewUser(formData))
+        addUser: (state, setStateFn) => dispatch(postNewUser(state, setStateFn))
     }
 }
 
