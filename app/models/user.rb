@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :email, uniqueness: true
     validates :username, uniqueness: true
+    validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "needs to be in ###-###-#### format" }
 
     has_one :residency, inverse_of: 'resident'
     has_one :unit, through: :residency
