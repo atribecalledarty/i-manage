@@ -11,6 +11,8 @@ const UnitsContainer = ({ match, units }) => {
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units}/>}/>
+                
+            <Route path={`${match.url}/:unitId/residents/new`} render={routerProps => <NewResidentForm {...routerProps} />}/>
         </div>
     )
 }

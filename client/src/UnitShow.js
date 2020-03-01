@@ -24,7 +24,7 @@ const UnitShow = ({ match, units }) => {
             )
         } else {
             return (
-                <button>Add Resident</button>
+                <Link to={`/units/${match.params.unitId}/residents/new`}>Add Resident</Link>
             )
         }
     }
@@ -32,6 +32,7 @@ const UnitShow = ({ match, units }) => {
     return (
         <div>
             {/* {console.log(unit)} */}
+            
             <h3>Unit {unit.unit_number}</h3>
             <p>
                 {unit.type_of_unit}<br/>
