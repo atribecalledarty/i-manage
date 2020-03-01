@@ -39,7 +39,8 @@ const mapDispatchToProps = dispatch => {
       fetchResources: () => { 
         dispatch(fetchUnits());
         dispatch(fetchUsers());
-      }
+      },
+      deleteUser: userId => dispatch(deleteUser(userId))  
   }
 }
 
