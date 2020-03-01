@@ -13,16 +13,21 @@ class App extends React.Component {
     this.props.fetchResources();
   }
 
+  // usersWithoutResidency = this.props.users.filter(user => user.residency === undefined);
+
   render() {
     return (
       <Router>
         <div>
+          {/* {console.log(this.usersWithoutResidency)} */}
+          {/* {console.log(this.props.users.filter(user => user.residency === undefined))} */}
           <Route path="/" render={() => <Home />} />
           <Route exact path="/login" render={() => <Login />}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 
-              units={this.props.units}/>}/>
+              units={this.props.units}
+              usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}/>}/>
           <Route path="/users" render={routerProps => 
             <UsersContainer 
               {...routerProps} 

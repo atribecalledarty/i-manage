@@ -4,7 +4,7 @@ class NewResidentForm extends React.Component {
     render() {
         return(
             <div>
-                
+                {console.log(this.props.usersWithoutResidency)}
             </div>
         )
     }

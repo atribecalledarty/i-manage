@@ -2,6 +2,8 @@
     add button to add user to unit (adding a residency) to units that are vacant
     add button to remove user (delete residency) to units that are occupied
 
+- set default value of manager status to false!
+
 - create a model called payment
     residencies have many payments
     resdiency calculates current balance from
