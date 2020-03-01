@@ -1,6 +1,3 @@
-- deleting a user feature
-
-
 - adding/removing residencies
 - create a model called payment
     residencies have many payments
