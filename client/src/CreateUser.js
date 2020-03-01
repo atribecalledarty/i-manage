@@ -1,5 +1,5 @@
 import React from 'react';
-import { postNewUser } from './fetchActions';
+import { postNewUser } from './dispatchActions';
 import { connect } from 'react-redux';
 import FormErrors from './FormErrors';
 

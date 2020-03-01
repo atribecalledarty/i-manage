@@ -6,7 +6,7 @@ import UnitsContainer from './UnitsContainer';
 import UsersContainer from './UsersContainer';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { fetchUnits, fetchUsers } from './fetchActions';
+import { fetchUnits, fetchUsers } from './dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){
