@@ -1,10 +1,8 @@
 import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
-import { useHistory } from 'react-router-dom';
 
 const UserShow = ({ match, users, deleteUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
-    const history = useHistory();
 
     const renderResidencyInfo = () => {
         if (user.residency !== undefined) {
@@ -20,7 +18,7 @@ const UserShow = ({ match, users, deleteUser }) => {
 
     const clickHandler = () => {
         deleteUser(user.id);
-        history.goBack();
+        window.location.href='/users';
     }
 
     return (
