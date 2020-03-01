@@ -9,16 +9,23 @@ const UnitShow = ({ match, units }) => {
     const renderResidencyInfo = () => {
         if (unit.residency !== undefined) {
             return (
-                <p>
-                    {resident.first_name} {resident.last_name}<br/>
-                    {resident.email}<br/>
-                    {resident.phone_number}<br/><br/>
+                <div>
+                    <p>
+                        {resident.first_name} {resident.last_name}<br/>
+                        {resident.email}<br/>
+                        {resident.phone_number}<br/><br/>
 
-                    Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                    Balance: ${residency.curr_balance}
-                </p>
+                        Resident since: {returnFormattedDate(residency.start_date)}<br/>
+                        Balance: ${residency.curr_balance}
+                    </p>
+
+                    <button>Remove Resident</button>
+                </div>
             )
-
+        } else {
+            return (
+                <button>Add Resident</button>
+            )
         }
     }
 
