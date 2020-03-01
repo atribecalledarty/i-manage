@@ -1,7 +1,6 @@
 import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
 import { Link } from 'react-router-dom';
-import NewResidentForm from './NewResidentForm'
 
 const UnitShow = ({ match, units }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
