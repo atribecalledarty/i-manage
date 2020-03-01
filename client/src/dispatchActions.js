@@ -46,3 +46,19 @@ export const postNewUser = (state) => {
             })
     }
 }
+
+export const deleteUser = userId => {
+    return dispatch => {
+        dispatch({ type: 'LOADING_RESOURCE' })
+        // const body = JSON.stringify(userId);
+        fetch(`http://localhost:3002/users/${userId}`, {
+            method: "DELETE"
+        })
+            .then(resp => resp.json())
+            .then(user => {
+                console.log(user);
+                dispatch({ type: 'DELETE_USER', user})
+            })
+
+    }
+}
