@@ -19,12 +19,16 @@ class App extends React.Component {
         <div>
           <Route path="/" render={() => <Home />} />
           <Route exact path="/login" render={() => <Login />}/>
-          <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} units={this.props.units}/>}/>
+          <Route path="/units" render={routerProps => 
+            <UnitsContainer 
+              {...routerProps} 
+              units={this.props.units}/>}/>
           <Route path="/users" render={routerProps => 
             <UsersContainer 
               {...routerProps} 
               users={this.props.users} 
               addUser={this.props.addUser}
+              errors={this.props.errors}
               deleteUser={this.props.deleteUser}/>}/>
         </div>
       </Router>
@@ -35,7 +39,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
       units: state.units,
-      users: state.users
+      users: state.users,
+      errors: state.errors
   }
 }
 

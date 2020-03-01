@@ -1,6 +1,4 @@
 import React from 'react';
-import { postNewUser } from './dispatchActions';
-import { connect } from 'react-redux';
 import FormErrors from './FormErrors';
 
 class CreateUser extends React.Component {
@@ -91,11 +89,4 @@ class CreateUser extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        errors: state.errors
-    }
-}
-
-
-export default connect(mapStateToProps)(CreateUser);
+export default CreateUser;
