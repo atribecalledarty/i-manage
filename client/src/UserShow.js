@@ -1,8 +1,10 @@
 import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
+import { useHistory } from 'react-router-dom';
 
 const UserShow = ({ match, users, deleteUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
+    const history = useHistory();
 
     const renderResidencyInfo = () => {
         if (user.residency !== undefined) {
@@ -16,11 +18,16 @@ const UserShow = ({ match, users, deleteUser }) => {
         }
     }
 
+    const clickHandler = () => {
+        deleteUser(user.id);
+        history.goBack();
+    }
+
     return (
         <div>
             {/* {console.log(user)} */}
             <h3>{user.first_name} {user.last_name}</h3>
-            <button onClick={() => deleteUser(user.id)}>Delete User</button>
+            <button onClick={clickHandler}>Delete User</button>
             <p>
                 {user.email}<br/>
                 {user.phone_number}

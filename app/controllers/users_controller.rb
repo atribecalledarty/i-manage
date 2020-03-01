@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         # binding.pry
         User.delete(user)
-        render json: UserSerializer.new(user).to_serialized_json
+        render json: { id: params[:id] }
     end
 
     def user_params
