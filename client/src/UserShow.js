@@ -16,15 +16,11 @@ const UserShow = ({ match, users, deleteUser }) => {
         }
     }
 
-    const clickHandler = () => {
-        deleteUser(user.id);
-    }
-
     return (
         <div>
             {/* {console.log(user)} */}
             <h3>{user.first_name} {user.last_name}</h3>
-            <button onClick={this.clickHandler}>Delete User</button>
+            <button onClick={() => deleteUser(user.id)}>Delete User</button>
             <p>
                 {user.email}<br/>
                 {user.phone_number}

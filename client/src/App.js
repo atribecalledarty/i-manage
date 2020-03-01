@@ -6,7 +6,7 @@ import UnitsContainer from './UnitsContainer';
 import UsersContainer from './UsersContainer';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { fetchUnits, fetchUsers } from './dispatchActions';
+import { fetchUnits, fetchUsers, deleteUser } from './dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){
@@ -20,7 +20,11 @@ class App extends React.Component {
           <Route path="/" render={() => <Home />} />
           <Route exact path="/login" render={() => <Login />}/>
           <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} units={this.props.units}/>}/>
-          <Route path="/users" render={routerProps => <UsersContainer {...routerProps} users={this.props.users}/>}/>
+          <Route path="/users" render={routerProps => 
+            <UsersContainer 
+              {...routerProps} 
+              users={this.props.users} 
+              deleteUser={this.props.deleteUser}/>}/>
         </div>
       </Router>
     );
