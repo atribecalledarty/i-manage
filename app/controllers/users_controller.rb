@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
-        binding.pry
+        # binding.pry
         if user.save
         # users = User.all
         # binding.pry
@@ -16,6 +16,13 @@ class UsersController < ApplicationController
         else 
             render json: { errors: user.errors.full_messages }
         end
+    end
+
+    def destroy
+        user = User.find(params[:id])
+        # binding.pry
+        User.delete(user)
+        render json: UserSerializer.new(user).to_serialized_json
     end
 
     def user_params
