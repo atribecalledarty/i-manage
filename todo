@@ -1,13 +1,9 @@
-- adding/deleting users feature
-    => need to create the submit handler (Adding a User)
-        change API resource
-        change redux state..
-- add validations for user model
-- adding/removing users from a unit
+- deleting a user feature
+
+
+- adding/removing residencies
 - create a model called payment
     residencies have many payments
     resdiency calculates current balance from
         a. how many months have passed since start date
         b. how many payments have been made
-- add validations for models!
-- add params permit for create user action?
