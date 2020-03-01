@@ -7,10 +7,6 @@ import NewResidentForm from './NewResidentForm';
 const UnitsContainer = ({ match, units, usersWithoutResidency }) => {
     return(
         <div>
-            {/* I am UnitsContainer component! */}
-            {/* {console.log(this.props.units)} */}
-            {/* {console.log(usersWithoutResidency)} */}
-            {/* {console.log(units)} */}
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units}/>}/>
