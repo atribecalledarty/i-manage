@@ -6,7 +6,7 @@ import UnitsContainer from './UnitsContainer';
 import UsersContainer from './UsersContainer';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { fetchUnits, fetchUsers, deleteUser } from './dispatchActions';
+import { fetchUnits, fetchUsers, postNewUser, deleteUser } from './dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){
@@ -24,6 +24,7 @@ class App extends React.Component {
             <UsersContainer 
               {...routerProps} 
               users={this.props.users} 
+              addUser={this.props.addUser}
               deleteUser={this.props.deleteUser}/>}/>
         </div>
       </Router>
@@ -44,7 +45,8 @@ const mapDispatchToProps = dispatch => {
         dispatch(fetchUnits());
         dispatch(fetchUsers());
       },
-      deleteUser: userId => dispatch(deleteUser(userId))  
+      deleteUser: userId => dispatch(deleteUser(userId)),
+      addUser: state => dispatch(postNewUser(state))  
   }
 }
 

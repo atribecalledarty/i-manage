@@ -91,12 +91,6 @@ class CreateUser extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addUser: state => dispatch(postNewUser(state))
-    }
-}
-
 const mapStateToProps = state => {
     return {
         errors: state.errors
@@ -104,4 +98,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUser);
+export default connect(mapStateToProps)(CreateUser);
