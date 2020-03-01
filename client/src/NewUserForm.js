@@ -1,7 +1,7 @@
 import React from 'react';
 import FormErrors from './FormErrors';
 
-class CreateUser extends React.Component {
+class NewUserForm extends React.Component {
     state = {
         username: "",
         first_name: "",
@@ -89,4 +89,4 @@ class CreateUser extends React.Component {
     }
 }
 
-export default CreateUser;
+export default NewUserForm;
