@@ -1,6 +1,15 @@
 import React from 'react';
 
 class NewResidentForm extends React.Component {
+    state = {
+        userId: undefined
+    }
+
+    changeHandler = event => {
+        this.setState({
+            userId: event.target.value
+        })
+    }
 
     render() {
         return(
@@ -8,9 +17,10 @@ class NewResidentForm extends React.Component {
                 {console.log(this.props.usersWithoutResidency)}
                 <label htmlFor="user">Choose user:</label>
                 <form>
-                    <select>
-                        {this.props.usersWithoutResidency.map(user => <option value={user.id}>{user.first_name} {user.last_name}</option>)}
-                    </select>
+                    <select onChange={this.changeHandler}>
+                        {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
+                    </select><br/>
+                    <input type="submit" value="Add User to Unit"/>
                 </form>
             </div>
         )
