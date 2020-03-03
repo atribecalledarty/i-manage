@@ -11,12 +11,17 @@ class NewResidentForm extends React.Component {
         })
     }
 
+    submitHandler = event => {
+        event.preventDefault();
+        this.props.addResidency(this.state.userId, this.props.match.params.unitId);
+    }
+
     render() {
         return(
             <div>
                 {console.log(this.props.usersWithoutResidency)}
                 <label htmlFor="user">Choose user:</label>
-                <form>
+                <form onSubmit={this.submitHandler}>
                     <select onChange={this.changeHandler}>
                         {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
                     </select><br/>
