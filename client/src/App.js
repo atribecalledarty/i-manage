@@ -6,7 +6,7 @@ import UnitsContainer from './UnitsContainer';
 import UsersContainer from './UsersContainer';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { fetchUnits, fetchUsers, postNewUser, deleteUser } from './dispatchActions';
+import { fetchUnits, fetchUsers, postNewUser, deleteUser, addResidency } from './dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){
@@ -52,7 +52,8 @@ const mapDispatchToProps = dispatch => {
         dispatch(fetchUsers());
       },
       deleteUser: userId => dispatch(deleteUser(userId)),
-      addUser: state => dispatch(postNewUser(state))  
+      addUser: state => dispatch(postNewUser(state)),
+      addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)) 
   }
 }
 
