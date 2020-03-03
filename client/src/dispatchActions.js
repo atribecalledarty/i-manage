@@ -62,3 +62,9 @@ export const deleteUser = userId => {
 
     }
 }
+
+export const addResidency = (userId, unitId) => {
+    return dispatch => {
+        dispatch({ type: 'LOADING_RESOURCE' })
+    }
+}
