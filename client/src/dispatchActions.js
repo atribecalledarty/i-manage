@@ -66,5 +66,9 @@ export const deleteUser = userId => {
 export const addResidency = (userId, unitId) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
+        //I think I need to return units and users with this action,
+        //because redux state users and units have to be updated with new residency...
+        //so that whole app updates the residency.
+        fetch(``)
     }
 }
