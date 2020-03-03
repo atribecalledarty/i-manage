@@ -25,7 +25,7 @@ const UnitShow = ({ match, units }) => {
             )
         } else {
             return (
-                <Link to={`/units/${match.params.unitId}/residents/new`}>Add Resident</Link>
+                <Link to={`/units/${match.params.unitId}/residents/new`}>Add Existing User to Unit</Link>
             )
         }
     }
