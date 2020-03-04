@@ -80,7 +80,8 @@ export const addResidency = (userId, unitId) => {
         })
             .then(resp => resp.json())
             .then(json => {
-                
+                dispatch({ type: 'ADD_USERS' , users: json.users })
+                dispatch({ type: 'ADD_UNITS' , units: json.units })
             })
     }
 }
