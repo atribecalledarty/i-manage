@@ -70,7 +70,7 @@ export const addResidency = (userId, unitId) => {
         //because redux state users and units have to be updated with new residency...
         //so that whole app updates the residency.
         const body = JSON.stringify({ user_id: userId, unit_id: unitId })
-        fetch(`http://localhost:3002/residencies/new`, {
+        fetch(`http://localhost:3002/residencies`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',

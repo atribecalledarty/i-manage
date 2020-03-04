@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "residencies", force: :cascade do |t|
-    t.date "start_date"
-    t.integer "curr_balance"
+    t.date "start_date", default: "2020-03-04"
+    t.integer "curr_balance", default: 0
     t.integer "user_id"
     t.integer "unit_id"
     t.datetime "created_at", precision: 6, null: false

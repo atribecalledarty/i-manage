@@ -3,6 +3,7 @@
     add button to remove user (delete residency) to units that are occupied
 
 - set default value of manager status to false!
+- set default value of start_date, and curr_balance for residency?
 
 - create a model called payment
     residencies have many payments
