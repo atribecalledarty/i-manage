@@ -2,11 +2,12 @@ import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
 import { Link } from 'react-router-dom';
 
-const UnitShow = ({ match, units }) => {
+const UnitShow = ({ match, units, deleteResidency }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
     const resident = unit.resident;
     const residency = unit.residency;
-    // console.log(unit);
+    // console.log(unit)
+
     const renderResidencyInfo = () => {
         if (unit.residency !== undefined) {
             return (
@@ -20,7 +21,7 @@ const UnitShow = ({ match, units }) => {
                         Balance: ${residency.curr_balance}
                     </p>
 
-                    <button>Remove Resident</button>
+                    <button onClick={deleteResidency}>Remove Resident</button>
                 </div>
             )
         } else {
