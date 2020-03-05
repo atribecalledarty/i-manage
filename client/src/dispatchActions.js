@@ -73,12 +73,28 @@ export const deleteUser = userId => {
 export const addResidency = (userId, unitId) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
-        //I think I need to return units and users with this action,
-        //because redux state users and units have to be updated with new residency...
-        //so that whole app updates the residency.
         const body = JSON.stringify({ user_id: userId, unit_id: unitId })
         fetch(`http://localhost:3002/residencies`, {
             method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body
+        })
+            .then(() => {
+                fetchAndLoadUsers(dispatch);
+                fetchAndLoadUnits(dispatch);        
+            })    
+    }
+}
+
+export const deleteResidency = (id) => {
+    return dispatch => {
+        dispatch({ type: 'LOADING_RESOURCE' })
+        const body = JSON.stringify({ id })
+        fetch(`http://localhost:3002/residencies`, {
+            method: "DELETE",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
