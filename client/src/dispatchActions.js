@@ -1,4 +1,4 @@
-const fetchAndLoadUnits = () => {
+const fetchAndLoadUnits = dispatch => {
     dispatch({ type: 'LOADING_RESOURCE' })
     fetch('http://localhost:3002/units')
             .then(resp => resp.json())
@@ -8,7 +8,7 @@ const fetchAndLoadUnits = () => {
             })
 }
 
-const fetchAndLoadUsers = () => {
+const fetchAndLoadUsers = dispatch => {
     dispatch({ type: 'LOADING_RESOURCE' })
     fetch('http://localhost:3002/users')
         .then(resp => resp.json())
@@ -20,7 +20,7 @@ const fetchAndLoadUsers = () => {
 
 export const addUnits = () => {
     return dispatch => {
-        fetchAndLoadUnits();
+        fetchAndLoadUnits(dispatch);
     }    
 }
 
@@ -50,7 +50,7 @@ export const postNewUser = (state) => {
                     dispatch({ type: 'ADD_ERRORS', user })
                 } else {
                     fetchAndLoadUsers();
-                    fetchAndLoadUnits();
+                    fetchAndLoadUnits(dispatch);
                 }
             })
     }
@@ -64,7 +64,7 @@ export const deleteUser = userId => {
             method: "DELETE"
         })
         fetchAndLoadUsers();
-        fetchAndLoadUnits();
+        fetchAndLoadUnits(dispatch);
     }
 }
 
@@ -84,6 +84,6 @@ export const addResidency = (userId, unitId) => {
             body
         })
         fetchAndLoadUsers();
-        fetchAndLoadUnits();    
+        fetchAndLoadUnits(dispatch);    
     }
 }
