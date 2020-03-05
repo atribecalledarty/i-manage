@@ -78,10 +78,7 @@ export const addResidency = (userId, unitId) => {
             },
             body
         })
-            .then(resp => resp.json())
-            .then(json => {
-                dispatch({ type: 'ADD_USERS' , users: json.users })
-                dispatch({ type: 'ADD_UNITS' , units: json.units })
-            })
+        fetchUnits();
+        fetchUsers();
     }
 }
