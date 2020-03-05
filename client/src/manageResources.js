@@ -39,14 +39,6 @@ export default function manageResources (state = { units: [], users: [], loading
                 loading: false,
                 errors: []
             }
-        case 'ADD_NEW_USER':
-            return {
-                ...state,
-                units: [ ...state.units ],
-                users: [ ...state.users, action.user ],
-                loading: false,
-                errors: []
-            }
         case 'ADD_ERRORS':
             return {
                 ...state,
@@ -54,15 +46,6 @@ export default function manageResources (state = { units: [], users: [], loading
                 users: [ ...state.users ],
                 loading: false,
                 errors: [ ...action.user.errors ]
-            }
-        case 'DELETE_USER':
-            return {
-                ...state,
-                units: [ ...state.units ],
-                users: state.users.filter(user => user.id !== action.user.id ),
-                loading: false,
-                errors: []
-
             }
         default:
             return state;
