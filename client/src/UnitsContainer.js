@@ -8,7 +8,7 @@ const UnitsContainer = ({ match, units, usersWithoutResidency, addResidency, del
     
     return(
         <div>
-            {/* {console.log(units)} */}
+            {console.log(units)}
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units} deleteResidency={deleteResidency}/>}/>

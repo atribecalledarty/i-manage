@@ -93,7 +93,7 @@ export const deleteResidency = (id) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
         const body = JSON.stringify({ id })
-        fetch(`http://localhost:3002/residencies`, {
+        fetch(`http://localhost:3002/residencies/${id}`, {
             method: "DELETE",
             headers: {
                 'Accept': 'application/json',

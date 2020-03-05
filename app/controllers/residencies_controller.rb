@@ -8,6 +8,7 @@ class ResidenciesController < ApplicationController
     end
 
     def destroy
+        # binding.pry
         Residency.find(params[:id]).delete
     end
 

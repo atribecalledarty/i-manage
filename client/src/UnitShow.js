@@ -21,7 +21,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                         Balance: ${residency.curr_balance}
                     </p>
 
-                    <button onClick={deleteResidency}>Remove Resident</button>
+                    <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                 </div>
             )
         } else {
