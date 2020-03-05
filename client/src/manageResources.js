@@ -10,6 +10,13 @@ export default function manageResources (state = { units: [], users: [], loading
                 errors: []
             }
         case 'ADD_UNITS':
+            // console.log({
+            //     ...state,
+            //     units: action.units,
+            //     users: [ ...state.users ],
+            //     loading: false,
+            //     errors: []
+            // })
             return {
                 ...state,
                 units: action.units,
@@ -18,6 +25,13 @@ export default function manageResources (state = { units: [], users: [], loading
                 errors: []
             }
         case 'ADD_USERS':
+            // console.log({
+            //     ...state,
+            //     units: [ ...state.units ],
+            //     users: action.users,
+            //     loading: false,
+            //     errors: []
+            // })
             return {
                 ...state,
                 units: [ ...state.units ],

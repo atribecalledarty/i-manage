@@ -14,6 +14,8 @@ class NewResidentForm extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         this.props.addResidency(this.state.userId, this.props.match.params.unitId);
+        this.props.history.push(`/units/${this.props.match.params.unitId}`)
+        // window.location.href='/units';
     }
 
     render() {

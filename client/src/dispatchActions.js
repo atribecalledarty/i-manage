@@ -26,7 +26,7 @@ export const addUnits = () => {
 
 export const addUsers = () => {
     return dispatch => {
-        fetchAndLoadUsers();
+        fetchAndLoadUsers(dispatch);
     }    
 }
 
@@ -49,7 +49,7 @@ export const postNewUser = (state) => {
                 if (user.errors) {
                     dispatch({ type: 'ADD_ERRORS', user })
                 } else {
-                    fetchAndLoadUsers();
+                    fetchAndLoadUsers(dispatch);
                     fetchAndLoadUnits(dispatch);
                 }
             })
@@ -63,7 +63,7 @@ export const deleteUser = userId => {
         fetch(`http://localhost:3002/users/${userId}`, {
             method: "DELETE"
         })
-        fetchAndLoadUsers();
+        fetchAndLoadUsers(dispatch);
         fetchAndLoadUnits(dispatch);
     }
 }
@@ -83,7 +83,7 @@ export const addResidency = (userId, unitId) => {
             },
             body
         })
-        fetchAndLoadUsers();
+        fetchAndLoadUsers(dispatch);
         fetchAndLoadUnits(dispatch);    
     }
 }

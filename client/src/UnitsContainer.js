@@ -5,8 +5,10 @@ import { Route } from 'react-router-dom';
 import NewResidentForm from './NewResidentForm';
 
 const UnitsContainer = ({ match, units, usersWithoutResidency, addResidency }) => {
+    
     return(
         <div>
+            {/* {console.log(units)} */}
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units}/>}/>
