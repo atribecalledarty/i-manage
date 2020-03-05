@@ -1,7 +1,7 @@
 import React from 'react';
 import returnFormattedDate from './returnFormattedDate';
 
-const UserShow = ({ match, users, deleteUser }) => {
+const UserShow = ({ match, users, deleteUser, history }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
 
     const renderResidencyInfo = () => {
@@ -18,7 +18,8 @@ const UserShow = ({ match, users, deleteUser }) => {
 
     const clickHandler = () => {
         deleteUser(user.id);
-        window.location.href='/users';
+        history.push('/users')
+        // window.location.href='/users';
     }
 
     return (

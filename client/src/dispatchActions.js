@@ -13,7 +13,7 @@ const fetchAndLoadUsers = dispatch => {
     fetch('http://localhost:3002/users')
         .then(resp => resp.json())
         .then(users => {
-            // console.log(users, 'in fetch request') 
+            console.log(users, 'in fetch request') 
             dispatch({ type: 'ADD_USERS', users })
         })
 }
@@ -63,9 +63,11 @@ export const deleteUser = userId => {
         fetch(`http://localhost:3002/users/${userId}`, {
             method: "DELETE"
         })
-        fetchAndLoadUsers(dispatch);
-        fetchAndLoadUnits(dispatch);
-    }
+            .then(() => {
+                fetchAndLoadUsers(dispatch);
+                fetchAndLoadUnits(dispatch);        
+            })
+        }
 }
 
 export const addResidency = (userId, unitId) => {
@@ -83,7 +85,9 @@ export const addResidency = (userId, unitId) => {
             },
             body
         })
-        fetchAndLoadUsers(dispatch);
-        fetchAndLoadUnits(dispatch);    
+            .then(() => {
+                fetchAndLoadUsers(dispatch);
+                fetchAndLoadUnits(dispatch);        
+            })    
     }
 }
