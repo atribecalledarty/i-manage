@@ -1,24 +1,32 @@
-export const fetchUnits = () => {
-    return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
-        fetch('http://localhost:3002/units')
+const fetchAndLoadUnits = () => {
+    dispatch({ type: 'LOADING_RESOURCE' })
+    fetch('http://localhost:3002/units')
             .then(resp => resp.json())
             .then(units => {
                 // console.log(units, 'in fetch request') 
                 dispatch({ type: 'ADD_UNITS', units })
             })
+}
+
+const fetchAndLoadUsers = () => {
+    dispatch({ type: 'LOADING_RESOURCE' })
+    fetch('http://localhost:3002/users')
+        .then(resp => resp.json())
+        .then(users => {
+            // console.log(users, 'in fetch request') 
+            dispatch({ type: 'ADD_USERS', users })
+        })
+}
+
+export const addUnits = () => {
+    return dispatch => {
+        fetchAndLoadUnits();
     }    
 }
 
-export const fetchUsers = () => {
+export const addUsers = () => {
     return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
-        fetch('http://localhost:3002/users')
-            .then(resp => resp.json())
-            .then(users => {
-                // console.log(users, 'in fetch request') 
-                dispatch({ type: 'ADD_USERS', users })
-            })
+        fetchAndLoadUsers();
     }    
 }
 
@@ -41,7 +49,8 @@ export const postNewUser = (state) => {
                 if (user.errors) {
                     dispatch({ type: 'ADD_ERRORS', user })
                 } else {
-                    dispatch({ type: 'ADD_NEW_USER', user })
+                    fetchAndLoadUsers();
+                    fetchAndLoadUnits();
                 }
             })
     }
@@ -54,12 +63,8 @@ export const deleteUser = userId => {
         fetch(`http://localhost:3002/users/${userId}`, {
             method: "DELETE"
         })
-            .then(resp => resp.json())
-            .then(user => {
-                console.log(user);
-                dispatch({ type: 'DELETE_USER', user})
-            })
-
+        fetchAndLoadUsers();
+        fetchAndLoadUnits();
     }
 }
 
@@ -78,7 +83,7 @@ export const addResidency = (userId, unitId) => {
             },
             body
         })
-        fetchUnits();
-        fetchUsers();
+        fetchAndLoadUsers();
+        fetchAndLoadUnits();    
     }
 }
