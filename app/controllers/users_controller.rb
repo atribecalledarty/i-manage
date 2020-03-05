@@ -19,10 +19,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id])
+        User.find(params[:id]).delete
         # binding.pry
-        User.delete(user)
-        render json: { id: params[:id] }
     end
 
     def user_params
