@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_15_051034) do
 
   create_table "residencies", force: :cascade do |t|
-    t.date "start_date", default: "2020-03-04"
+    t.date "start_date", default: "2020-03-05"
     t.integer "curr_balance", default: 0
     t.integer "user_id"
     t.integer "unit_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_051034) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "manager_status"
+    t.boolean "manager_status", default: false
     t.string "username"
     t.string "first_name"
     t.string "last_name"
