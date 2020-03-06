@@ -4,5 +4,7 @@
         a. how many months have passed since start date
         b. how many payments have been made
 
+- payment should have date and amount, residency_id
+
 - style app with bootstrap!
 - find out how to push without typing in password everytime
