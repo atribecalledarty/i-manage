@@ -1,10 +1,9 @@
-- create a model called payment
-    residencies have many payments
-    resdiency calculates current balance from
-        a. how many months have passed since start date
-        b. how many payments have been made
+=> payments implementation
+    - delete curr_balance attribute of residency
+    - display proper balance of residencies
+    - display all payments made in unit show
 
-- payment should have date and amount, residency_id
+- authenticating users
 
 - style app with bootstrap!
 - find out how to push without typing in password everytime
