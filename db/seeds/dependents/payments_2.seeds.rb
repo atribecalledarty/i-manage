@@ -3,7 +3,7 @@ payments_for_rubeus = Payment.create([
         transaction_date: Date.parse('08-08-2015'),
         amount: 30400,
         residency_id: 3
-    }
+    },
     {
         transaction_date: Date.parse('08-09-2019'),
         amount: 608,

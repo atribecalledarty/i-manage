@@ -36,7 +36,7 @@ payments_for_snape = Payment.create([
         transaction_date: Date.parse('02-08-2019'),
         amount: 18600,
         residency_id: 2
-    }
+    },
     {
         transaction_date: Date.parse('02-09-2019'),
         amount: 620,

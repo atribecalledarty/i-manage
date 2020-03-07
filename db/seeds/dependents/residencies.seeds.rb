@@ -1,4 +1,3 @@
-
 residencies = Residency.create([
     {
         start_date: Date.parse('14-08-2019'),
