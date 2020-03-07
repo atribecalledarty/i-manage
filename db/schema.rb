@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_051034) do
+ActiveRecord::Schema.define(version: 2020_03_06_135513) do
+
+  create_table "payments", force: :cascade do |t|
+    t.date "transaction_date", default: "2020-03-06"
+    t.integer "amount"
+    t.integer "residency_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "residencies", force: :cascade do |t|
-    t.date "start_date", default: "2020-03-05"
+    t.date "start_date", default: "2020-03-06"
     t.integer "curr_balance", default: 0
     t.integer "user_id"
     t.integer "unit_id"
