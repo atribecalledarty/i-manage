@@ -1,7 +1,11 @@
 => payments implementation
-    - delete curr_balance attribute of residency
     - display proper balance of residencies
     - display all payments made in unit show
+
+    I think I have to load all payments and then calculate the outstanding balance on the front end
+    I think that's simpler than trying to calculate it on the backend and then pass it to client
+
+
 
 - authenticating users
 

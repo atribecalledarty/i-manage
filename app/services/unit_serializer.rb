@@ -10,7 +10,7 @@ class UnitSerializer
                     except: [:updated_at, :created_at, :password_digest]
                 },
                 residency: {
-                    except: [:updated_at, :user_id, :unit_id]
+                    except: [:updated_at, :created_at, :user_id, :unit_id]
                 }
             },
             except: [:updated_at, :created_at]

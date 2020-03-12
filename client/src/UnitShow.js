@@ -33,7 +33,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
 
     return (
         <div>
-            {/* {console.log(unit)} */}
+            {console.log(unit)}
             
             <h3>Unit {unit.unit_number}</h3>
             <p>
