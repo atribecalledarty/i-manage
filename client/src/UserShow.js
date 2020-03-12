@@ -1,5 +1,5 @@
 import React from 'react';
-import returnFormattedDate from './returnFormattedDate';
+import { returnFormattedDate } from './utilityFunctions';
 
 const UserShow = ({ match, users, deleteUser, history }) => {
     const user = users.find(user => user.id === Number(match.params.userId));

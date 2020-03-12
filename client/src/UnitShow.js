@@ -1,5 +1,5 @@
 import React from 'react';
-import returnFormattedDate from './returnFormattedDate';
+import { returnFormattedDate, calculateBalance } from './utilityFunctions';
 import { Link } from 'react-router-dom';
 
 const UnitShow = ({ match, units, deleteResidency }) => {
@@ -18,7 +18,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                         {resident.phone_number}<br/><br/>
 
                         Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                        Balance: ${residency.curr_balance}
+                        Balance: ${calculateBalance(residency)}
                     </p>
 
                     <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
