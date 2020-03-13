@@ -13,12 +13,13 @@ const UnitShow = ({ match, units, deleteResidency }) => {
             return (
                 <div>
                     <p>
+                        {console.log(residency)}
                         {resident.first_name} {resident.last_name}<br/>
                         {resident.email}<br/>
                         {resident.phone_number}<br/><br/>
 
                         Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                        Balance: ${calculateBalance(residency)}
+                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}
                     </p>
 
                     <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
