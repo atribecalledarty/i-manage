@@ -81,7 +81,7 @@ payments_for_seamus = Payment.create([
         residency_id: 7
     },
     {
-        transaction_date: Date.parse('07-09-2019'),
+        transaction_date: Date.parse('07-03-2019'),
         amount: 1080,
         residency_id: 7
     }

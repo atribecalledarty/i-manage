@@ -7,6 +7,26 @@ const UnitShow = ({ match, units, deleteResidency }) => {
     const resident = unit.resident;
     const residency = unit.residency;
     // console.log(unit)
+    const renderPayments = () => {
+        return(
+            <div>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                    </tr>
+                {residency.payments.slice(0).reverse().map(payment => {
+                    return (
+                        <tr>
+                            <td>{returnFormattedDate(payment.transaction_date)}</td>
+                            <td>${payment.amount}</td>
+                        </tr>
+                    )    
+                })}
+                </table>
+            </div>
+        )
+    }
 
     const renderResidencyInfo = () => {
         if (unit.residency !== undefined) {
@@ -21,7 +41,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                         Resident since: {returnFormattedDate(residency.start_date)}<br/>
                         Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}
                     </p>
-
+                    {renderPayments()}
                     <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                 </div>
             )
