@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Login from './Login';
-import UnitsContainer from './UnitsContainer';
-import UsersContainer from './UsersContainer';
+import Login from './components/Login';
+import UnitsContainer from './components/UnitsContainer';
+import UsersContainer from './components/UsersContainer';
 import Home from './Home';
 import { connect } from 'react-redux';
-import { addUnits, addUsers, postNewUser, deleteUser, addResidency, deleteResidency } from './dispatchActions';
+import { addUnits, addUsers, postNewUser, deleteUser, addResidency, deleteResidency } from './utilities/dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){

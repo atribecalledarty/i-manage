@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import FormErrors from './FormErrors';
 
 class NewUserForm extends React.Component {

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from './node_modules/react';
 import UsersList from './UsersList';
 import UserShow from './UserShow';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link } from './node_modules/react-router-dom';
 import NewUserForm from './NewUserForm';
 
 const UsersContainer = ({ match, users, addUser, deleteUser, errors }) => {
     return(
         <div>
-            {console.log(users)}
+            {/* {console.log(users)} */}
             <UsersList users={users} />
             <Link to={`/users/new`}>Create New User</Link>
             <Switch>

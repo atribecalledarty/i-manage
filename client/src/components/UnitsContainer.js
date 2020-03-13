@@ -1,14 +1,14 @@
-import React from 'react';
+import React from './node_modules/react';
 import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
-import { Route } from 'react-router-dom';
+import { Route } from './node_modules/react-router-dom';
 import NewResidentForm from './NewResidentForm';
 
 const UnitsContainer = ({ match, units, usersWithoutResidency, addResidency, deleteResidency }) => {
     
     return(
         <div>
-            {console.log(units)}
+            {/* {console.log(units)} */}
             <UnitsList units={units} />
             <Route path={`${match.url}/:unitId`} 
                 render={routerProps => <UnitShow {...routerProps} units={units} deleteResidency={deleteResidency}/>}/>

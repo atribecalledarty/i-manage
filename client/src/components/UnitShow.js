@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnFormattedDate, calculateBalance } from './utilityFunctions';
+import { returnFormattedDate, calculateBalance } from '../utilityFunctions';
 import { Link } from 'react-router-dom';
 
 const UnitShow = ({ match, units, deleteResidency }) => {
@@ -13,7 +13,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
             return (
                 <div>
                     <p>
-                        {console.log(residency)}
+                        {/* {console.log(residency)} */}
                         {resident.first_name} {resident.last_name}<br/>
                         {resident.email}<br/>
                         {resident.phone_number}<br/><br/>
@@ -34,8 +34,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
 
     return (
         <div>
-            {console.log(unit)}
-            
+            {/* {console.log(unit)} */}
             <h3>Unit {unit.unit_number}</h3>
             <p>
                 {unit.type_of_unit}<br/>
