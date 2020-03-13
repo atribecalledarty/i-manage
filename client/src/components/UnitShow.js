@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnFormattedDate, calculateBalance } from '../utilityFunctions';
+import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
 
 const UnitShow = ({ match, units, deleteResidency }) => {

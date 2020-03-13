@@ -1,7 +1,7 @@
-import React from './node_modules/react';
+import React from 'react';
 import UsersList from './UsersList';
 import UserShow from './UserShow';
-import { Route, Switch, Link } from './node_modules/react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import NewUserForm from './NewUserForm';
 
 const UsersContainer = ({ match, users, addUser, deleteUser, errors }) => {

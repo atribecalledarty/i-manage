@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 
 const FormErrors = ({ errors }) => {
     const displayErrors = errors.map((error, i) => <li key={i}>{error}</li>)

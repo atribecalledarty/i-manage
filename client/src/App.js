@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
-import Home from './Home';
+import Home from './components/Home';
 import { connect } from 'react-redux';
 import { addUnits, addUsers, postNewUser, deleteUser, addResidency, deleteResidency } from './utilities/dispatchActions';
 

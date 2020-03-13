@@ -1,7 +1,7 @@
-import React from './node_modules/react';
+import React from 'react';
 import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
-import { Route } from './node_modules/react-router-dom';
+import { Route } from 'react-router-dom';
 import NewResidentForm from './NewResidentForm';
 
 const UnitsContainer = ({ match, units, usersWithoutResidency, addResidency, deleteResidency }) => {
