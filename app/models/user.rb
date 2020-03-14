@@ -5,6 +5,7 @@ class User < ApplicationRecord
     validates :last_name, presence: true
     validates :email, presence: true
     validates :email, uniqueness: true
+    validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/, message: "needs to be valid email" }
     validates :username, uniqueness: true
     validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "needs to be in ###-###-#### format" }
 
