@@ -7,7 +7,15 @@ import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
 import Home from './components/Home';
 import { connect } from 'react-redux';
-import { addUnits, addUsers, postNewUser, deleteUser, addResidency, deleteResidency, setLoginStatus } from './utilities/dispatchActions';
+import { addUnits,
+        addUsers,
+        postNewUser,
+        deleteUser,
+        addResidency,
+        deleteResidency,
+        setLoginStatus,
+        loginUser 
+      } from './utilities/dispatchActions';
 
 class App extends React.Component {  
   componentDidMount(){
@@ -20,7 +28,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Route path="/" render={() => <Home />} />
-          <Route exact path="/login" render={() => <Login />}/>
+          <Route exact path="/login" render={() => <Login loginUser={this.props.loginUser}/>}/>
           <Route exact path="/signup" render={() => <SignUp />}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
@@ -60,7 +68,8 @@ const mapDispatchToProps = dispatch => {
       addUser: state => dispatch(postNewUser(state)),
       addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)),
       deleteResidency: id => dispatch(deleteResidency(id)),
-      setLoginStatus: () => dispatch(setLoginStatus())
+      setLoginStatus: () => dispatch(setLoginStatus()),
+      loginUser: user => dispatch(loginUser(user))
   }
 }
 
