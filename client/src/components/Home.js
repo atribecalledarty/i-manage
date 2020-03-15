@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ user, isLoggedIn }) => {
     const renderNav = () => {
         if (isLoggedIn && user.manager_status) {
             return (

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
-import SignUp from './components/SignUp';
+import NewUserForm from './components/NewUserForm';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
 import Home from './components/Home';
@@ -29,13 +29,18 @@ class App extends React.Component {
       <Router>
         {console.log(this.props.isLoggedIn)}
         <div>
-          <Route path="/" render={() => <Home />} />
-          <Route exact path="/login" render={routerProps => <Login 
-            {...routerProps}
-            loginUser={this.props.loginUser}
-            isLoggedIn={this.props.isLoggedIn}
-            errors={this.props.errors}/>}/>
-          <Route exact path="/signup" render={() => <SignUp />}/>
+          <Route path="/" render={() => 
+            <Home 
+              user={this.props.user}
+              isLoggedIn={this.props.isLoggedIn}/>} />
+          <Route exact path="/login" render={routerProps => 
+            <Login 
+              {...routerProps}
+              loginUser={this.props.loginUser}
+              isLoggedIn={this.props.isLoggedIn}
+              errors={this.props.errors}/>}/>
+          <Route exact path="/signup" render={() => 
+            <NewUserForm />}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 
@@ -61,7 +66,8 @@ const mapStateToProps = state => {
       units: state.units,
       users: state.users,
       errors: state.errors,
-      isLoggedIn: state.isLoggedIn
+      isLoggedIn: state.isLoggedIn,
+      user: state.user
   }
 }
 
