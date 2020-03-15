@@ -1,4 +1,12 @@
-export default function manageResources (state = { units: [], users: [], loading: false, errors: [] }, action) {
+export default function manageResources (
+    state = { 
+        units: [],
+        users: [], 
+        loading: false, 
+        errors: [], 
+        isLoggedIn: false,
+        user: {} 
+    }, action) {
 
     switch(action.type) {
         case 'LOADING_RESOURCE':
@@ -7,6 +15,8 @@ export default function manageResources (state = { units: [], users: [], loading
                 units: [ ...state.units ],
                 users: [ ...state.users ],
                 loading: true,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
                 errors: []
             }
         case 'ADD_UNITS':
@@ -22,6 +32,8 @@ export default function manageResources (state = { units: [], users: [], loading
                 units: action.units,
                 users: [ ...state.users ],
                 loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
                 errors: []
             }
         case 'ADD_USERS':
@@ -37,6 +49,8 @@ export default function manageResources (state = { units: [], users: [], loading
                 units: [ ...state.units ],
                 users: action.users,
                 loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
                 errors: []
             }
         case 'ADD_ERRORS':
@@ -45,6 +59,8 @@ export default function manageResources (state = { units: [], users: [], loading
                 units: [ ...state.units ],
                 users: [ ...state.users ],
                 loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
                 errors: [ ...action.user.errors ]
             }
         default:
