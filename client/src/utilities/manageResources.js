@@ -71,7 +71,7 @@ export default function manageResources (
                 loading: false,
                 isLoggedIn: true,
                 user: action.user,
-                errors: [ ...action.user.errors ]
+                errors: [ ]
             }
         case 'LOGOUT':
             return {
@@ -81,7 +81,7 @@ export default function manageResources (
                 loading: false,
                 isLoggedIn: false,
                 user: {},
-                errors: [ ...action.user.errors ]
+                errors: [ ]
             
             }
         default:

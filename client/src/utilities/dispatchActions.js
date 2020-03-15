@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const fetchAndLoadUnits = dispatch => {
     dispatch({ type: 'LOADING_RESOURCE' })
     fetch('http://localhost:3002/units')
@@ -105,5 +107,20 @@ export const deleteResidency = (id) => {
                 fetchAndLoadUsers(dispatch);
                 fetchAndLoadUnits(dispatch);        
             })    
+    }
+}
+
+export const setLoginStatus = () => {
+    return dispatch => {
+        axios.get('http://localhost:3002/logged_in', {
+            withCredentials: true
+        })
+            .then(resp => {
+                if (resp.data.logged_in) {
+                    dispatch({ type: 'LOGIN', action: resp })
+                } else {
+                    dispatch({ type: 'LOGOUT' })
+                }
+            })
     }
 }
