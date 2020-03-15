@@ -2,29 +2,43 @@ export default function manageResources (
     state = { 
         units: [],
         users: [], 
-        loading: false, 
+        loading_units: false,
+        loading_users: false, 
         errors: [], 
         isLoggedIn: false,
         user: {} 
     }, action) {
 
     switch(action.type) {
-        case 'LOADING_RESOURCE':
+        case 'LOADING_UNITS':
             return {
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: true,
+                loading_units: true,
+                loading_users: state.loading_users,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
             }
+        case 'LOADING_USERS':
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading_units: state.loading_units,
+                loading_users: true,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            }    
         case 'ADD_UNITS':
             console.log('in add units', {
                 ...state,
                 units: action.units,
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: false,
+                loading_users: state.loading_users,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
@@ -33,7 +47,8 @@ export default function manageResources (
                 ...state,
                 units: action.units,
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: false,
+                loading_users: state.loading_users,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
@@ -43,7 +58,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: action.users,
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: false,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
@@ -52,7 +68,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: action.users,
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: false,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
@@ -61,8 +78,9 @@ export default function manageResources (
             return {
                 ...state,
                 units: [ ...state.units ],
-                users: [ ...state.users, action.user ], 
-                loading: false,
+                users: [ ...state.users, action.user ],
+                loading_units: state.loading_units,
+                loading_users: false,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: []
@@ -72,7 +90,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: [ ...action.errors ]
@@ -81,7 +100,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
                 errors: [ ...action.errors ]
@@ -91,7 +111,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: true,
                 user: action.user,
                 errors: [ ]
@@ -100,7 +121,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: true,
                 user: action.user,
                 errors: [ ]
@@ -110,7 +132,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: false,
                 user: {},
                 errors: [ ]
@@ -119,7 +142,8 @@ export default function manageResources (
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
-                loading: false,
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
                 isLoggedIn: false,
                 user: {},
                 errors: [ ]

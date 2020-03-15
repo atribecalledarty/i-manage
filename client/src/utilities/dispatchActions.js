@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const fetchAndLoadUnits = dispatch => {
-    dispatch({ type: 'LOADING_RESOURCE' })
+    dispatch({ type: 'LOADING_UNITS' })
     fetch('http://localhost:3002/units')
             .then(resp => resp.json())
             .then(units => {
@@ -11,7 +11,7 @@ const fetchAndLoadUnits = dispatch => {
 }
 
 const fetchAndLoadUsers = dispatch => {
-    dispatch({ type: 'LOADING_RESOURCE' })
+    dispatch({ type: 'LOADING_USERS' })
     fetch('http://localhost:3002/users')
         .then(resp => resp.json())
         .then(users => {
@@ -33,8 +33,7 @@ export const addUsers = () => {
 }
 export const postNewUser = (state) => {
     return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
-
+        dispatch({ type: 'LOADING_USERS' })
 
         const body = JSON.stringify(state);
         fetch('http://localhost:3002/users', {
@@ -62,7 +61,6 @@ export const postNewUser = (state) => {
 
 export const deleteUser = userId => {
     return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
         // const body = JSON.stringify(userId);
         fetch(`http://localhost:3002/users/${userId}`, {
             method: "DELETE"
@@ -76,7 +74,6 @@ export const deleteUser = userId => {
 
 export const addResidency = (userId, unitId) => {
     return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
         const body = JSON.stringify({ user_id: userId, unit_id: unitId })
         fetch(`http://localhost:3002/residencies`, {
             method: "POST",
@@ -95,7 +92,6 @@ export const addResidency = (userId, unitId) => {
 
 export const deleteResidency = (id) => {
     return dispatch => {
-        dispatch({ type: 'LOADING_RESOURCE' })
         const body = JSON.stringify({ id })
         fetch(`http://localhost:3002/residencies/${id}`, {
             method: "DELETE",
@@ -125,16 +121,6 @@ export const setLoginStatus = () => {
                     dispatch({ type: 'LOGOUT' })
                 }
             })
-        // console.log('inloginaction')
-        // fetch('http://localhost:3002/logged_in')
-        //     .then(resp => resp.json())
-        //     .then(json => {
-        //         if (json.logged_in){
-        //             dispatch({ type: 'LOGIN', user: json.user })
-        //         } else {
-        //             dispatch({ type: 'LOGOUT' })
-        //         }
-        //     })
     }
 }
 
@@ -151,24 +137,6 @@ export const loginUser = user => {
                     dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
                 }
             })
-        // const body = JSON.stringify({ user })
-        // fetch('http://localhost:3002/login', {
-        //     method: "POST",
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body
-        // })
-        //     .then(resp => resp.json())
-        //     .then(json => {
-        //         console.log(json);
-        //         if (json.logged_in) {
-        //             dispatch({ type: 'LOGIN', user: json.user })
-        //         } else {
-        //             dispatch({ type: 'ADD_ERRORS', errors: json.errors })
-        //         }
-        //     })
     }
 }
 

@@ -34,12 +34,15 @@ class App extends React.Component {
           <Route path="/" render={routerProps => 
             <Home 
               {...routerProps}
+              loading={this.props.loading}
               user={this.props.user}
               isLoggedIn={this.props.isLoggedIn}
+              users={this.props.users}
               logoutUser={this.props.logoutUser}/>} />
           <Route exact path="/login" render={routerProps => 
             <Login 
               {...routerProps}
+              user={this.props.user}
               loginUser={this.props.loginUser}
               isLoggedIn={this.props.isLoggedIn}
               errors={this.props.errors}/>}/>
@@ -79,6 +82,7 @@ const mapStateToProps = state => {
   return {
       units: state.units,
       users: state.users,
+      loading: state.loading,
       errors: state.errors,
       isLoggedIn: state.isLoggedIn,
       user: state.user

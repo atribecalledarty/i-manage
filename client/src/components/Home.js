@@ -1,22 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = ({ user, isLoggedIn, logoutUser }) => {
-    const clickHandler = () => {
-        logoutUser();
+class Home extends React.Component {
+    clickHandler = () => {
+        this.props.logoutUser();
     }
 
-    const renderNav = () => {
-        if (isLoggedIn && user.manager_status) {
+    componentDidUpdate() {
+        console.log('in home component, loading => ', this.props.loading)
+        // if (this.props.isLoggedIn && !this.props.loading) {
+        //     this.props.history.push(`/auth_user/${this.props.user.id}`)
+        // }
+    }
+    // componentDidUpdate(){
+    //     if (this.props.isLoggedIn) {
+    //         this.props.history.push(`/auth_user/${this.props.user.id}`)
+    //     }
+    // }
+
+    renderNav = () => {
+        if (this.props.isLoggedIn && this.props.user.manager_status) {
             return (
                 <div>
                     <Link to="/units">See Units</Link>&nbsp;
                     <Link to="/users">See Users</Link>
                 </div>
             )
-        } else if (isLoggedIn) {
+        } else if (this.props.isLoggedIn) {
             return (
-                <button onClick={clickHandler}>Logout</button>
+                <button onClick={this.clickHandler}>Logout</button>
             )
         } else {
             return (
@@ -28,14 +40,16 @@ const Home = ({ user, isLoggedIn, logoutUser }) => {
         }
     }
 
-    return (
-        <div>
-            <h1>Welcome to Luna's Tavern</h1>
-            <nav>
-                {renderNav()}
-            </nav>
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <h1>Welcome to Luna's Tavern</h1>
+                <nav>
+                    {this.renderNav()}
+                </nav>
+            </div>
+        )
+    }
 }
 
 export default Home;
