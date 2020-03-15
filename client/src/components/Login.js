@@ -14,7 +14,8 @@ class Login extends Component {
 
     submitHandler = event => {
         event.preventDefault();
-        
+        console.log('submitted form')
+        this.props.loginUser(this.state)
     }
 
     render() {
@@ -22,7 +23,7 @@ class Login extends Component {
             <div>
                 {console.log(this.state)}
                 <form onSubmit={this.submitHandler}>
-                    <label for="email">Email </label>
+                    <label htmlFor="email">Email </label>
                     <input type="text"
                         name="email" 
                         id="email" 
@@ -30,7 +31,7 @@ class Login extends Component {
                         value={this.state.email}/>
                     <br />
                     
-                    <label for="password">Password </label>
+                    <label htmlFor="password">Password </label>
                     <input type="password" 
                         name="password" 
                         id="password" 

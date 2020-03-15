@@ -64,6 +64,15 @@ export default function manageResources (
                 errors: [ ...action.user.errors ]
             }
         case 'LOGIN':
+            console.log('in login reduce case', {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading: false,
+                isLoggedIn: true,
+                user: action.user,
+                errors: [ ]
+            })
             return {
                 ...state,
                 units: [ ...state.units ],
@@ -74,6 +83,15 @@ export default function manageResources (
                 errors: [ ]
             }
         case 'LOGOUT':
+            console.log('in logout reduce case', {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading: false,
+                isLoggedIn: false,
+                user: {},
+                errors: [ ]
+            })
             return {
                 ...state,
                 units: [ ...state.units ],
@@ -82,7 +100,6 @@ export default function manageResources (
                 isLoggedIn: false,
                 user: {},
                 errors: [ ]
-            
             }
         default:
             return state;

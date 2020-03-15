@@ -112,12 +112,22 @@ export const deleteResidency = (id) => {
 
 export const setLoginStatus = () => {
     return dispatch => {
-        axios.get('http://localhost:3002/logged_in', {
-            withCredentials: true
-        })
-            .then(resp => {
-                if (resp.data.logged_in) {
-                    dispatch({ type: 'LOGIN', action: resp })
+        // axios.get('http://localhost:3002/logged_in', {
+        //     withCredentials: true
+        // })
+        //     .then(resp => {
+        //         if (resp.data.logged_in) {
+        //             dispatch({ type: 'LOGIN', action: resp })
+        //         } else {
+        //             dispatch({ type: 'LOGOUT' })
+        //         }
+        //     })
+        console.log('inloginaction')
+        fetch('http://localhost:3002/logged_in')
+            .then(resp => resp.json())
+            .then(json => {
+                if (json.logged_in){
+                    dispatch({ type: 'LOGIN', action: json })
                 } else {
                     dispatch({ type: 'LOGOUT' })
                 }
