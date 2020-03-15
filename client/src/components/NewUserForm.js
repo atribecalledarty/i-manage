@@ -21,7 +21,7 @@ class NewUserForm extends React.Component {
         event.preventDefault();
         this.props.addUser(this.state);
         if (!this.props.errors) {
-            this.props.history.push('/users');
+            this.props.history.push(`/users/${this.props.user.id}`);
         }
     }
 

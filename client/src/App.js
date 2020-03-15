@@ -42,7 +42,8 @@ class App extends React.Component {
           <Route exact path="/signup" render={routerProps => 
             <NewUserForm 
               {...routerProps} 
-              errors={this.props.errors} 
+              errors={this.props.errors}
+              user={this.props.user} 
               addUser={this.props.addUser}/>}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
