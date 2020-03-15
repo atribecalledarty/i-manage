@@ -19,10 +19,7 @@ class NewUserForm extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        // console.log(this.state);
-        console.log("hello!!!!???")
         this.props.addUser(this.state);
-        console.log('in submit handler');
         if (!this.props.errors) {
             this.props.history.push('/users');
         }
@@ -87,7 +84,7 @@ class NewUserForm extends React.Component {
                         placeholder="asdfasdf"
                     /><br/>
 
-                    <input type="submit" value="Add User"/>
+                    <input type="submit" value="Create Account"/>
                 </form>
             </div>
         )

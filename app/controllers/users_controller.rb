@@ -7,14 +7,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(user_params)
-        binding.pry
-        if user.save
+        @user = User.new(user_params)
+        # binding.pry
+        if @user.save
+            login!    
         # users = User.all
         # binding.pry
-            render json: UserSerializer.new(user).to_serialized_json
+            render json: UserSerializer.new(@user).to_serialized_json
         else 
-            render json: { errors: user.errors.full_messages }
+            render json: { errors: @user.errors.full_messages }
         end
     end
 
@@ -25,5 +26,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.permit(:username, :first_name, :last_name, :email, :phone_number, :password)
+    end
+    
+    def login!
+        session[:user_id] = @user.id
     end
 end

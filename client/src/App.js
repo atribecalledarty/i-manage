@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       
       <Router>
-        {console.log(this.props.isLoggedIn)}
+        {/* {console.log(this.props.isLoggedIn)} */}
         <div>
           <Route path="/" render={() => 
             <Home 
@@ -39,8 +39,11 @@ class App extends React.Component {
               loginUser={this.props.loginUser}
               isLoggedIn={this.props.isLoggedIn}
               errors={this.props.errors}/>}/>
-          <Route exact path="/signup" render={() => 
-            <NewUserForm />}/>
+          <Route exact path="/signup" render={routerProps => 
+            <NewUserForm 
+              {...routerProps} 
+              errors={this.props.errors} 
+              addUser={this.props.addUser}/>}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 

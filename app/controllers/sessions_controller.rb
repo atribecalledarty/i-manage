@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
     end
 
     def is_logged_in?
+      binding.pry
         if logged_in? && current_user
           render json: {
             logged_in: true,
@@ -37,30 +38,30 @@ class SessionsController < ApplicationController
         }
     end
 
-    private
     
     def session_params
-        params.require(:user).permit(:username, :email, :password)
+      params.require(:user).permit(:username, :email, :password)
     end
     
     def login!
-        session[:user_id] = @user.id
+      session[:user_id] = @user.id
     end
 
     def logged_in?
-        !!session[:user_id]
+      !!session[:user_id]
     end
 
     def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
 
     def authorized_user?
-        @user == current_user
+      @user == current_user
     end
 
     def logout!
-        session.clear
+      session.clear
     end
 
-    end
+
+  end
