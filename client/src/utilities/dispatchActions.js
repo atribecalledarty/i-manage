@@ -124,3 +124,16 @@ export const setLoginStatus = () => {
             })
     }
 }
+
+export const loginUser = user => {
+    return dispatch => {
+        axios.post('http://localhost:3002/login', user, {withCredentials: true})
+            .then(resp => {
+                if (resp.data.logged_in) {
+                    dispatch({ type: 'LOGIN', action: resp })
+                } else {
+                    dispatch({ type: 'ADD_ERRORS', action: resp })
+                }
+            })
+    }
+}

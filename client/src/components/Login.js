@@ -12,11 +12,16 @@ class Login extends Component {
         })
     }
 
+    submitHandler = event => {
+        event.preventDefault();
+        
+    }
+
     render() {
         return(
             <div>
                 {console.log(this.state)}
-                <form>
+                <form onSubmit={this.submitHandler}>
                     <label for="email">Email </label>
                     <input type="text"
                         name="email" 
