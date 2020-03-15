@@ -21,6 +21,7 @@ class NewUserForm extends React.Component {
         event.preventDefault();
         // console.log(this.state);
         this.props.addUser(this.state);
+        console.log('in submit handler');
         if (!this.props.errors) {
             this.props.history.push('/users');
         }

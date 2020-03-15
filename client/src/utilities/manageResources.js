@@ -54,6 +54,15 @@ export default function manageResources (
                 errors: []
             }
         case 'ADD_ERRORS':
+            console.log('in add errors case', {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: [ ...action.errors ]
+            })
             return {
                 ...state,
                 units: [ ...state.units ],
@@ -61,7 +70,7 @@ export default function manageResources (
                 loading: false,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
-                errors: [ ...action.user.errors ]
+                errors: [ ...action.errors ]
             }
         case 'LOGIN':
             console.log('in login reduce case', {

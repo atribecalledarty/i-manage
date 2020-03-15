@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormErrors from './FormErrors';
 
 class Login extends Component {
     state = {
@@ -16,12 +17,17 @@ class Login extends Component {
         event.preventDefault();
         console.log('submitted form')
         this.props.loginUser(this.state)
+        if (!this.props.errors) {
+            console.log('in if statement')
+            this.props.history.push('/home')
+        }
     }
 
     render() {
         return(
             <div>
-                {console.log(this.state)}
+                {/* {console.log(this.state)} */}
+                <FormErrors errors={this.props.errors}/>
                 <form onSubmit={this.submitHandler}>
                     <label htmlFor="email">Email </label>
                     <input type="text"

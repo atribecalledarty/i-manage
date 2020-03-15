@@ -25,10 +25,16 @@ class App extends React.Component {
 
   render() {
     return (
+      
       <Router>
+        {console.log(this.props.isLoggedIn)}
         <div>
           <Route path="/" render={() => <Home />} />
-          <Route exact path="/login" render={() => <Login loginUser={this.props.loginUser}/>}/>
+          <Route exact path="/login" render={routerProps => <Login 
+            {...routerProps}
+            loginUser={this.props.loginUser}
+            isLoggedIn={this.props.isLoggedIn}
+            errors={this.props.errors}/>}/>
           <Route exact path="/signup" render={() => <SignUp />}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
@@ -54,7 +60,8 @@ const mapStateToProps = state => {
   return {
       units: state.units,
       users: state.users,
-      errors: state.errors
+      errors: state.errors,
+      isLoggedIn: state.isLoggedIn
   }
 }
 

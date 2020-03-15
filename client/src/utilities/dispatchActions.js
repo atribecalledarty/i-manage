@@ -31,10 +31,10 @@ export const addUsers = () => {
         fetchAndLoadUsers(dispatch);
     }    
 }
-
 export const postNewUser = (state) => {
     return dispatch => {
         dispatch({ type: 'LOADING_RESOURCE' })
+
 
         const body = JSON.stringify(state);
         fetch('http://localhost:3002/users', {
@@ -49,7 +49,7 @@ export const postNewUser = (state) => {
             .then(user => {
                 console.log(user);
                 if (user.errors) {
-                    dispatch({ type: 'ADD_ERRORS', user })
+                    dispatch({ type: 'ADD_ERRORS', errors: user.errors })
                 } else {
                     fetchAndLoadUsers(dispatch);
                     fetchAndLoadUnits(dispatch);
@@ -112,38 +112,60 @@ export const deleteResidency = (id) => {
 
 export const setLoginStatus = () => {
     return dispatch => {
-        // axios.get('http://localhost:3002/logged_in', {
-        //     withCredentials: true
-        // })
-        //     .then(resp => {
-        //         if (resp.data.logged_in) {
-        //             dispatch({ type: 'LOGIN', action: resp })
-        //         } else {
-        //             dispatch({ type: 'LOGOUT' })
-        //         }
-        //     })
-        console.log('inloginaction')
-        fetch('http://localhost:3002/logged_in')
-            .then(resp => resp.json())
-            .then(json => {
-                if (json.logged_in){
-                    dispatch({ type: 'LOGIN', action: json })
+        axios.get('http://localhost:3002/logged_in',{
+            withCredentials: true
+        })
+            .then(resp => {
+                console.log('in axios req', resp)
+                if (resp.data.logged_in) {
+                    dispatch({ type: 'LOGIN', user: resp.data.user })
                 } else {
                     dispatch({ type: 'LOGOUT' })
                 }
             })
+        // console.log('inloginaction')
+        // fetch('http://localhost:3002/logged_in')
+        //     .then(resp => resp.json())
+        //     .then(json => {
+        //         if (json.logged_in){
+        //             dispatch({ type: 'LOGIN', user: json.user })
+        //         } else {
+        //             dispatch({ type: 'LOGOUT' })
+        //         }
+        //     })
     }
 }
 
 export const loginUser = user => {
     return dispatch => {
-        axios.post('http://localhost:3002/login', user, {withCredentials: true})
+        axios.post('http://localhost:3002/login', { user }, {withCredentials: true})
             .then(resp => {
+                console.log(resp);
                 if (resp.data.logged_in) {
-                    dispatch({ type: 'LOGIN', action: resp })
+                    dispatch({ type: 'LOGIN', user: resp.data.user })
                 } else {
-                    dispatch({ type: 'ADD_ERRORS', action: resp })
+                    console.log(resp.data.errors);
+                    
+                    dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
                 }
             })
+        // const body = JSON.stringify({ user })
+        // fetch('http://localhost:3002/login', {
+        //     method: "POST",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body
+        // })
+        //     .then(resp => resp.json())
+        //     .then(json => {
+        //         console.log(json);
+        //         if (json.logged_in) {
+        //             dispatch({ type: 'LOGIN', user: json.user })
+        //         } else {
+        //             dispatch({ type: 'ADD_ERRORS', errors: json.errors })
+        //         }
+        //     })
     }
 }
