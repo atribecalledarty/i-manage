@@ -24,7 +24,7 @@ const UserShow = ({ match, users, deleteUser, history }) => {
 
     return (
         <div>
-            {/* {console.log(user)} */}
+            {console.log('in user show', user, users)}
             <h3>{user.first_name} {user.last_name}</h3>
             <p>
                 {user.email}<br/>

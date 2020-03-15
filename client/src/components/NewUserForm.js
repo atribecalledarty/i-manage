@@ -20,9 +20,17 @@ class NewUserForm extends React.Component {
     submitHandler = event => {
         event.preventDefault();
         this.props.addUser(this.state);
-        if (!this.props.errors) {
-            this.props.history.push(`/users/${this.props.user.id}`);
+    }
+
+    redirect = () => {
+        console.log('in redirect', this.props.isLoggedIn, this.props.user.id)
+        if (this.props.isLoggedIn) {
+            this.props.history.push(`/users/${this.props.user.id}`)
         }
+    }
+
+    componentDidUpdate(){
+        this.redirect();
     }
 
     render() {

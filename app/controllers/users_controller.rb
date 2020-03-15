@@ -10,10 +10,11 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         # binding.pry
         if @user.save
-            login!    
-        # users = User.all
-        # binding.pry
-            render json: UserSerializer.new(@user).to_serialized_json
+            login!
+            render json: {
+                logged_in: true,
+                user: @user
+            }
         else 
             render json: { errors: @user.errors.full_messages }
         end

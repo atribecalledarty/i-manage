@@ -46,13 +46,15 @@ export const postNewUser = (state) => {
             body
         })
             .then(resp => resp.json())
-            .then(user => {
-                console.log(user);
-                if (user.errors) {
-                    dispatch({ type: 'ADD_ERRORS', errors: user.errors })
+            .then(json => {
+                console.log(json);
+                if (json.errors) {
+                    dispatch({ type: 'ADD_ERRORS', errors: json.errors })
                 } else {
-                    fetchAndLoadUsers(dispatch);
-                    fetchAndLoadUnits(dispatch);
+                    // fetchAndLoadUsers(dispatch);
+                    // fetchAndLoadUnits(dispatch);
+                    dispatch({ type: 'ADD_USER', user: json.user })
+                    dispatch({ type: 'LOGIN', user: json.user })
                 }
             })
     }

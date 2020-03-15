@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NewUserForm from './components/NewUserForm';
+import UserShow from './components/UserShow';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
 import Home from './components/Home';
@@ -27,7 +28,7 @@ class App extends React.Component {
     return (
       
       <Router>
-        {/* {console.log(this.props.isLoggedIn)} */}
+        {console.log('in app comp logged in status', this.props.isLoggedIn)}
         <div>
           <Route path="/" render={() => 
             <Home 
@@ -44,7 +45,8 @@ class App extends React.Component {
               {...routerProps} 
               errors={this.props.errors}
               user={this.props.user} 
-              addUser={this.props.addUser}/>}/>
+              addUser={this.props.addUser}
+              isLoggedIn={this.props.isLoggedIn}/>}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 
@@ -58,6 +60,11 @@ class App extends React.Component {
               users={this.props.users} 
               addUser={this.props.addUser}
               errors={this.props.errors}
+              deleteUser={this.props.deleteUser}/>}/>
+          <Route path={`auth_user/:userId`} render={routerProps => 
+            <UserShow 
+              {...routerProps} 
+              users={this.props.users} 
               deleteUser={this.props.deleteUser}/>}/>
         </div>
       </Router>

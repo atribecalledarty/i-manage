@@ -20,13 +20,15 @@ export default function manageResources (
                 errors: []
             }
         case 'ADD_UNITS':
-            // console.log({
-            //     ...state,
-            //     units: action.units,
-            //     users: [ ...state.users ],
-            //     loading: false,
-            //     errors: []
-            // })
+            console.log('in add units', {
+                ...state,
+                units: action.units,
+                users: [ ...state.users ],
+                loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            })
             return {
                 ...state,
                 units: action.units,
@@ -37,17 +39,29 @@ export default function manageResources (
                 errors: []
             }
         case 'ADD_USERS':
-            // console.log({
-            //     ...state,
-            //     units: [ ...state.units ],
-            //     users: action.users,
-            //     loading: false,
-            //     errors: []
-            // })
+            console.log('in add users case', {
+                ...state,
+                units: [ ...state.units ],
+                users: action.users,
+                loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            });
             return {
                 ...state,
                 units: [ ...state.units ],
                 users: action.users,
+                loading: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            }
+        case 'ADD_USER':
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users, action.user ], 
                 loading: false,
                 isLoggedIn: state.isLoggedIn,
                 user: state.user,
