@@ -23,9 +23,8 @@ class NewUserForm extends React.Component {
     }
 
     redirect = () => {
-        console.log('in redirect', this.props.isLoggedIn, this.props.user.id)
         if (this.props.isLoggedIn) {
-            this.props.history.push(`/users/${this.props.user.id}`)
+            this.props.history.push(`/auth_user/${this.props.user.id}`)
         }
     }
 

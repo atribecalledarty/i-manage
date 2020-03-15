@@ -15,11 +15,12 @@ class Login extends Component {
 
     submitHandler = event => {
         event.preventDefault();
-        console.log('submitted form')
-        this.props.loginUser(this.state)
-        if (!this.props.errors) {
-            console.log('in if statement')
-            this.props.history.push('/home')
+        this.props.loginUser(this.state);
+    }
+
+    componentDidUpdate(){
+        if (this.props.isLoggedIn) {
+            this.props.history.push(`/auth_user/${this.props.user.id}`)
         }
     }
 

@@ -171,3 +171,12 @@ export const loginUser = user => {
         //     })
     }
 }
+
+export const logoutUser = () => {
+    return dispatch => {
+        axios.delete('http://localhost:3002/logout', {withCredentials: true})
+            .then(() => {
+                dispatch({ type: 'LOGOUT' })
+            })
+    }
+}

@@ -15,7 +15,8 @@ import { addUnits,
         addResidency,
         deleteResidency,
         setLoginStatus,
-        loginUser 
+        loginUser,
+        logoutUser 
       } from './utilities/dispatchActions';
 
 class App extends React.Component {  
@@ -30,10 +31,12 @@ class App extends React.Component {
       <Router>
         {console.log('in app comp logged in status', this.props.isLoggedIn)}
         <div>
-          <Route path="/" render={() => 
+          <Route path="/" render={routerProps => 
             <Home 
+              {...routerProps}
               user={this.props.user}
-              isLoggedIn={this.props.isLoggedIn}/>} />
+              isLoggedIn={this.props.isLoggedIn}
+              logoutUser={this.props.logoutUser}/>} />
           <Route exact path="/login" render={routerProps => 
             <Login 
               {...routerProps}
@@ -61,7 +64,7 @@ class App extends React.Component {
               addUser={this.props.addUser}
               errors={this.props.errors}
               deleteUser={this.props.deleteUser}/>}/>
-          <Route path={`auth_user/:userId`} render={routerProps => 
+          <Route path={`/auth_user/:userId`} render={routerProps => 
             <UserShow 
               {...routerProps} 
               users={this.props.users} 
@@ -93,7 +96,8 @@ const mapDispatchToProps = dispatch => {
       addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)),
       deleteResidency: id => dispatch(deleteResidency(id)),
       setLoginStatus: () => dispatch(setLoginStatus()),
-      loginUser: user => dispatch(loginUser(user))
+      loginUser: user => dispatch(loginUser(user)),
+      logoutUser: () => dispatch(logoutUser())
   }
 }
 

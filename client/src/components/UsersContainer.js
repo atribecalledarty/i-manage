@@ -2,7 +2,6 @@ import React from 'react';
 import UsersList from './UsersList';
 import UserShow from './UserShow';
 import { Route, Link } from 'react-router-dom';
-// import NewUserForm from './NewUserForm';
 
 const UsersContainer = ({ match, users, addUser, deleteUser, errors }) => {
     return(

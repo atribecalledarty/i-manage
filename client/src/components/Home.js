@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = ({ user, isLoggedIn }) => {
+const Home = ({ user, isLoggedIn, logoutUser }) => {
+    const clickHandler = () => {
+        logoutUser();
+    }
+
     const renderNav = () => {
         if (isLoggedIn && user.manager_status) {
             return (
@@ -9,6 +13,10 @@ const Home = ({ user, isLoggedIn }) => {
                     <Link to="/units">See Units</Link>&nbsp;
                     <Link to="/users">See Users</Link>
                 </div>
+            )
+        } else if (isLoggedIn) {
+            return (
+                <button onClick={clickHandler}>Logout</button>
             )
         } else {
             return (
