@@ -63,6 +63,16 @@ export default function manageResources (
                 user: state.user,
                 errors: [ ...action.user.errors ]
             }
+        case 'LOGIN':
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading: false,
+                isLoggedIn: true,
+                user: action.user,
+                errors: [ ...action.user.errors ]
+            }
         default:
             return state;
     }
