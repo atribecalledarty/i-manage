@@ -4,7 +4,7 @@ class ResidenciesController < ApplicationController
 
     def create
         # binding.pry
-        Residency.create(residency_params)
+        Residency.create(user_id: residency_params[:user_id], unit_id: residency_params[:unit_id], start_date: Date.today)
     end
 
     def destroy

@@ -4,10 +4,10 @@ FILO (First In Last Out)
 - user can make payments
 
 - find out how to push without typing in password everytime
-- new residentform => new residency form
 - catch errors
 
 
+X new residentform => new residency form
 
 X authenticating users
     https://medium.com/how-i-get-it/react-with-rails-user-authentication-8977e98762f2

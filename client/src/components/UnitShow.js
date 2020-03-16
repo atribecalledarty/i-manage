@@ -37,7 +37,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
             return (
                 <div>
                     <p>
-                        {/* {console.log(residency)} */}
+                        {console.log('in unit show', unit)}
                         {resident.first_name} {resident.last_name}<br/>
                         {resident.email}<br/>
                         {resident.phone_number}<br/><br/>
