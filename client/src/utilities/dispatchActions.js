@@ -15,7 +15,7 @@ const fetchAndLoadUsers = dispatch => {
     fetch('http://localhost:3002/users')
         .then(resp => resp.json())
         .then(users => {
-            console.log(users, 'in fetch request') 
+            // console.log(users, 'in fetch request') 
             dispatch({ type: 'ADD_USERS', users })
         })
 }
