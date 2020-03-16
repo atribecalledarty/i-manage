@@ -75,6 +75,16 @@ export default function manageResources (
                 errors: []
             }
         case 'ADD_USER':
+            console.log('in adduser case', {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users, action.user ],
+                loading_units: state.loading_units,
+                loading_users: false,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            })
             return {
                 ...state,
                 units: [ ...state.units ],

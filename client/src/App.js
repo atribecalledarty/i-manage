@@ -120,7 +120,7 @@ const mapDispatchToProps = dispatch => {
         dispatch(addUsers());
       },
       deleteUser: userId => dispatch(deleteUser(userId)),
-      addUser: state => dispatch(postNewUser(state)),
+      addUser: (state, isManager) => dispatch(postNewUser(state, isManager)),
       addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)),
       deleteResidency: id => dispatch(deleteResidency(id)),
       setLoginStatus: () => dispatch(setLoginStatus()),
