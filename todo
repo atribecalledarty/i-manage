@@ -1,14 +1,15 @@
-- authenticating users
+FILO (First In Last Out)
+
+- style app with bootstrap!
+- find out how to push without typing in password everytime
+- new residentform => new residency form
+- catch errors
+- user can make payments
+
+
+
+X authenticating users
     https://medium.com/how-i-get-it/react-with-rails-user-authentication-8977e98762f2
     USER can now log in and react application can now check if user is logged in
     need to authorize users for web pages..
         direct the web flow for what people can see!
-
-        
-- new residentform => new residency form
-- catch errors
-
-    
-
-- style app with bootstrap!
-- find out how to push without typing in password everytime

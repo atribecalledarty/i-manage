@@ -12,7 +12,8 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
             return (
                 <div>
                     <Link to="/units">See Units</Link>&nbsp;
-                    <Link to="/users">See Users</Link>
+                    <Link to="/users">See Users</Link>&nbsp;
+                    <button onClick={clickHandler}>Logout</button>
                 </div>
             )
         } else if (isLoggedIn) {
