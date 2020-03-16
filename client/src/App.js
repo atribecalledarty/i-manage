@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/Login';
 import NewUserForm from './components/NewUserForm';
 import NavBar from './components/NavBar';
@@ -81,7 +81,20 @@ class App extends React.Component {
             {...routerProps} 
             users={this.props.users} 
             deleteUser={this.props.deleteUser}/>}/>
-        
+        <Switch>
+          <Route path={`/users/new`} render={routerProps => 
+            <NewUserForm 
+              {...routerProps} 
+              errors={this.props.errors}
+              user={this.props.user} 
+              addUser={this.props.addUser}
+              isLoggedIn={this.props.isLoggedIn}/>}/>
+          <Route path={`/users/:userId`} render={routerProps => 
+            <UserShow 
+              {...routerProps} 
+              users={this.props.users} 
+              deleteUser={this.props.deleteUser}/>}/>
+        </Switch>
       </Router>
     );
   }
