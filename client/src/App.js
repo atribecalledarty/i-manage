@@ -88,7 +88,8 @@ class App extends React.Component {
               errors={this.props.errors}
               user={this.props.user} 
               addUser={this.props.addUser}
-              isLoggedIn={this.props.isLoggedIn}/>}/>
+              isLoggedIn={this.props.isLoggedIn}
+              isManager={this.props.user.manager_status}/>}/>
           <Route path={`/users/:userId`} render={routerProps => 
             <UserShow 
               {...routerProps} 

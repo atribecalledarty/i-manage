@@ -31,7 +31,8 @@ export const addUsers = () => {
         fetchAndLoadUsers(dispatch);
     }    
 }
-export const postNewUser = (state) => {
+
+export const postNewUser = (state, isManager) => {
     return dispatch => {
         dispatch({ type: 'LOADING_USERS' })
 
@@ -53,7 +54,9 @@ export const postNewUser = (state) => {
                     // fetchAndLoadUsers(dispatch);
                     // fetchAndLoadUnits(dispatch);
                     dispatch({ type: 'ADD_USER', user: json.user })
-                    dispatch({ type: 'LOGIN', user: json.user })
+                    if (!isManager) {
+                        dispatch({ type: 'LOGIN', user: json.user })
+                    }
                 }
             })
     }

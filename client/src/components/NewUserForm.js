@@ -32,6 +32,18 @@ class NewUserForm extends React.Component {
         this.redirect();
     }
 
+    renderSubmit = () => {
+        if (this.props.isManager) {
+            return (
+                <input type="submit" value="Add User"/>
+            )
+        } else {
+            return (
+                <input type="submit" value="Create Account"/>
+            )
+        }
+    }
+
     render() {
         return(
             <div>
@@ -90,8 +102,8 @@ class NewUserForm extends React.Component {
                         name="password" 
                         placeholder="asdfasdf"
                     /><br/>
-
-                    <input type="submit" value="Create Account"/>
+                    
+                    {this.renderSubmit()}
                 </form>
             </div>
         )
