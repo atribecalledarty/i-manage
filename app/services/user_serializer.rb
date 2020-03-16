@@ -7,9 +7,14 @@ class UserSerializer
         options = {
             include: {
                 unit: {
-                    except: [:updated_at, :created_at, :type_of_unit, :sq_ft, :rent_cost_per_month]
+                    except: [:updated_at, :created_at, :type_of_unit, :sq_ft]
                 },
                 residency: {
+                    include: {
+                        payments: {
+                            except: [:updated_at, :created_at]
+                        }
+                    },
                     except: [:updated_at, :created_at, :user_id, :unit_id]
                 }
             },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnFormattedDate } from '../utilities/utilityFunctions';
+import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 
 const UserShow = ({ match, users, deleteUser, history }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
@@ -9,7 +9,7 @@ const UserShow = ({ match, users, deleteUser, history }) => {
             return (
                 <p>
                     Resident since {returnFormattedDate(user.residency.start_date)}<br/>
-                    Balance: ${user.residency.curr_balance}<br/>
+                    Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
                     Unit {user.unit.unit_number}<br/>
                 </p>
             )
