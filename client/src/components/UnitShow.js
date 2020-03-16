@@ -11,18 +11,22 @@ const UnitShow = ({ match, units, deleteResidency }) => {
         return(
             <div>
                 <table>
-                    <tr>
-                        <th>Date</th>
-                        <th>Amount</th>
-                    </tr>
-                {residency.payments.slice(0).reverse().map(payment => {
-                    return (
+                    <thead>
                         <tr>
-                            <td>{returnFormattedDate(payment.transaction_date)}</td>
-                            <td>${payment.amount}</td>
+                            <th>Date</th>
+                            <th>Amount</th>
                         </tr>
-                    )    
-                })}
+                    </thead>
+                    <tbody>
+                    {residency.payments.slice(0).reverse().map(payment => {
+                        return (
+                            <tr key={payment.id}>
+                                <td>{returnFormattedDate(payment.transaction_date)}</td>
+                                <td>${payment.amount}</td>
+                            </tr>
+                        )    
+                    })}
+                    </tbody>
                 </table>
             </div>
         )
@@ -39,10 +43,10 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                         {resident.phone_number}<br/><br/>
 
                         Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}
+                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}<br/>
+                        <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                     </p>
                     {renderPayments()}
-                    <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                 </div>
             )
         } else {
