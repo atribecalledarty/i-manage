@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ isLoggedIn, user, logoutUser }) => {
+const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     const clickHandler = () => {
         logoutUser();
+        history.push('/');
     }
 
     const renderNav = () => {
