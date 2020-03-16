@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NewResidentForm extends React.Component {
+class NewResidencyForm extends React.Component {
     state = {
         userId: undefined
     }
@@ -34,4 +34,4 @@ class NewResidentForm extends React.Component {
     }
 }
 
-export default NewResidentForm;
+export default NewResidencyForm;

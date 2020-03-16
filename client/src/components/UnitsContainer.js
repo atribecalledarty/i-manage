@@ -2,7 +2,7 @@ import React from 'react';
 import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
 import { Route } from 'react-router-dom';
-import NewResidentForm from './NewResidentForm';
+import NewResidencyForm from './NewResidencyForm';
 
 const UnitsContainer = ({ units, usersWithoutResidency, addResidency, deleteResidency }) => {
     
@@ -14,7 +14,7 @@ const UnitsContainer = ({ units, usersWithoutResidency, addResidency, deleteResi
                 render={routerProps => <UnitShow {...routerProps} units={units} deleteResidency={deleteResidency}/>}/>
                 
             <Route path={`/units/:unitId/residents/new`} render={routerProps => 
-                <NewResidentForm 
+                <NewResidencyForm 
                     {...routerProps} 
                     addResidency={addResidency}
                     usersWithoutResidency={usersWithoutResidency}/>}/>
