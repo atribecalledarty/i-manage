@@ -83,7 +83,9 @@ class App extends React.Component {
           <UserShow 
             {...routerProps} 
             users={this.props.users} 
-            deleteUser={this.props.deleteUser}/>}/>
+            deleteUser={this.props.deleteUser}
+            isLoggedIn={this.props.isLoggedIn}
+            loggedInUser={this.props.user}/>}/>
             
         <Route path={"/auth_user/:userId/payments/new"} render={routerProps => <NewPaymentForm {...routerProps}/>}/>
       </Router>

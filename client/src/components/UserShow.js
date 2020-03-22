@@ -1,15 +1,17 @@
 import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
-import { Link, Route } from 'react-router-dom';
-import NewPaymentForm from './NewPaymentForm'
+import { Link } from 'react-router-dom';
+// import NewPaymentForm from './NewPaymentForm'
 
 const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
 
     const renderLinkForPayment = () => {
-        if (isLoggedIn && user === loggedInUser) {
+        if (isLoggedIn && user.id === loggedInUser.id) {
             return (
-                <Link to={`/auth_user/${user.id}/payments/new`}>Make Payment</Link>
+                <>
+                <Link to={`/auth_user/${user.id}/payments/new`}>Make Payment</Link><br/>
+                </>
             )
         }
     }
