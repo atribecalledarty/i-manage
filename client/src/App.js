@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import UserShow from './components/UserShow';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
+import NewPaymentForm from './components/NewPaymentForm';
 import Home from './components/Home';
 import { connect } from 'react-redux';
 import { addUnits,
@@ -83,6 +84,8 @@ class App extends React.Component {
             {...routerProps} 
             users={this.props.users} 
             deleteUser={this.props.deleteUser}/>}/>
+            
+        <Route path={"/auth_user/:userId/payments/new"} render={routerProps => <NewPaymentForm {...routerProps}/>}/>
       </Router>
     );
   }

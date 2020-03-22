@@ -3,8 +3,16 @@ import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunct
 import { Link, Route } from 'react-router-dom';
 import NewPaymentForm from './NewPaymentForm'
 
-const UserShow = ({ match, users, deleteUser, history }) => {
+const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
+
+    const renderLinkForPayment = () => {
+        if (isLoggedIn && user === loggedInUser) {
+            return (
+                <Link to={`/auth_user/${user.id}/payments/new`}>Make Payment</Link>
+            )
+        }
+    }
 
     const renderResidencyInfo = () => {
         if (user.residency !== undefined) {
@@ -12,13 +20,7 @@ const UserShow = ({ match, users, deleteUser, history }) => {
                 <p>
                     Resident since {returnFormattedDate(user.residency.start_date)}<br/>
                     Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
-                    Unit {user.unit.unit_number}<br/>
-
-                    <Link to={`/residencies/${user.residency.id}/payments/new`}>Make Payment</Link>
-                    <Route path={`/residencies/:residencyId/payments/new`} render={routerProps => 
-                        <NewPaymentForm 
-                            {...routerProps}
-                            />}/>
+                    Unit {user.unit.unit_number}<br/>               
                 </p>
             )
         }
@@ -39,7 +41,7 @@ const UserShow = ({ match, users, deleteUser, history }) => {
                 {user.phone_number}
             </p>
             {renderResidencyInfo()}
-            
+            {renderLinkForPayment()}
             <button onClick={clickHandler}>Delete User</button>
         </div>
     )
