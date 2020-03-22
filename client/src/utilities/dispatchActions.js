@@ -151,3 +151,10 @@ export const logoutUser = () => {
             })
     }
 }
+
+export const addPayment = (amount, residencyId) => {
+    return dispatch => {
+        console.log('hi');
+        axios.post('http://localhost:3002/payments/create', { amount, residencyId })
+    }
+}

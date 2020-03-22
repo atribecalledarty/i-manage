@@ -13,13 +13,15 @@ class NewPaymentForm extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        
+        const userFromUsers = this.props.users.find(user => user.id === this.props.user.id) // I need to get user from users list because I need to get residency id..
+        this.props.addPayment(this.state.amount, userFromUsers.residency.id);
     }
     
     render() {
         return(
             <div>
-                <form>
+                <form onSubmit={this.submitHandler}>
+                    {console.log(this.props.user)}
                     <h3>New Payment</h3>
                     <label htmlFor="amount">Amount: </label>
                     <input

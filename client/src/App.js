@@ -18,7 +18,8 @@ import { addUnits,
         deleteResidency,
         setLoginStatus,
         loginUser,
-        logoutUser 
+        logoutUser,
+        addPayment 
       } from './utilities/dispatchActions';
 
 class App extends React.Component {  
@@ -87,7 +88,12 @@ class App extends React.Component {
             isLoggedIn={this.props.isLoggedIn}
             loggedInUser={this.props.user}/>}/>
             
-        <Route path={"/auth_user/:userId/payments/new"} render={routerProps => <NewPaymentForm {...routerProps}/>}/>
+        <Route path={"/auth_user/:userId/payments/new"} render={routerProps => 
+          <NewPaymentForm 
+            {...routerProps} 
+            user={this.props.user} 
+            users={this.props.users}
+            addPayment={this.props.addPayment}/>}/>
       </Router>
     );
   }
@@ -117,7 +123,8 @@ const mapDispatchToProps = dispatch => {
       deleteResidency: id => dispatch(deleteResidency(id)),
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
-      logoutUser: () => dispatch(logoutUser())
+      logoutUser: () => dispatch(logoutUser()),
+      addPayment: (amount, residencyId) => dispatch(addPayment(amount, residencyId))
   }
 }
 
