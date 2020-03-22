@@ -1,6 +1,21 @@
 import React from 'react';
 
 class NewPaymentForm extends React.Component {
+    state = {
+        amount: ""
+    }
+
+    changeHandler = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    submitHandler = event => {
+        event.preventDefault();
+        
+    }
+    
     render() {
         return(
             <div>
