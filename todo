@@ -1,11 +1,16 @@
 FILO (First In Last Out)
 
 - style app with bootstrap!
+- manager can see her own page
 - user can make payments
 
-- find out how to push without typing in password everytime
-- catch errors
+? Can I make user authentication work with fetch???
+    I don't think this is possible
+    Because Rails needs access to browser to make sessions work..
 
+? find out how to push without typing in password everytime
+
+? catch errors
 
 X new residentform => new residency form
 

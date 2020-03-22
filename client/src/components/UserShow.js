@@ -1,5 +1,7 @@
 import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
+import { Link, Route } from 'react-router-dom';
+import NewPaymentForm from './NewPaymentForm'
 
 const UserShow = ({ match, users, deleteUser, history }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
@@ -11,6 +13,12 @@ const UserShow = ({ match, users, deleteUser, history }) => {
                     Resident since {returnFormattedDate(user.residency.start_date)}<br/>
                     Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
                     Unit {user.unit.unit_number}<br/>
+
+                    <Link to={`/residencies/${user.residency.id}/payments/new`}>Make Payment</Link>
+                    <Route path={`/residencies/:residencyId/payments/new`} render={routerProps => 
+                        <NewPaymentForm 
+                            {...routerProps}
+                            />}/>
                 </p>
             )
         }
