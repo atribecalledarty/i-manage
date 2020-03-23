@@ -12,6 +12,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
         if (unit.residency !== undefined) {
             return (
                 <div>
+                    <h5>Resident</h5>
                     <p>
                         {console.log('in unit show', unit)}
                         {resident.first_name} {resident.last_name}<br/>

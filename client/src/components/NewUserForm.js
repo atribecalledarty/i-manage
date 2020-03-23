@@ -47,9 +47,9 @@ class NewUserForm extends React.Component {
     render() {
         return(
             <div>
-                <FormErrors errors={this.props.errors}/>
                 <form onSubmit={this.submitHandler}>
-                    <h3>New User</h3>
+                    <h5>New User</h5>
+                    <FormErrors errors={this.props.errors}/>
                     <label htmlFor="username">Username: </label>
                     <input 
                         onChange={this.changeHandler} 
