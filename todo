@@ -2,7 +2,9 @@ FILO (First In Last Out)
 
 
 - style app with bootstrap!
-- Payments should be a float with 2 decimal
+X Payments should be a float with 2 decimal => payments are now to 2 decimal points as well as balances
+    Validation...
+    for trying to submit payment
 
 X manager can see her own page => There is link to see manager's own profile now
     Link to her page
