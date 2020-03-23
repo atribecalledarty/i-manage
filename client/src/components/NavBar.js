@@ -13,6 +13,7 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
                 <div>
                     <Link to="/units">See Units</Link>&nbsp;
                     <Link to="/users">See Users</Link>&nbsp;
+                    <Link to={`/auth_user/${user.id}`}>My Page</Link>&nbsp;
                     <button onClick={clickHandler}>Logout</button>
                 </div>
             )

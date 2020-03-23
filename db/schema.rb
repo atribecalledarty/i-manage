@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(version: 2020_03_06_135513) do
 
   create_table "payments", force: :cascade do |t|
-    t.date "transaction_date", default: "2020-03-12"
-    t.integer "amount"
+    t.date "transaction_date", default: "2020-03-23"
+    t.decimal "amount", precision: 8, scale: 2
     t.integer "residency_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "residencies", force: :cascade do |t|
-    t.date "start_date", default: "2020-03-12"
+    t.date "start_date", default: "2020-03-23"
     t.integer "user_id"
     t.integer "unit_id"
     t.datetime "created_at", precision: 6, null: false

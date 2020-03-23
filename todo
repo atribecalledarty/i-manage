@@ -2,7 +2,11 @@ FILO (First In Last Out)
 
 
 - style app with bootstrap!
-- manager can see her own page
+- Payments should be a float with 2 decimal
+
+X manager can see her own page => There is link to see manager's own profile now
+    Link to her page
+
 - refactor unit and user show
     there is a lot of repeated code
     I think I can abstract out a component..

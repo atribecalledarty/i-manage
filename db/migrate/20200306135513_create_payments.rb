@@ -2,7 +2,7 @@ class CreatePayments < ActiveRecord::Migration[6.0]
   def change
     create_table :payments do |t|
       t.date :transaction_date, :default => Date.today
-      t.integer :amount
+      t.decimal :amount, :precision => 8, :scale => 2
       t.integer :residency_id
 
       t.timestamps

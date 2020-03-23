@@ -1,45 +1,19 @@
 import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
-// import NewPaymentForm from './NewPaymentForm'
+import PaymentsShow from './PaymentsShow';
 
 const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
-    const residency = user.residency;
 
     const renderLinkForPayment = () => {
-        if (isLoggedIn && user.id === loggedInUser.id) {
+        if (isLoggedIn && user.id === loggedInUser.id && user.residency) {
             return (
                 <>
-                <Link to={`/auth_user/${user.id}/payments/new`}>Make Payment</Link><br/>
+                    <Link to={`/auth_user/${user.id}/payments/new`}>Make Payment</Link><br/>
                 </>
             )
         }
-    }
-
-    const renderPayments = () => {
-        return(
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {residency.payments.slice(0).reverse().map(payment => {
-                        return (
-                            <tr key={payment.id}>
-                                <td>{returnFormattedDate(payment.transaction_date)}</td>
-                                <td>${payment.amount}</td>
-                            </tr>
-                        )    
-                    })}
-                    </tbody>
-                </table>
-            </div>
-        )
     }
 
     const renderResidencyInfo = () => {
@@ -51,6 +25,7 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
                         Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
                         Unit {user.unit.unit_number}<br/>               
                     </p>
+                    <PaymentsShow payments={user.residency.payments}/>
                 </>
             )
         }
@@ -66,13 +41,12 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
         <div>
             {console.log('in user show', user, users)}
             <h3>{user.first_name} {user.last_name}</h3>
+            <button onClick={clickHandler}>Delete User</button>
             <p>
                 {user.email}<br/>
                 {user.phone_number}
             </p>
             {renderResidencyInfo()}
-            <button onClick={clickHandler}>Delete User</button>
-            {renderPayments()}
             {renderLinkForPayment()}
         </div>
     )

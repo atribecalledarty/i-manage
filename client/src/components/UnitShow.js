@@ -1,36 +1,12 @@
 import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
+import PaymentsShow from './PaymentsShow';
 
 const UnitShow = ({ match, units, deleteResidency }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
     const resident = unit.resident;
     const residency = unit.residency;
-    // console.log(unit)
-    const renderPayments = () => {
-        return(
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {residency.payments.slice(0).reverse().map(payment => {
-                        return (
-                            <tr key={payment.id}>
-                                <td>{returnFormattedDate(payment.transaction_date)}</td>
-                                <td>${payment.amount}</td>
-                            </tr>
-                        )    
-                    })}
-                    </tbody>
-                </table>
-            </div>
-        )
-    }
 
     const renderResidencyInfo = () => {
         if (unit.residency !== undefined) {
@@ -46,7 +22,8 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                         Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}<br/>
                         <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                     </p>
-                    {renderPayments()}
+                    {/* {renderPayments()} */}
+                    <PaymentsShow payments={residency.payments}/>
                 </div>
             )
         } else {
@@ -58,7 +35,6 @@ const UnitShow = ({ match, units, deleteResidency }) => {
 
     return (
         <div>
-            {/* {console.log(unit)} */}
             <h3>Unit {unit.unit_number}</h3>
             <p>
                 {unit.type_of_unit}<br/>
