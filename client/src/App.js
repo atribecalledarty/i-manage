@@ -21,6 +21,7 @@ import { addUnits,
         logoutUser,
         addPayment 
       } from './utilities/dispatchActions';
+import Container from 'react-bootstrap/Container'
 
 class App extends React.Component {  
   componentDidMount(){
@@ -30,72 +31,73 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router >
-        {console.log('in app comp logged in status', this.props.isLoggedIn)}
-        <h1>Welcome to Luna's Tavern</h1>
-        
-        <Route path="/" render={routerProps =>
-          <NavBar 
-            {...routerProps} 
-            user={this.props.user} 
-            isLoggedIn={this.props.isLoggedIn} 
-            logoutUser={this.props.logoutUser}/>
-          }/>
-        <Route exact path="/" render={routerProps => 
-          <Home 
-            {...routerProps}
-            loading_users={this.props.loading_users}
-            loading_units={this.props.loading_units}
-            user={this.props.user}
-            isLoggedIn={this.props.isLoggedIn} />}/>
-            {/*  users={this.props.users}
-              logoutUser={this.props.logoutUser}/>} /> */}
-        <Route exact path="/login" render={routerProps => 
-          <Login 
-            {...routerProps}
-            user={this.props.user}
-            loginUser={this.props.loginUser}
-            isLoggedIn={this.props.isLoggedIn}
-            errors={this.props.errors}/>}/>
-        <Route exact path="/signup" render={routerProps => 
-          <NewUserForm 
-            {...routerProps} 
-            errors={this.props.errors}
-            user={this.props.user} 
-            addUser={this.props.addUser}
-            isLoggedIn={this.props.isLoggedIn}/>}/>
-        <Route path="/units" render={routerProps => 
-          <UnitsContainer 
-            {...routerProps} 
-            units={this.props.units}
-            usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}
-            addResidency={this.props.addResidency}
-            deleteResidency={this.props.deleteResidency}/>}/>
-        <Route path="/users" render={routerProps => 
-          <UsersContainer 
-            {...routerProps}
-            user={this.props.user}
-            isLoggedIn={this.props.isLoggedIn} 
-            users={this.props.users} 
-            addUser={this.props.addUser}
-            errors={this.props.errors}
-            deleteUser={this.props.deleteUser}/>}/>
-        <Route path={`/auth_user/:userId`} render={routerProps => 
-          <UserShow 
-            {...routerProps} 
-            users={this.props.users} 
-            deleteUser={this.props.deleteUser}
-            isLoggedIn={this.props.isLoggedIn}
-            loggedInUser={this.props.user}/>}/>
-            
-        <Route path={"/auth_user/:userId/payments/new"} render={routerProps => 
-          <NewPaymentForm 
-            {...routerProps} 
-            user={this.props.user} 
-            users={this.props.users}
-            addPayment={this.props.addPayment}
-            errors={this.props.errors}/>}/>
-      </Router>
+      <Container>
+        <Router >
+          <h1>Welcome to Luna's Tavern</h1>
+          
+          <Route path="/" render={routerProps =>
+            <NavBar 
+              {...routerProps} 
+              user={this.props.user} 
+              isLoggedIn={this.props.isLoggedIn} 
+              logoutUser={this.props.logoutUser}/>
+            }/>
+          <Route exact path="/" render={routerProps => 
+            <Home 
+              {...routerProps}
+              loading_users={this.props.loading_users}
+              loading_units={this.props.loading_units}
+              user={this.props.user}
+              isLoggedIn={this.props.isLoggedIn} />}/>
+              {/*  users={this.props.users}
+                logoutUser={this.props.logoutUser}/>} /> */}
+          <Route exact path="/login" render={routerProps => 
+            <Login 
+              {...routerProps}
+              user={this.props.user}
+              loginUser={this.props.loginUser}
+              isLoggedIn={this.props.isLoggedIn}
+              errors={this.props.errors}/>}/>
+          <Route exact path="/signup" render={routerProps => 
+            <NewUserForm 
+              {...routerProps} 
+              errors={this.props.errors}
+              user={this.props.user} 
+              addUser={this.props.addUser}
+              isLoggedIn={this.props.isLoggedIn}/>}/>
+          <Route path="/units" render={routerProps => 
+            <UnitsContainer 
+              {...routerProps} 
+              units={this.props.units}
+              usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}
+              addResidency={this.props.addResidency}
+              deleteResidency={this.props.deleteResidency}/>}/>
+          <Route path="/users" render={routerProps => 
+            <UsersContainer 
+              {...routerProps}
+              user={this.props.user}
+              isLoggedIn={this.props.isLoggedIn} 
+              users={this.props.users} 
+              addUser={this.props.addUser}
+              errors={this.props.errors}
+              deleteUser={this.props.deleteUser}/>}/>
+          <Route path={`/auth_user/:userId`} render={routerProps => 
+            <UserShow 
+              {...routerProps} 
+              users={this.props.users} 
+              deleteUser={this.props.deleteUser}
+              isLoggedIn={this.props.isLoggedIn}
+              loggedInUser={this.props.user}/>}/>
+              
+          <Route path={"/auth_user/:userId/payments/new"} render={routerProps => 
+            <NewPaymentForm 
+              {...routerProps} 
+              user={this.props.user} 
+              users={this.props.users}
+              addPayment={this.props.addPayment}
+              errors={this.props.errors}/>}/>
+        </Router>
+      </Container>
     );
   }
 }

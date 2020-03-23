@@ -2,14 +2,22 @@ FILO (First In Last Out)
 
 
 - style app with bootstrap!
+    - jumbotron to contain
+    - list group?
+    - button
+    - navbar
+    - spinner for loading?
+    - table for payments
+
 X Payments should be a float with 2 decimal => payments are now to 2 decimal points as well as balances
-    Validation...
+    Validation... 
     for trying to submit payment
+    - payments are floats and there are validations now!!!!!!!!
 
 X manager can see her own page => There is link to see manager's own profile now
     Link to her page
 
-- refactor unit and user show
+X refactor unit and user show => refactored out payments section!
     there is a lot of repeated code
     I think I can abstract out a component..
 

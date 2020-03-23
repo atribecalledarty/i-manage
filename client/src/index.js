@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import manageResources from './utilities/manageResources';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const store = createStore(manageResources, applyMiddleware(thunk));
 
