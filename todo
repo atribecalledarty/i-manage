@@ -3,6 +3,8 @@ FILO (First In Last Out)
 - style app with bootstrap!
 - manager can see her own page
 - user can make payments
+    => I need to add validations for payments
+    => Display errors
 
 ? Can I make user authentication work with fetch???
     I don't think this is possible

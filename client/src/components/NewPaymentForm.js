@@ -1,4 +1,5 @@
 import React from 'react';
+import FormErrors from './FormErrors';
 
 class NewPaymentForm extends React.Component {
     state = {
@@ -20,8 +21,9 @@ class NewPaymentForm extends React.Component {
     render() {
         return(
             <div>
+                <FormErrors errors={this.props.errors}/>
                 <form onSubmit={this.submitHandler}>
-                    {console.log(this.props.user)}
+                    {/* {console.log(this.props.user)} */}
                     <h3>New Payment</h3>
                     <label htmlFor="amount">Amount: </label>
                     <input

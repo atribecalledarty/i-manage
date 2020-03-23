@@ -93,7 +93,8 @@ class App extends React.Component {
             {...routerProps} 
             user={this.props.user} 
             users={this.props.users}
-            addPayment={this.props.addPayment}/>}/>
+            addPayment={this.props.addPayment}
+            errors={this.props.errors}/>}/>
       </Router>
     );
   }

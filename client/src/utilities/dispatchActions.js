@@ -117,7 +117,7 @@ export const setLoginStatus = () => {
             withCredentials: true
         })
             .then(resp => {
-                console.log('in axios req', resp)
+                // console.log('in axios req', resp)
                 if (resp.data.logged_in) {
                     dispatch({ type: 'LOGIN', user: resp.data.user })
                 } else {
@@ -131,12 +131,11 @@ export const loginUser = user => {
     return dispatch => {
         axios.post('http://localhost:3002/login', { user }, {withCredentials: true})
             .then(resp => {
-                console.log(resp);
+                // console.log(resp);
                 if (resp.data.logged_in) {
                     dispatch({ type: 'LOGIN', user: resp.data.user })
                 } else {
-                    console.log(resp.data.errors);
-                    
+                    // console.log(resp.data.errors);
                     dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
                 }
             })
@@ -152,9 +151,18 @@ export const logoutUser = () => {
     }
 }
 
-export const addPayment = (amount, residencyId) => {
+export const addPayment = (amount, residency_id) => {
     return dispatch => {
         console.log('hi');
-        axios.post('http://localhost:3002/payments/create', { amount, residencyId })
+        axios.post('http://localhost:3002/payments', { amount, residency_id })
+            .then(resp => {
+                // console.log(resp)
+                if (resp.data.errors) {
+                    dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
+                } else {
+                    fetchAndLoadUnits(dispatch);
+                    fetchAndLoadUsers(dispatch);
+                }
+            })
     }
 }
