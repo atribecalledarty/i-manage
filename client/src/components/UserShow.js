@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
+    const residency = user.residency;
 
     const renderLinkForPayment = () => {
         if (isLoggedIn && user.id === loggedInUser.id) {
@@ -16,14 +17,41 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
         }
     }
 
+    const renderPayments = () => {
+        return(
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {residency.payments.slice(0).reverse().map(payment => {
+                        return (
+                            <tr key={payment.id}>
+                                <td>{returnFormattedDate(payment.transaction_date)}</td>
+                                <td>${payment.amount}</td>
+                            </tr>
+                        )    
+                    })}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
     const renderResidencyInfo = () => {
         if (user.residency !== undefined) {
             return (
-                <p>
-                    Resident since {returnFormattedDate(user.residency.start_date)}<br/>
-                    Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
-                    Unit {user.unit.unit_number}<br/>               
-                </p>
+                <>
+                    <p>
+                        Resident since {returnFormattedDate(user.residency.start_date)}<br/>
+                        Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
+                        Unit {user.unit.unit_number}<br/>               
+                    </p>
+                </>
             )
         }
     }
@@ -43,8 +71,9 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
                 {user.phone_number}
             </p>
             {renderResidencyInfo()}
-            {renderLinkForPayment()}
             <button onClick={clickHandler}>Delete User</button>
+            {renderPayments()}
+            {renderLinkForPayment()}
         </div>
     )
 }

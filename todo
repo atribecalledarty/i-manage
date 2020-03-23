@@ -1,10 +1,15 @@
 FILO (First In Last Out)
 
+
 - style app with bootstrap!
 - manager can see her own page
-- user can make payments
-    => I need to add validations for payments
-    => Display errors
+- refactor unit and user show
+    there is a lot of repeated code
+    I think I can abstract out a component..
+
+X user can make payments => User can now make payments.
+    => I need to add validations for payments X
+    => Display errors X
 
 ? Can I make user authentication work with fetch???
     I don't think this is possible
