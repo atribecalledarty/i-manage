@@ -33,8 +33,6 @@ class App extends React.Component {
     return (
       <Container>
         <Router >
-          <h1>Welcome to Luna's Tavern</h1>
-          
           <Route path="/" render={routerProps =>
             <NavBar 
               {...routerProps} 
