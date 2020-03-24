@@ -14,52 +14,50 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     const renderNav = () => {
         if (isLoggedIn && user.manager_status) {
             return (
-                <Navbar bg="light" variant="light">
-                    <Container>
-                    <Navbar.Brand href="" onClick={() => history.push("/")}>Luna's Cabins</Navbar.Brand>
+                <>
                     <Nav onSelect={selectedKey => history.push(selectedKey)}>
                         <Nav.Link eventKey="/units">Units</Nav.Link>&nbsp;
                         <Nav.Link eventKey="/users">Users</Nav.Link>&nbsp;
-                    
-                        {/* <Nav.Link href="/units">Units</Nav.Link>
-                        <Nav.Link href="/users">Users</Nav.Link> */}
-                        {/* <Nav.Link href={`/auth_user/${user.id}`}>My Page</Nav.Link> */}
                     </Nav>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Logged in as: <Button onClick={() => history.push(`/auth_user/${user.id}`)} 
+                            <Button onClick={() => history.push(`/auth_user/${user.id}`)} 
                             size="sm" variant="link">{user.first_name} {user.last_name},</Button> 
                             <Button onClick={clickHandler} size="sm" variant="outline-secondary">Logout</Button>
                         </Navbar.Text>
                     </Navbar.Collapse>
-                    </Container>
-                </Navbar>
-                // <div>
-                //     <Link to="/units">See Units</Link>&nbsp;
-                //     <Link to="/users">See Users</Link>&nbsp;
-                //     <Link to={`/auth_user/${user.id}`}>My Page</Link>&nbsp;
-                //     <button onClick={clickHandler}>Logout</button>
-                // </div>
+                </>
             )
         } else if (isLoggedIn) {
             return (
-                <button onClick={clickHandler}>Logout</button>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>
+                        <Button onClick={() => history.push(`/auth_user/${user.id}`)} 
+                        size="sm" variant="link">{user.first_name} {user.last_name},</Button> 
+                        <Button onClick={clickHandler} size="sm" variant="outline-secondary">Logout</Button>
+                    </Navbar.Text>
+                </Navbar.Collapse>
             )
         } else {
             return (
-                <div>   
-                    <NavLink to="/login">Login</NavLink>&nbsp;
-                    <NavLink to="/signup">Register</NavLink>
-                </div>
+                <>
+                    <Navbar.Collapse className="justify-content-end">
+                        <Nav onSelect={selectedKey => history.push(selectedKey)}>
+                            <Nav.Link eventKey="/login">Login</Nav.Link>&nbsp;
+                            <Nav.Link eventKey="/signup">Register</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </>
             )
         }
     }
     return (
-        <div>
-            <nav>
+        <Navbar bg="light" variant="light">
+            <Container>
+                <Navbar.Brand>Luna's Cabins</Navbar.Brand>
                 {renderNav()}
-            </nav>
-        </div>
+            </Container>
+        </Navbar>
     )
 }
 
