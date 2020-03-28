@@ -4,7 +4,7 @@ import NewPaymentForm from './NewPaymentForm';
 import PaymentsShow from './PaymentsShow';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
-const AuthUserShow = ({ match, users, addPayment, errors }) => {
+const AuthUserShowBalance = ({ match, users, addPayment, errors }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
 
     const renderPayments = () => {
@@ -27,9 +27,9 @@ const AuthUserShow = ({ match, users, addPayment, errors }) => {
             </div>
             <br/>
             {renderPayments()}
-        </Jumbotron>
+          </Jumbotron> 
     )
 
 }
 
-export default AuthUserShow
+export default AuthUserShowBalance
