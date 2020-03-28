@@ -1,12 +1,13 @@
 import React from 'react';
-import { returnFormattedDate } from '../utilities/utilityFunctions'
+import { returnFormattedDate } from '../utilities/utilityFunctions';
+import Table from 'react-bootstrap/Table';
 
 const PaymentsShow = ({ payments }) => {
 
     return(
         <div>
             <h5>Transactions</h5>
-            <table>
+            <Table striped bordered hover size="sm">
                 <thead>
                     <tr>
                         <th>Date</th>
@@ -23,7 +24,7 @@ const PaymentsShow = ({ payments }) => {
                     )    
                 })}
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }
