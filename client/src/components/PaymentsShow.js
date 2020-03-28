@@ -5,7 +5,7 @@ const PaymentsShow = ({ payments }) => {
 
     return(
         <div>
-            <h5>Payments</h5>
+            <h5>Transactions</h5>
             <table>
                 <thead>
                     <tr>

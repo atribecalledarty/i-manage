@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import NewUserForm from './components/NewUserForm';
 import NavBar from './components/NavBar';
+import AuthUserShow from './components/AuthUserShow';
 import UserShow from './components/UserShow';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
@@ -80,12 +81,14 @@ class App extends React.Component {
               errors={this.props.errors}
               deleteUser={this.props.deleteUser}/>}/>
           <Route path={`/auth_user/:userId`} render={routerProps => 
-            <UserShow 
+            <AuthUserShow 
               {...routerProps} 
               users={this.props.users} 
               deleteUser={this.props.deleteUser}
               isLoggedIn={this.props.isLoggedIn}
-              loggedInUser={this.props.user}/>}/>
+              loggedInUser={this.props.user}
+              addPayment={this.props.addPayment}
+              errors={this.props.errors}/>}/>
               
           </Router>
       </Container>
