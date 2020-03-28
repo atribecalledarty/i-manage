@@ -1,5 +1,7 @@
 import React from 'react';
 import FormErrors from './FormErrors';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap'
 
 class NewPaymentForm extends React.Component {
     state = {
@@ -39,9 +41,9 @@ class NewPaymentForm extends React.Component {
                         type="text"
                         id="amount"
                         name="amount"
-                        placeholder="100.00"/>
+                        placeholder="100.00"/>&nbsp;
 
-                    <input type="submit" value="Submit Payment"/>
+                    <Button size="sm" variant="outline-primary" type="submit">Submit Payment</Button>
                 </form>
             </div>
         )

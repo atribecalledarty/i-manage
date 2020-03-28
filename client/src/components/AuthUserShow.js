@@ -2,6 +2,7 @@ import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 import NewPaymentForm from './NewPaymentForm';
 import PaymentsShow from './PaymentsShow';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 const AuthUserShow = ({ match, users, addPayment, errors }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
@@ -14,7 +15,7 @@ const AuthUserShow = ({ match, users, addPayment, errors }) => {
         }
     }
     return (
-        <div>
+        <Jumbotron>
             Balance: {calculateBalance(user.residency, user.unit.rent_cost_per_month)}$
             {console.log(addPayment)}
             <NewPaymentForm 
@@ -23,7 +24,7 @@ const AuthUserShow = ({ match, users, addPayment, errors }) => {
                     addPayment={addPayment}
                     errors={errors}/>
             {renderPayments()}
-        </div>
+        </Jumbotron>
     )
 
 }
