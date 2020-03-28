@@ -1,7 +1,11 @@
 import React from 'react';
 import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import PaymentsShow from './PaymentsShow';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import NewPaymentForm from './NewPaymentForm';
 
 const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
@@ -20,13 +24,18 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
         if (user.residency !== undefined) {
             return (
                 <>
-                    <p>
-                        Resident since {returnFormattedDate(user.residency.start_date)}<br/>
-                        Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
-                        Unit {user.unit.unit_number}<br/>               
-                    </p>
-                    <PaymentsShow payments={user.residency.payments}/>
+                    Resident since {returnFormattedDate(user.residency.start_date)}<br/>
+                    Balance: ${calculateBalance(user.residency, user.unit.rent_cost_per_month)}<br/>
+                    Unit # {user.unit.unit_number}<br/>
                 </>
+            )
+        }
+    }
+
+    const renderPayments = () => {
+        if (user.residency.payments !== undefined) {
+            return (
+                <PaymentsShow payments={user.residency.payments}/>
             )
         }
     }
@@ -35,20 +44,34 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
         deleteUser(user.id);
         history.push('/users')
         // window.location.href='/users';
-    }
+    }   
 
     return (
-        <div>
-            {console.log('in user show', user, users)}
-            <h3>{user.first_name} {user.last_name}</h3>
-            <button onClick={clickHandler}>Delete User</button>
-            <p>
-                {user.email}<br/>
-                {user.phone_number}
-            </p>
-            {renderResidencyInfo()}
-            {renderLinkForPayment()}
-        </div>
+        <Jumbotron fluid>
+            <Col md={{ span: 6, offset: 3 }}>
+                {/* {console.log('in user show', user, users)} */}
+                <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete User</Button></h3>
+{/*                 
+                <p>
+                </p> */}
+                <p>
+                    Email: {user.email}<br/>
+                    Phone number: {user.phone_number}<br/>
+                    {renderResidencyInfo()}
+                </p>
+                <hr/>
+                {renderPayments()}
+                {renderLinkForPayment()}
+                
+                <Route path={"/auth_user/:userId/payments/new"} render={routerProps => 
+                    <NewPaymentForm 
+                    {...routerProps} 
+                    user={this.props.user} 
+                    users={this.props.users}
+                    addPayment={this.props.addPayment}
+                    errors={this.props.errors}/>}/>
+            </Col>
+        </Jumbotron>
     )
 }
 

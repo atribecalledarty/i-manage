@@ -87,14 +87,7 @@ class App extends React.Component {
               isLoggedIn={this.props.isLoggedIn}
               loggedInUser={this.props.user}/>}/>
               
-          <Route path={"/auth_user/:userId/payments/new"} render={routerProps => 
-            <NewPaymentForm 
-              {...routerProps} 
-              user={this.props.user} 
-              users={this.props.users}
-              addPayment={this.props.addPayment}
-              errors={this.props.errors}/>}/>
-        </Router>
+          </Router>
       </Container>
     );
   }
