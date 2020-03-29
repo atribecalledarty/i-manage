@@ -2,7 +2,10 @@ FILO (First In Last Out)
 
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
 
-- Style FormErrors component li elements.
+- FormErrors when unmounted I need to clear errors.
+    Create clearErrors method dispatch action!.
+
+X Style FormErrors component li elements. => FormErrors styled.
 
 ? Change so Jumbotron is in app component so all routes will have Jumbotron => For now I will put Bootstrap components into each component
  because I'm not sure how to combine Routes and Bootstrap components...

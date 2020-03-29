@@ -116,6 +116,27 @@ export default function manageResources (
                 user: state.user,
                 errors: [ ...action.errors ]
             }
+        case 'CLEAR_ERRORS':
+            console.log('in add errors case', {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            })
+            return {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading_units: state.loading_units,
+                loading_users: state.loading_users,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            }
         case 'LOGIN':
             console.log('in login reduce case', {
                 ...state,

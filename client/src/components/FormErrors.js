@@ -1,13 +1,23 @@
 import React from 'react';
 
-const FormErrors = ({ errors }) => {
-    const displayErrors = errors.map((error, i) => <li className='error' key={i}>{error}</li>)
+class FormErrors extends React.Component {
+    componentWillUnmount() {
+        this.clearErrors();
+    }
+    
+    displayErrors = () => {
+        return (
+            this.props.errors.map((error, i) => <li className='error' key={i}>{error}</li>)
+        )
+    }
 
-    return (
-        <ul id="error-list">
-            {displayErrors}
-        </ul>
-    )
+    render() {
+            return (
+            <ul id="error-list">
+                {this.displayErrors()}
+            </ul>
+        )
+    }
 }
 
 export default FormErrors;
