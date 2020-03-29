@@ -27,3 +27,11 @@
   text-decoration: none;
   color: #000000;
 }
+
+#user-show{
+  padding: 32px 120px;
+}
+
+#users-container{
+  padding: 64px 64px;
+}

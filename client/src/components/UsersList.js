@@ -16,10 +16,17 @@ const UsersList = ({ users, history }) => {
             <ListGroup.Item action onClick={() => clickHandler(user)}>{user.first_name} {user.last_name}</ListGroup.Item> 
         </div>
     );
+
+    const buttonClickHandler = () => {
+        history.push('/users/new')
+    }
     
     return (
         <>
             <ListGroup>
+                <ListGroup.Item action onClick={buttonClickHandler} variant="primary">
+                    New User
+                </ListGroup.Item>
                 {renderUsers}
             </ListGroup>
         </>

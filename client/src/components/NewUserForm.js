@@ -27,24 +27,21 @@ class NewUserForm extends React.Component {
     }
 
     redirect = () => {
+        const user = this.props.users[-1]
         if (this.props.isLoggedIn && !this.props.user.manager_status) {
             this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
         }
     }
 
-    componentDidUpdate(){
-        this.redirect();
-    }
-
-    renderSubmit = () => {
-        if (this.props.isManager) {
-            return (
-                <input type="submit" value="Add User"/>
-            )
-        } else {
-            return (
-                <input type="submit" value="Create Account"/>
-            )
+    componentDidUpdate(prevProps){
+        const user = this.props.users[this.props.users.length - 1]
+        console.log('last user in new user form props', this.props.users)
+        const prevUser = prevProps.users[prevProps.users.length - 1]
+        console.log('in new user form ', user, prevUser)
+        if (this.props.isLoggedIn && !this.props.user.manager_status) {
+            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
+        } else if (this.props.isLoggedIn && user !== undefined && user !== prevUser) {
+            this.props.history.push(`/users/${user.id}`)
         }
     }
 
@@ -93,64 +90,6 @@ class NewUserForm extends React.Component {
                         Submit
                     </Button>
                 </Form>
-                {/* <form onSubmit={this.submitHandler}>
-                    <h5>New User</h5>
-                    <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
-                    <label htmlFor="username">Username: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="text" id="username" 
-                        name="username" 
-                        placeholder="harry_potter"
-                    /><br/>
-
-                    <label htmlFor="first_name">First Name: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="text" 
-                        id="first_name" 
-                        name="first_name" 
-                        placeholder="Harry"
-                    /><br/>
-
-                    <label htmlFor="last_name">Last Name: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="text" 
-                        id="last_name" 
-                        name="last_name" 
-                        placeholder="Potter"
-                    /><br/>
-
-                    <label htmlFor="email">Email: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="text" 
-                        id="email" 
-                        name="email" 
-                        placeholder="theboywholived22@owl.com"
-                    /><br/>
-
-                    <label htmlFor="phone_number">Phone Number: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="text" 
-                        id="phone_number"
-                        name="phone_number" 
-                        placeholder="XXX-XXX-XXXX"
-                    /><br/>
-
-                    <label htmlFor="password">Password: </label>
-                    <input 
-                        onChange={this.changeHandler} 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="asdfasdf"
-                    /><br/>
-                    
-                    {this.renderSubmit()}
-                </form> */}
             </Jumbotron>
         )
     }

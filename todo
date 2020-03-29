@@ -3,6 +3,7 @@ FILO (First In Last Out)
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
+- When manager creates account redirect to account
 
 - Style all routes and components for when manager is logged in!
     Style UnitsShow

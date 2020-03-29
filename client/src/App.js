@@ -80,7 +80,8 @@ class App extends React.Component {
               users={this.props.users} 
               addUser={this.props.addUser}
               errors={this.props.errors}
-              deleteUser={this.props.deleteUser}/>}/>
+              deleteUser={this.props.deleteUser}
+              clearErrors={this.props.clearErrors}/>}/>
           <Route path={`/auth_user/:userId`} render={routerProps => 
             <AuthUserContainer 
               {...routerProps} 

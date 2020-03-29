@@ -27,26 +27,18 @@ const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser 
         }
     }
 
-    // const renderPayments = () => {
-    //     if (user.residency.payments !== undefined) {
-    //         return (
-    //             <PaymentsShow payments={user.residency.payments}/>
-    //         )
-    //     }
-    // }
-
     const clickHandler = () => {
         deleteUser(user.id);
         history.push('/users')
     }   
 
     return (
-        <>
+        <div id="user-show">
             <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete User</Button></h3>
             {renderResidencyInfo()}
             <b>Email:</b> {user.email}<br/>
             <b>Phone number:</b> {user.phone_number}<br/>
-        </>
+        </div>
     )
 }
 

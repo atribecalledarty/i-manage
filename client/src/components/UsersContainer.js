@@ -3,22 +3,15 @@ import UsersList from './UsersList';
 import NewUserForm from './NewUserForm';
 import UserShow from './UserShow';
 import { Link, Switch, Route } from 'react-router-dom';
-import { Jumbotron } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Jumbotron, Col, Row, Button } from 'react-bootstrap';
 
-const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, history }) => {
-    const buttonClickHandler = () => {
-        history.push('/users/new')
-    }
-
+const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, history, clearErrors }) => {
     return(
         <div>
             {/* {console.log(users)} */}
-            <Jumbotron>
+            <Jumbotron id="users-container">
                 <Row>
-                    <Col>
-                        <Button onClick={buttonClickHandler}>Create New User</Button>
+                    <Col md="auto">
                         <UsersList users={users} history={history}/>
                     </Col>
                     <Col>
@@ -27,10 +20,12 @@ const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, 
                                 <NewUserForm 
                                     {...routerProps} 
                                     errors={errors}
-                                    user={user} 
+                                    user={user}
+                                    users={users} 
                                     addUser={addUser}
                                     isLoggedIn={isLoggedIn}
-                                    isManager={user.manager_status}/>}/>
+                                    isManager={user.manager_status}
+                                    clearErrors={clearErrors}/>}/>
                             <Route path={`/users/:userId`} render={routerProps => 
                                 <UserShow 
                                     {...routerProps} 
