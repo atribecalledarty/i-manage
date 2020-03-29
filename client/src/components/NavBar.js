@@ -37,7 +37,7 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
                     </Nav>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            <Button onClick={() => history.push(`/auth_user/${user.id}`)} 
+                            <Button onClick={() => history.push(`/auth_user/${user.id}/balance`)} 
                             size="sm" variant="link">{user.first_name} {user.last_name},</Button> 
                             <Button onClick={clickHandler} size="sm" variant="outline-secondary">Logout</Button>
                         </Navbar.Text>

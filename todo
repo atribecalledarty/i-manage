@@ -3,7 +3,11 @@ FILO (First In Last Out)
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
-- Logging out redirects..
+
+- Style RegisterForm.
+
+X Logging out redirects.. => Logging out redirects properly now.
+
 - FormErrors when unmounted I need to clear errors.
    X Create clearErrors method dispatch action!.
     Need to do this for all components that use FormErrors..
