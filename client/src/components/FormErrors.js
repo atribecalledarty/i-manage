@@ -2,7 +2,7 @@ import React from 'react';
 
 class FormErrors extends React.Component {
     componentWillUnmount() {
-        this.clearErrors();
+        this.props.clearErrors();
     }
     
     displayErrors = () => {

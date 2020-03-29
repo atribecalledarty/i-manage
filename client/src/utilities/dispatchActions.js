@@ -153,7 +153,7 @@ export const logoutUser = () => {
 
 export const addPayment = (amount, residency_id) => {
     return dispatch => {
-        console.log('hi');
+        // console.log('hi');
         axios.post('http://localhost:3002/payments', { amount, residency_id })
             .then(resp => {
                 // console.log(resp)
@@ -165,4 +165,8 @@ export const addPayment = (amount, residency_id) => {
                 }
             })
     }
+}
+
+export const clearErrors = () => {
+    return { type: 'CLEAR_ERRORS' }
 }

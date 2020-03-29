@@ -31,7 +31,7 @@ class Login extends Component {
         return(
             <Jumbotron id="login-jumbo">
                 <Form onSubmit={this.submitHandler}>
-                    <FormErrors errors={this.props.errors}/>
+                    <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
                     
                     <Form.Group controlId="email">
                         <Form.Label>Email address</Form.Label>

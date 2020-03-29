@@ -1,5 +1,7 @@
 FILO (First In Last Out)
 
+- Refactor Components connect some containers to redux so we don't have to pass in props
+
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
 
 - FormErrors when unmounted I need to clear errors.

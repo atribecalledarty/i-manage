@@ -20,7 +20,8 @@ import { addUnits,
         setLoginStatus,
         loginUser,
         logoutUser,
-        addPayment 
+        addPayment,
+        clearErrors 
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container'
 
@@ -56,7 +57,8 @@ class App extends React.Component {
               user={this.props.user}
               loginUser={this.props.loginUser}
               isLoggedIn={this.props.isLoggedIn}
-              errors={this.props.errors}/>}/>
+              errors={this.props.errors}
+              clearErrors={this.props.clearErrors}/>}/>
           <Route exact path="/signup" render={routerProps => 
             <NewUserForm 
               {...routerProps} 
@@ -123,7 +125,8 @@ const mapDispatchToProps = dispatch => {
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
       logoutUser: () => dispatch(logoutUser()),
-      addPayment: (amount, residencyId) => dispatch(addPayment(amount, residencyId))
+      addPayment: (amount, residencyId) => dispatch(addPayment(amount, residencyId)),
+      clearErrors: () => dispatch(clearErrors())
   }
 }
 

@@ -117,7 +117,7 @@ export default function manageResources (
                 errors: [ ...action.errors ]
             }
         case 'CLEAR_ERRORS':
-            console.log('in add errors case', {
+            console.log('in clear errors case', {
                 ...state,
                 units: [ ...state.units ],
                 users: [ ...state.users ],
