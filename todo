@@ -4,7 +4,9 @@ FILO (First In Last Out)
 
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
 
-- Style RegisterForm.
+- Style all routes and components for when manager is logged in!
+
+X Style RegisterForm. => NewUserForm is now styled!
 
 X Logging out redirects.. => Logging out redirects properly now.
 
