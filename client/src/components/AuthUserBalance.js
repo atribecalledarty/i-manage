@@ -15,8 +15,7 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors }) => {
         }
     }
     return (
-        <Jumbotron id="auth-user-jumbo">
-            <div>
+            <>
                 Balance: <span id="balance">{calculateBalance(user.residency, user.unit.rent_cost_per_month)}</span>$
                 {console.log(addPayment)}
                 <NewPaymentForm 
@@ -24,11 +23,11 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors }) => {
                         users={users}
                         addPayment={addPayment}
                         errors={errors}/>
-            </div>
-            <br/>
-            {renderPayments()}
-          </Jumbotron> 
-    )
+            
+                <br/>
+                {renderPayments()}
+            </>
+            )
 
 }
 
