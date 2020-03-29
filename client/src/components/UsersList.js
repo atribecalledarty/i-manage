@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { ListGroup } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 const UsersList = ({ users, history }) => {
     const clickHandler = user => {
         history.push(`/users/${user.id}`)
+    }
+
+    const buttonClickHandler = () => {
+        history.push('/users/new')
     }
 
     const renderUsers = users.map(user =>
@@ -16,11 +22,12 @@ const UsersList = ({ users, history }) => {
     );
     
     return (
-        <Jumbotron>
+        <Col>
+            <Button onClick={buttonClickHandler}>Create New User</Button>
             <ListGroup>
                 {renderUsers}
             </ListGroup>
-        </Jumbotron>
+        </Col>
     )
 }
 
