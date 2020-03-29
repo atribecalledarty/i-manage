@@ -8,7 +8,6 @@ import AuthUserContainer from './components/AuthUserContainer';
 import UserShow from './components/UserShow';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
-import NewPaymentForm from './components/NewPaymentForm';
 import Home from './components/Home';
 import { connect } from 'react-redux';
 import { addUnits,
@@ -64,7 +63,8 @@ class App extends React.Component {
               errors={this.props.errors}
               user={this.props.user} 
               addUser={this.props.addUser}
-              isLoggedIn={this.props.isLoggedIn}/>}/>
+              isLoggedIn={this.props.isLoggedIn}
+              clearErrors={this.props.clearErrors}/>}/>
           <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 
