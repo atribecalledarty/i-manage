@@ -8,12 +8,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, history }) => {
+    const buttonClickHandler = () => {
+        history.push('/users/new')
+    }
+
     return(
         <div>
             {/* {console.log(users)} */}
             <Jumbotron>
                 <Row>
-                    <UsersList users={users} history={history}/>
+                    <Col>
+                        <Button onClick={buttonClickHandler}>Create New User</Button>
+                        <UsersList users={users} history={history}/>
+                    </Col>
                     <Col>
                         <Switch>
                             <Route path={`/users/new`} render={routerProps => 

@@ -10,10 +10,6 @@ const UsersList = ({ users, history }) => {
         history.push(`/users/${user.id}`)
     }
 
-    const buttonClickHandler = () => {
-        history.push('/users/new')
-    }
-
     const renderUsers = users.map(user =>
         <div key={user.id}> 
             {/* <Link to={`/users/${user.id}`}>{user.first_name} {user.last_name}</Link>  */}
@@ -22,12 +18,11 @@ const UsersList = ({ users, history }) => {
     );
     
     return (
-        <Col>
-            <Button onClick={buttonClickHandler}>Create New User</Button>
+        <>
             <ListGroup>
                 {renderUsers}
             </ListGroup>
-        </Col>
+        </>
     )
 }
 
