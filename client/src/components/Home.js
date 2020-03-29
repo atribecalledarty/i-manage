@@ -1,6 +1,5 @@
 import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 class Home extends React.Component {
@@ -12,12 +11,10 @@ class Home extends React.Component {
     
     render() {
         return (
-            <Jumbotron fluid>
-                <Col md={{ span: 6, offset: 3 }}>
+            <Jumbotron id="welcome-jumbo">
                     <h1>Welcome to Luna's Cabins</h1>
                     <p>Please <Button onClick={() => this.props.history.push('/login')} size="sm" variant="outline-primary">Login</Button> or 
                     &nbsp;<Button onClick={() => this.props.history.push('/signup')} size="sm" variant="outline-secondary">Register</Button> to continue!</p>
-                </Col>
             </Jumbotron>
         )
     }

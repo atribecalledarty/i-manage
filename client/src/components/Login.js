@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import FormErrors from './FormErrors';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 class Login extends Component {
     state = {
@@ -26,11 +29,30 @@ class Login extends Component {
 
     render() {
         return(
-            <div>
+            <Jumbotron id="login-jumbo">
+                <Form onSubmit={this.submitHandler}>
+                    <FormErrors errors={this.props.errors}/>
+                    
+                    <Form.Group controlId="email">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control onChange={this.changeHandler} type="email" placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group controlId="password">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control onChange={this.changeHandler} type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
                 {/* {console.log(this.state)} */}
-                <FormErrors errors={this.props.errors}/>
+                {/* <FormErrors errors={this.props.errors}/>
                 <form onSubmit={this.submitHandler}>
-                    <label htmlFor="email">Email </label>
+                    <label htmlFor="email">Email&nbsp;</label>
                     <input type="text"
                         name="email" 
                         id="email" 
@@ -38,7 +60,7 @@ class Login extends Component {
                         value={this.state.email}/>
                     <br />
                     
-                    <label htmlFor="password">Password </label>
+                    <label htmlFor="password">Password&nbsp;</label>
                     <input type="password" 
                         name="password" 
                         id="password" 
@@ -47,8 +69,8 @@ class Login extends Component {
                     <br/>
 
                     <input type="submit" value="Sign In"/>
-                </form>
-            </div>
+                </form> */}
+            </Jumbotron>
         )
     }
 }

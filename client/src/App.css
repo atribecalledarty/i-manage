@@ -2,6 +2,19 @@
   font-size: 40px;
 }
 
+#welcome-jumbo{
+  padding: 64px 180px;
+}
+
+#login-jumbo{
+  padding: 64px 120px;
+}
+
 #auth-user-jumbo{
   padding: 64px 60px;
+}
+
+#error-list{
+  list-style-type: none;
+  color: red;
 }

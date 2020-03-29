@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def is_logged_in?
     # puts session
-    binding.pry
+    # binding.pry
     if logged_in? && current_user
       render json: {
         logged_in: true,

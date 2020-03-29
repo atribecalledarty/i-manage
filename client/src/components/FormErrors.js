@@ -1,12 +1,12 @@
 import React from 'react';
 
 const FormErrors = ({ errors }) => {
-    const displayErrors = errors.map((error, i) => <li key={i}>{error}</li>)
+    const displayErrors = errors.map((error, i) => <li className='error' key={i}>{error}</li>)
 
     return (
-        <div>
+        <ul id="error-list">
             {displayErrors}
-        </div>
+        </ul>
     )
 }
 

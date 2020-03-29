@@ -1,6 +1,15 @@
 FILO (First In Last Out)
 
-- when you login you're directed authuserbalance
+- Reformat UserShow because we're using AuthUser show for when user is logged in;
+
+- Style FormErrors component li elements.
+
+? Change so Jumbotron is in app component so all routes will have Jumbotron => For now I will put Bootstrap components into each component
+ because I'm not sure how to combine Routes and Bootstrap components...
+
+X Change home Component to use css instead of cols => Home jumbo uses css!
+
+X when you login you're directed authuserbalance => Login redirects to proper page.
 
 - style app with bootstrap!
     - jumbotron to contain
