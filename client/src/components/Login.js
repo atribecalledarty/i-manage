@@ -20,7 +20,7 @@ class Login extends Component {
 
     componentDidUpdate(){
         if (this.props.isLoggedIn) {
-            this.props.history.push(`/auth_user/${this.props.user.id}`)
+            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
         }
     }
 

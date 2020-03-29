@@ -10,6 +10,7 @@ const AuthUserAccount = ({ match, history, users, deleteUser, isLoggedIn, logout
         logoutUser();
         history.push('/')
     }
+    
     return (
         <>
             <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete Account</Button></h3>
