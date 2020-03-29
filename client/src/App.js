@@ -48,9 +48,8 @@ class App extends React.Component {
               loading_users={this.props.loading_users}
               loading_units={this.props.loading_units}
               user={this.props.user}
-              isLoggedIn={this.props.isLoggedIn} />}/>
-              {/*  users={this.props.users}
-                logoutUser={this.props.logoutUser}/>} /> */}
+              isLoggedIn={this.props.isLoggedIn}
+              loading_session={this.props.loading_session} />}/>
           <Route exact path="/login" render={routerProps => 
             <Login 
               {...routerProps}
@@ -107,6 +106,7 @@ const mapStateToProps = state => {
       users: state.users,
       loading_users: state.loading_users,
       loading_units: state.loading_units,
+      loading_session: state.loading_session,
       errors: state.errors,
       isLoggedIn: state.isLoggedIn,
       user: state.user

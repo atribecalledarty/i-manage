@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
-const NavBar = ({ isLoggedIn, user, logoutUser, history, loading_sessions }) => {
+const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     const clickHandler = () => {
         logoutUser();
         history.push('/');

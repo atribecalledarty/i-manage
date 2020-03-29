@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 class Home extends React.Component {
     componentDidUpdate() {
-        if (this.props.isLoggedIn && !this.props.loading_users && !this.props.loading_units) {
+        if (this.props.isLoggedIn && !this.props.loading_users && !this.props.loading_units &&!this.props.loading_session) {
             this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
         }
     }
