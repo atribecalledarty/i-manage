@@ -35,9 +35,7 @@ class NewUserForm extends React.Component {
 
     componentDidUpdate(prevProps){
         const user = this.props.users[this.props.users.length - 1]
-        console.log('last user in new user form props', this.props.users)
         const prevUser = prevProps.users[prevProps.users.length - 1]
-        console.log('in new user form ', user, prevUser)
         if (this.props.isLoggedIn && !this.props.user.manager_status) {
             this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
         } else if (this.props.isLoggedIn && user !== undefined && user !== prevUser) {

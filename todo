@@ -2,12 +2,15 @@ FILO (First In Last Out)
 
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
-- Reformat UserShow because we're using AuthUser show for when user is logged in;
-- When manager creates account redirect to account
+X Reformat UserShow because we're using AuthUser show for when user is logged in; => UserShow displays the proper information
+    for the logged in manager.
+    
+X When manager creates account redirect to account => Used lifecycle method componentShouldUpdate to redirect to newly
+    created user
 
 - Style all routes and components for when manager is logged in!
-    Style UnitsShow
-    Style UsersShow
+    Style UnitsShow !!
+    X Style UsersShow => All components have been styled, and proper web flow and component lifecycles.
 
 X Style RegisterForm. => NewUserForm is now styled!
 
@@ -15,7 +18,8 @@ X Logging out redirects.. => Logging out redirects properly now.
 
 - FormErrors when unmounted I need to clear errors.
    X Create clearErrors method dispatch action!.
-    Need to do this for all components that use FormErrors..
+   => Used componentUnmount lifecycle method to clean component on unmount as well as redux state.s
+   X Need to do this for all components that use FormErrors..
 
 X Style FormErrors component li elements. => FormErrors styled.
 
