@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
     def destroy
         User.find(params[:id]).delete
+        Residency.where(user_id: params[:id]).each do |residency|
+            residency.delete
+        end
         # binding.pry
     end
 

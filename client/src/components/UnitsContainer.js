@@ -10,8 +10,11 @@ const UnitsContainer = ({ units, usersWithoutResidency, addResidency, deleteResi
         <div>
             {/* {console.log(units)} */}
             <UnitsList units={units} />
-            <Route path={`/units/:unitId`} 
-                render={routerProps => <UnitShow {...routerProps} units={units} deleteResidency={deleteResidency}/>}/>
+            <Route path={`/units/:unitId`} render={routerProps => 
+                <UnitShow 
+                    {...routerProps} 
+                    units={units} 
+                    deleteResidency={deleteResidency}/>}/>
                 
             <Route path={`/units/:unitId/residents/new`} render={routerProps => 
                 <NewResidencyForm 

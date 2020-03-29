@@ -36,6 +36,7 @@ const UnitShow = ({ match, units, deleteResidency }) => {
 
     return (
         <div>
+            {console.log('in unitshow', units)}
             <h3>Unit {unit.unit_number}</h3>
             <p>
                 {unit.type_of_unit}<br/>
