@@ -4,11 +4,11 @@ import NewUserForm from './NewUserForm';
 import UserShow from './UserShow';
 import { Link, Switch, Route } from 'react-router-dom';
 
-const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser }) => {
+const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, history }) => {
     return(
         <div>
             {/* {console.log(users)} */}
-            <UsersList users={users} />
+            <UsersList users={users} history={history}/>
             <Link to={`/users/new`}>Create New User</Link>
             <Switch>
                 <Route path={`/users/new`} render={routerProps => 

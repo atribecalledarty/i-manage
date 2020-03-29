@@ -33,8 +33,8 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
         } else {
             return (
                 <>
-                    <h1><i>No Residency.</i></h1>
-                    <p>Please have your manager assign you to a unit.</p>
+                    <i><h1>No Residency.</h1>
+                    <p>Please have your manager assign you to a unit.</p></i>
                 </>
             )
         }
