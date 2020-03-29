@@ -14,17 +14,17 @@ const UnitShow = ({ match, units, deleteResidency }) => {
                 <div>
                     <h5>Resident</h5>
                     <p>
-                        {console.log('in unit show', unit)}
+                        {/* {console.log('in unit show', unit)} */}
                         {resident.first_name} {resident.last_name}<br/>
                         {resident.email}<br/>
                         {resident.phone_number}<br/><br/>
-
+{/* 
                         Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}<br/>
+                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}<br/> */}
                         <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
                     </p>
                     {/* {renderPayments()} */}
-                    <PaymentsShow payments={residency.payments}/>
+                    {/* <PaymentsShow payments={residency.payments}/> */}
                 </div>
             )
         } else {
