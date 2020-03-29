@@ -35,7 +35,7 @@ class Login extends Component {
                     
                     <Form.Group controlId="email">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control onChange={this.changeHandler} type="email" placeholder="Enter email" />
+                        <Form.Control onChange={this.changeHandler} name="email" type="text" placeholder="Enter email" />
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                         </Form.Text>
@@ -43,7 +43,7 @@ class Login extends Component {
 
                     <Form.Group controlId="password">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={this.changeHandler} type="password" placeholder="Password" />
+                        <Form.Control onChange={this.changeHandler} name="password" type="password" placeholder="Password" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit

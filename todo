@@ -5,7 +5,8 @@ FILO (First In Last Out)
 - Reformat UserShow because we're using AuthUser show for when user is logged in;
 
 - FormErrors when unmounted I need to clear errors.
-    Create clearErrors method dispatch action!.
+   X Create clearErrors method dispatch action!.
+    Need to do this for all components that use FormErrors..
 
 X Style FormErrors component li elements. => FormErrors styled.
 

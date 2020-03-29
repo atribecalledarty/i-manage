@@ -23,7 +23,7 @@ class NewPaymentForm extends React.Component {
     displayErrors = () => {
         if (this.props.errors !== null) {
             return (
-                <FormErrors errors={this.props.errors}/>
+                <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
             )
         }
     }

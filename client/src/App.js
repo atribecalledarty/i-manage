@@ -91,6 +91,7 @@ class App extends React.Component {
               loggedInUser={this.props.user}
               addPayment={this.props.addPayment}
               logoutUser={this.props.logoutUser}
+              clearErrors={this.props.clearErrors}
               errors={this.props.errors}/>}/>
             {/* <Route path={`/auth_user/:userId/balance`} render={routerProps => 
               <AuthUserShow}/> */}
