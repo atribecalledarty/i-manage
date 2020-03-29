@@ -6,8 +6,12 @@
   padding: 64px 180px;
 }
 
-#login-jumbo{
+#login-jumbo {
   padding: 64px 120px;
+}
+
+#new-user-jumbo {
+  padding: 64px 100px;
 }
 
 #auth-user-jumbo{
@@ -17,4 +21,9 @@
 #error-list{
   list-style-type: none;
   color: red;
+}
+
+#brand{
+  text-decoration: none;
+  color: #000000;
 }

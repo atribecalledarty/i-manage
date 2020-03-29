@@ -10,13 +10,28 @@ const AuthUserAccount = ({ match, history, users, deleteUser, isLoggedIn, logout
         logoutUser();
         history.push('/')
     }
+
+    const renderResidencyInfo = () => {
+        if (user.residency !== undefined) {
+            return (
+                <>
+                    <i>Resident Since {returnFormattedDate(user.residency.start_date)}<br/>
+                    Unit #{user.unit.unit_number}</i><br/><br/>
+                </>
+            )
+        } else {
+            return ( 
+                <>
+                    <i>Please have your manager assign you to a unit.</i><br/><br/>
+                </>
+            )
+        }
+    }
     
     return (
         <>
             <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete Account</Button></h3>
-            
-            <i>Resident Since {returnFormattedDate(user.residency.start_date)}<br/>
-            Unit #{user.unit.unit_number}</i><br/><br/>
+            {renderResidencyInfo()}
             <b>Email:</b> {user.email}<br/>
             <b>Phone:</b> {user.phone_number}<br/>
         </> 

@@ -11,6 +11,10 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
         history.push('/');
     }
 
+    const redirectToHome = () => {
+        history.push('/');
+    }
+
     const renderNav = () => {
         if (isLoggedIn && user.manager_status) {
             return (
@@ -60,7 +64,7 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     return (
         <Navbar bg="light" variant="light">
             <Container>
-                <Navbar.Brand>Luna's Cabins</Navbar.Brand>
+                <Navbar.Brand ><a href="#" id="brand" onClick={redirectToHome}>Luna's Cabins</a></Navbar.Brand>
                 {renderNav()}
             </Container>
         </Navbar>
