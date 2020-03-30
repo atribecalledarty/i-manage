@@ -1,9 +1,12 @@
 import React from 'react';
-import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
+import { returnFormattedDate } from '../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
-import PaymentsShow from './PaymentsShow';
+import { Button } from 'react-bootstrap';
+import { Route } from 'react-router-dom';
+import NewResidencyForm from './NewResidencyForm';
 
-const UnitShow = ({ match, units, deleteResidency }) => {
+
+const UnitShow = ({ match, units, deleteResidency, addResidency, usersWithoutResidency }) => {
     const unit = units.find(unit => unit.id === Number(match.params.unitId))
     const resident = unit.resident;
     const residency = unit.residency;
@@ -12,19 +15,12 @@ const UnitShow = ({ match, units, deleteResidency }) => {
         if (unit.residency !== undefined) {
             return (
                 <div>
-                    <h5>Resident</h5>
                     <p>
-                        {/* {console.log('in unit show', unit)} */}
-                        {resident.first_name} {resident.last_name}<br/>
-                        {resident.email}<br/>
-                        {resident.phone_number}<br/><br/>
-{/* 
-                        Resident since: {returnFormattedDate(residency.start_date)}<br/>
-                        Balance: ${calculateBalance(residency, unit.rent_cost_per_month)}<br/> */}
-                        <button onClick={() => deleteResidency(residency.id)}>Remove Resident</button>
+                        <span id="resident-name">{resident.first_name} {resident.last_name}</span><br/>
+                        Resident Since {returnFormattedDate(residency.start_date)}<br/>
+                        {resident.email} | {resident.phone_number}<br/><br/>
+                        <Button size="sm" variant="outline-danger" onClick={() => deleteResidency(residency.id)}>Remove Resident From Unit</Button>
                     </p>
-                    {/* {renderPayments()} */}
-                    {/* <PaymentsShow payments={residency.payments}/> */}
                 </div>
             )
         } else {
@@ -35,16 +31,22 @@ const UnitShow = ({ match, units, deleteResidency }) => {
     }
 
     return (
-        <div>
+        <div id="unit-show">
             {console.log('in unitshow', units)}
             <h3>Unit {unit.unit_number}</h3>
             <p>
-                {unit.type_of_unit}<br/>
+                <i>{unit.type_of_unit}<br/>
                 {unit.sq_ft} sq ft<br/>
-                ${unit.rent_cost_per_month}/month
+                ${unit.rent_cost_per_month}/month</i>
             </p>
-            
             {renderResidencyInfo()}
+            {/* route needs to be here... */}
+            
+            <Route path={`/units/:unitId/residents/new`} render={routerProps => 
+                    <NewResidencyForm 
+                        {...routerProps} 
+                        addResidency={addResidency}
+                        usersWithoutResidency={usersWithoutResidency}/>}/>
         </div>  
     )
 }

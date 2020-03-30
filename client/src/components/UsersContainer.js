@@ -9,7 +9,7 @@ const UsersContainer = ({ users, errors, user, addUser, isLoggedIn, deleteUser, 
     return(
         <div>
             {/* {console.log(users)} */}
-            <Jumbotron id="users-container">
+            <Jumbotron id="user-container">
                 <Row>
                     <Col md="auto">
                         <UsersList users={users} history={history}/>

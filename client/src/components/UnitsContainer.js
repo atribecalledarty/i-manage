@@ -5,26 +5,24 @@ import { Route } from 'react-router-dom';
 import NewResidencyForm from './NewResidencyForm';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
 
-const UnitsContainer = ({ units, usersWithoutResidency, addResidency, deleteResidency }) => {
+const UnitsContainer = ({ history, units, usersWithoutResidency, addResidency, deleteResidency }) => {
     
     return(
-        <Jumbotron id="units-container">
+        <Jumbotron id="unit-container">
             {/* {console.log(units)} */}
             <Row>
                 <Col md="auto">
-                    <UnitsList units={units} />
-                </Col> 
+                    <UnitsList units={units} history={history} />
+                </Col>
+
                 <Route path={`/units/:unitId`} render={routerProps => 
                     <UnitShow 
                         {...routerProps} 
                         units={units} 
-                        deleteResidency={deleteResidency}/>}/>
-                    
-                <Route path={`/units/:unitId/residents/new`} render={routerProps => 
-                    <NewResidencyForm 
-                        {...routerProps} 
+                        deleteResidency={deleteResidency}
                         addResidency={addResidency}
                         usersWithoutResidency={usersWithoutResidency}/>}/>
+                    
             </Row>
         </Jumbotron>
     )

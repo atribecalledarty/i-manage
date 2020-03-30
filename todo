@@ -3,6 +3,8 @@ FILO (First In Last Out)
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
 - When user gets deleted I need to delete any residencies that user had..
+    
+X Logging in as manager takes user to /units. => Logging in as Luna redirects to /units
 
 X Reformat UserShow because we're using AuthUser show for when user is logged in; => UserShow displays the proper information
     for the logged in manager.

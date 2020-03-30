@@ -32,10 +32,26 @@
   padding: 32px 120px;
 }
 
-#users-container{
+#unit-show{
+  padding: 32px 115px;
+}
+
+#user-container{
   padding: 64px 64px;
 }
 
-#units-container{
+#unit-container{
   padding: 64px 64px;
+}
+
+#resident-name{
+  font-size: 18px;
+}
+
+#unit-info{
+  padding: 0px 24px;
+}
+
+#new-residency-form{
+  margin: 20px 0px;
 }

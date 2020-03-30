@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 class NewResidencyForm extends React.Component {
     state = {
@@ -20,14 +22,27 @@ class NewResidencyForm extends React.Component {
 
     render() {
         return(
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    <label htmlFor="user">Choose user:</label>
+            <div id="new-residency-form">
+                {/* <form onSubmit={this.submitHandler}>
                     <select onChange={this.changeHandler}>
+                        <option value="" selected disabled hidden>Choose User</option>
                         {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
-                    </select><br/>
-                    <input type="submit" value="Add User to Unit"/>
-                </form>
+                    </select><br/><br/>
+                    <Button size="sm" type="submit">Submit</Button>
+                </form> */}
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group controlId="userId">
+                        {/* <Form.Label>User</Form.Label> */}
+                        <Form.Control onChange={this.changeHandler} as="select" size="sm" custom>
+                            <option value="" selected disabled hidden>Choose User</option>
+                            {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
+                        </Form.Control>
+                        <Form.Text className="text-muted">
+                            To create new user, navigate to Users
+                        </Form.Text>
+                    </Form.Group>
+                    <Button size="sm" type="submit">Submit</Button>
+                </Form>
             </div>
         )
     }
