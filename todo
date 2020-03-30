@@ -3,7 +3,15 @@ FILO (First In Last Out)
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
 - When user gets deleted I need to delete any residencies that user had..
-    
+
+- Add default user/unit when navigated to user/units...
+    click() upon mount and update so that the listitem becomes highlighted!
+
+- UnitShow has link to UserShow.
+
+X Cannot make payment if no unit???
+    Nevermind this is already the case.
+
 X Logging in as manager takes user to /units. => Logging in as Luna redirects to /units
 
 X Reformat UserShow because we're using AuthUser show for when user is logged in; => UserShow displays the proper information
@@ -12,8 +20,8 @@ X Reformat UserShow because we're using AuthUser show for when user is logged in
 X When manager creates account redirect to account => Used lifecycle method componentShouldUpdate to redirect to newly
     created user
 
-- Style all routes and components for when manager is logged in!
-    Style UnitsShow !!
+X Style all routes and components for when manager is logged in!
+    X Style UnitsShow !!
     X Style UsersShow => All components have been styled, and proper web flow and component lifecycles.
 
 X Style RegisterForm. => NewUserForm is now styled!

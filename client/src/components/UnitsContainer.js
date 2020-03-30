@@ -5,27 +5,40 @@ import { Route } from 'react-router-dom';
 import NewResidencyForm from './NewResidencyForm';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
 
-const UnitsContainer = ({ history, units, usersWithoutResidency, addResidency, deleteResidency }) => {
-    
-    return(
-        <Jumbotron id="unit-container">
-            {/* {console.log(units)} */}
-            <Row>
-                <Col md="auto">
-                    <UnitsList units={units} history={history} />
-                </Col>
+class UnitsContainer extends React.Component {
+    // componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect
+    //     if (this.props.units[0] !== undefined && this.props.history.location.pathname === '/units') {
+    //         this.props.history.push(`/units/${this.props.units[0].id}`)
+    //     }
+    // }
 
-                <Route path={`/units/:unitId`} render={routerProps => 
-                    <UnitShow 
-                        {...routerProps} 
-                        units={units} 
-                        deleteResidency={deleteResidency}
-                        addResidency={addResidency}
-                        usersWithoutResidency={usersWithoutResidency}/>}/>
-                    
-            </Row>
-        </Jumbotron>
-    )
+    // componentDidUpdate(){ //need both because initial loading of units will not have units loaded into props
+    //     if (this.props.units[0] !== undefined && this.props.history.location.pathname === '/units') {
+    //         this.props.history.push(`/units/${this.props.users[0].id}`)
+    //     }
+    // }
+
+    render() {
+        return(
+            <Jumbotron id="unit-container">
+                {/* {console.log(units)} */}
+                <Row>
+                    <Col md="auto">
+                        <UnitsList units={this.props.units} history={this.props.history} />
+                    </Col>
+
+                    <Route path={`/units/:unitId`} render={routerProps => 
+                        <UnitShow 
+                            {...routerProps} 
+                            units={this.props.units} 
+                            deleteResidency={this.props.deleteResidency}
+                            addResidency={this.props.addResidency}
+                            usersWithoutResidency={this.props.usersWithoutResidency}/>}/>
+                        
+                </Row>
+            </Jumbotron>
+        )
+    }
 }
 
 export default UnitsContainer;

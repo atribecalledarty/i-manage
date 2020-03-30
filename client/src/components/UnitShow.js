@@ -40,7 +40,6 @@ const UnitShow = ({ match, units, deleteResidency, addResidency, usersWithoutRes
                 ${unit.rent_cost_per_month}/month</i>
             </p>
             {renderResidencyInfo()}
-            {/* route needs to be here... */}
             
             <Route path={`/units/:unitId/residents/new`} render={routerProps => 
                     <NewResidencyForm 

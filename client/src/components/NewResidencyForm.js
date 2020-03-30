@@ -23,13 +23,6 @@ class NewResidencyForm extends React.Component {
     render() {
         return(
             <div id="new-residency-form">
-                {/* <form onSubmit={this.submitHandler}>
-                    <select onChange={this.changeHandler}>
-                        <option value="" selected disabled hidden>Choose User</option>
-                        {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
-                    </select><br/><br/>
-                    <Button size="sm" type="submit">Submit</Button>
-                </form> */}
                 <Form onSubmit={this.submitHandler}>
                     <Form.Group controlId="userId">
                         {/* <Form.Label>User</Form.Label> */}
