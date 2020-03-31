@@ -11,7 +11,7 @@ see payment history.
 
 iManage consists of a React front end (React files are located in /client) that communicates with Rails API backend.
 
-## Installation
+## Installations And Migrations
 
 1. Install Ruby Gems
 
@@ -26,7 +26,8 @@ $ cd client
 $ npm install
 ```
 
-3. Migrate and seed database
+3. Migrate and seed database. (Seeding must be executed in that order***)
+
 ```bash
 $ rails db:migrate
 $ rails db:seed:users
@@ -38,16 +39,15 @@ $ rails db:seed:payments_3
 $ rails db:seed:payments_4
 ```
 
-(Seeding must be executed in that order***). Seeds were separated in separate files for organization.
+## Usage
 
-4. Run both Rails server and React server!
+1. Run both Rails server and React server!
+
 ```bash
 $ rake start
 ```
 
-## Usage
-
-Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)!
+2. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)!
 
 ```bash
 Luna 
