@@ -1,7 +1,6 @@
 import React from 'react';
 import FormErrors from './FormErrors';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap'
 
 class NewPaymentForm extends React.Component {
     state = {

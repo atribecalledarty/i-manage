@@ -2,8 +2,8 @@ import React from 'react';
 import UsersList from './UsersList';
 import NewUserForm from './NewUserForm';
 import UserShow from './UserShow';
-import { Link, Switch, Route } from 'react-router-dom';
-import { Jumbotron, Col, Row, Button } from 'react-bootstrap';
+import { Switch, Route } from 'react-router-dom';
+import { Jumbotron, Col, Row } from 'react-bootstrap';
 
 class UsersContainer extends React.Component {
     componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect

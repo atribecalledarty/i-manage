@@ -1,13 +1,8 @@
 import React from 'react';
-import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
-import { Link, Route } from 'react-router-dom';
-import PaymentsShow from './PaymentsShow';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Col from 'react-bootstrap/Col';
+import { returnFormattedDate } from '../utilities/utilityFunctions';
 import Button from 'react-bootstrap/Button';
-import NewPaymentForm from './NewPaymentForm';
 
-const UserShow = ({ match, users, deleteUser, history, isLoggedIn, loggedInUser }) => {
+const UserShow = ({ match, users, deleteUser, history }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
 
     const renderResidencyInfo = () => {

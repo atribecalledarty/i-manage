@@ -5,7 +5,6 @@ import Login from './components/Login';
 import NewUserForm from './components/NewUserForm';
 import NavBar from './components/NavBar';
 import AuthUserContainer from './components/AuthUserContainer';
-import UserShow from './components/UserShow';
 import UnitsContainer from './components/UnitsContainer';
 import UsersContainer from './components/UsersContainer';
 import Home from './components/Home';

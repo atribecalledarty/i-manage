@@ -3,7 +3,6 @@ import { returnFormattedDate } from '../utilities/utilityFunctions';
 import Table from 'react-bootstrap/Table';
 
 const PaymentsShow = ({ payments }) => {
-
     return(
         <div>
             <h5>Transactions</h5>
