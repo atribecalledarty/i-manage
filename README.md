@@ -15,15 +15,22 @@ Here are the steps to setup and run the application:
 
 1. Install Ruby Gems
 
+```bash
 $ bundle install
+```
 
 2. Install JS node packages (package.json is in /client folder)
 
+```bash
 $ cd client
+```
 
+```bash
 $ npm install
+```
 
 3. Migrate and seed database
+```bash
 
 $ rails db:migrate
 
@@ -40,6 +47,7 @@ $ rails db:seed:payments_2
 $ rails db:seed:payments_3
 
 $ rails db:seed:payments_4
+```
 
 (Seeding must be executed in that order***). Seeds were separated in separate files for organization.
 
@@ -49,10 +57,16 @@ $ rake start
 
 5. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)
 
-Luna: email: itsluna@owl.com
-      password: nargles
+Luna: 
 
-Nymphadora: email: nymphaaaa@owl.com
-            password: icanchange
+email: itsluna@owl.com
+      
+password: nargles
+
+Nymphadora: 
+
+email: nymphaaaa@owl.com
+
+password: icanchange
 
 Thanks for checking out my project. Any feedback is welcomed!
