@@ -25,8 +25,8 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
                             addPayment={addPayment}
                             clearErrors={clearErrors}
                             errors={errors}/>
-                
                     <br/>
+                    {renderPayments()}
                 </>
             )
         } else {
@@ -42,7 +42,6 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
     return (
             <>
                 {renderResidencyInfo()}
-                {renderPayments()}
             </>
             )
 

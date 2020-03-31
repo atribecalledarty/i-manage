@@ -1,8 +1,11 @@
 FILO (First In Last Out)
 
-- Refactor Components connect some containers to redux so we don't have to pass in props
+- some components cannot be accessed if units/users have not been loaded
+    e.g. /units/2
 
-- Remove all extraneous imports.
+X Refactor Components connect some containers to redux so we don't have to pass in props => I think this is okay for now
+
+X Remove all extraneous imports. => Removed all extra
 
 X Add Instructions to README. => added description and how to use in readme.
 
