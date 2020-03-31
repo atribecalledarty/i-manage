@@ -16,7 +16,7 @@ const UnitShow = ({ match, units, deleteResidency, addResidency, usersWithoutRes
             return (
                 <div>
                     <p>
-                        <span id="resident-name">{resident.first_name} {resident.last_name}</span><br/>
+                        <span id="resident-name"><Link to={`/users/${resident.id}`}>{resident.first_name} {resident.last_name}</Link></span><br/>
                         Resident Since {returnFormattedDate(residency.start_date)}<br/>
                         {resident.email} | {resident.phone_number}<br/><br/>
                         <Button size="sm" variant="outline-danger" onClick={() => deleteResidency(residency.id)}>Remove Resident From Unit</Button>

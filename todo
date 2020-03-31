@@ -1,15 +1,17 @@
 FILO (First In Last Out)
 
 - Refactor Components connect some containers to redux so we don't have to pass in props
-- Add Instructions to README.
 
+- Remove all extraneous imports.
+
+X Add Instructions to README. => added description and how to use in readme.
 
 X When user gets deleted I need to delete any residencies that user had..
 
 X Add default user/unit when navigated to user/units... => Used componentDidMount and componenDidUpdate to redirect to unitshow
     click() upon mount and update so that the listitem becomes highlighted!
 
-- UnitShow has link to UserShow.
+X UnitShow has link to UserShow. => UnitShow has link to User's show page.
 
 X Cannot make payment if no unit???
     Nevermind this is already the case.
