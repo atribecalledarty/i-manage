@@ -14,26 +14,26 @@ iManage consists of a React front end (React files are located in /client) that 
 Here are the steps to get application running.
 
 1. Install Ruby Gems
-    $ bundle install
+$ bundle install
 
 2. Install JS node packages (package.json is in /client folder)
-    $ cd client
-    $ npm install
+$ cd client
+$ npm install
 
 3. Migrate and seed database
-    $ rails db:migrate
-    $ rails db:seed:users
-    $ rails db:seed:units
-    $ rails db:seed:residencies
-    $ rails db:seed:payments_1
-    $ rails db:seed:payments_2
-    $ rails db:seed:payments_3
-    $ rails db:seed:payments_4
+$ rails db:migrate
+$ rails db:seed:users
+$ rails db:seed:units
+$ rails db:seed:residencies
+$ rails db:seed:payments_1
+$ rails db:seed:payments_2
+$ rails db:seed:payments_3
+$ rails db:seed:payments_4
 
 (Seeding must be executed in that order***). Seeds were separated in separate files for organization.
 
 4. Run both Rails server and React server!
-    $ rake start
+$ rake start
 
 5. Navigate to localhost:3000 in your browser
 
