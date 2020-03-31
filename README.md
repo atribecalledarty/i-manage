@@ -4,7 +4,7 @@ Welcome to my React/Rails Demo Project!
 
 iManage is used to help Luna manage her fellow wizards and witches that reside in her apartment complex, Luna's Cabins.
 
-Luna's Cabins is an apartment complex with 12 units. The application will calculate the tenant's balance based 
+Luna's Cabins is an apartment complex with 12 units. The application calculates the tenant's balance based 
 on previous payments and how many months have passed since the move-in date. Luna can login and assign/remove
 users from units. Tenants/Residents can also login to their accounts, make payments to his/her balance, and 
 see payment history.
