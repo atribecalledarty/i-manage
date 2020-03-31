@@ -1,6 +1,8 @@
 FILO (First In Last Out)
 
 - Refactor Components connect some containers to redux so we don't have to pass in props
+- Add Instructions to README.
+
 
 X When user gets deleted I need to delete any residencies that user had..
 
