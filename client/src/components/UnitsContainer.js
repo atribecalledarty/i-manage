@@ -6,17 +6,17 @@ import NewResidencyForm from './NewResidencyForm';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
 
 class UnitsContainer extends React.Component {
-    // componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect
-    //     if (this.props.units[0] !== undefined && this.props.history.location.pathname === '/units') {
-    //         this.props.history.push(`/units/${this.props.units[0].id}`)
-    //     }
-    // }
+    componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect
+        if (!this.props.loading_units && (JSON.stringify(this.props.units) != JSON.stringify([]))) {
+            this.props.history.push(`/units/${this.props.units[0].id}`)
+        }
+    }
 
-    // componentDidUpdate(){ //need both because initial loading of units will not have units loaded into props
-    //     if (this.props.units[0] !== undefined && this.props.history.location.pathname === '/units') {
-    //         this.props.history.push(`/units/${this.props.users[0].id}`)
-    //     }
-    // }
+    componentDidUpdate(prevProps){
+        if (JSON.stringify(prevProps.units) != JSON.stringify(this.props.units)) {
+            this.props.history.push(`/units/${this.props.units[0].id}`)
+        }
+    }
 
     render() {
         return(

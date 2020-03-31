@@ -71,6 +71,7 @@ class App extends React.Component {
               units={this.props.units}
               usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}
               addResidency={this.props.addResidency}
+              loading_units={this.props.loading_units}
               deleteResidency={this.props.deleteResidency}/>}/>
           <Route path="/users" render={routerProps => 
             <UsersContainer 
