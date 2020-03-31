@@ -11,30 +11,48 @@ see payment history.
 
 iManage consists of a React front end (React files are located in /client) that communicates with Rails API backend.
 
-Here are the steps to get application running.
+Here are the steps to setup and run the application:
 
 1. Install Ruby Gems
+
 $ bundle install
 
 2. Install JS node packages (package.json is in /client folder)
+
 $ cd client
+
 $ npm install
 
 3. Migrate and seed database
+
 $ rails db:migrate
+
 $ rails db:seed:users
+
 $ rails db:seed:units
+
 $ rails db:seed:residencies
+
 $ rails db:seed:payments_1
+
 $ rails db:seed:payments_2
+
 $ rails db:seed:payments_3
+
 $ rails db:seed:payments_4
 
 (Seeding must be executed in that order***). Seeds were separated in separate files for organization.
 
 4. Run both Rails server and React server!
+
 $ rake start
 
-5. Navigate to localhost:3000 in your browser
+5. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)
+
+Luna: email: itsluna@owl.com
+      password: nargles
+
+Nymphadora: email: nymphaaaa@owl.com
+            password: icanchange
 
 Thanks for checking out my project. Any feedback is welcomed!
