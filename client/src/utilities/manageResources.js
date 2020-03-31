@@ -12,6 +12,18 @@ export default function manageResources (
 
     switch(action.type) {
         case 'LOADING_UNITS':
+            console.log('in loading units',
+                {
+                ...state,
+                units: [ ...state.units ],
+                users: [ ...state.users ],
+                loading_units: true,
+                loading_users: state.loading_users,
+                loading_session: state.loading_session,
+                isLoggedIn: state.isLoggedIn,
+                user: state.user,
+                errors: []
+            })
             return {
                 ...state,
                 units: [ ...state.units ],
