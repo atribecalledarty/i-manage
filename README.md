@@ -23,29 +23,18 @@ $ bundle install
 
 ```bash
 $ cd client
-```
-
-```bash
 $ npm install
 ```
 
 3. Migrate and seed database
 ```bash
-
 $ rails db:migrate
-
 $ rails db:seed:users
-
 $ rails db:seed:units
-
 $ rails db:seed:residencies
-
 $ rails db:seed:payments_1
-
 $ rails db:seed:payments_2
-
 $ rails db:seed:payments_3
-
 $ rails db:seed:payments_4
 ```
 
