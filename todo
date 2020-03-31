@@ -2,9 +2,9 @@ FILO (First In Last Out)
 
 - Refactor Components connect some containers to redux so we don't have to pass in props
 
-- When user gets deleted I need to delete any residencies that user had..
+X When user gets deleted I need to delete any residencies that user had..
 
-- Add default user/unit when navigated to user/units...
+X Add default user/unit when navigated to user/units... => Used componentDidMount and componenDidUpdate to redirect to unitshow
     click() upon mount and update so that the listitem becomes highlighted!
 
 - UnitShow has link to UserShow.

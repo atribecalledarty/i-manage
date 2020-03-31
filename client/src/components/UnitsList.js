@@ -21,7 +21,7 @@ const UnitsList = ({ history, units}) => {
 
     const renderUnits = units.map(unit =>
                 <div key={unit.id}> 
-                    <ListGroup.Item action onClick={() => clickHandler(unit)}>#{unit.unit_number} {this.renderUser(unit)}</ListGroup.Item> 
+                    <ListGroup.Item action onClick={() => clickHandler(unit)}>#{unit.unit_number} {renderUser(unit)}</ListGroup.Item> 
                 </div>
             )
 
