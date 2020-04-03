@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
-import NewUserForm from './components/NewUserForm';
+import SignupForm from './components/SignupForm';
 import NavBar from './components/NavBar';
 import AuthUserContainer from './components/AuthUserContainer';
 import UnitsContainer from './components/UnitsContainer';
@@ -57,7 +57,7 @@ class App extends React.Component {
               errors={this.props.errors}
               clearErrors={this.props.clearErrors}/>}/>
           <Route exact path="/signup" render={routerProps => 
-            <NewUserForm 
+            <SignupForm 
               {...routerProps} 
               errors={this.props.errors}
               user={this.props.user} 
