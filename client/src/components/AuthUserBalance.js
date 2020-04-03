@@ -7,9 +7,13 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
     const user = users.find(user => user.id === Number(match.params.userId));
 
     const renderPayments = () => {
-        if (user.residency.payments !== undefined) {
+        if (user.residency.payments !== undefined && user.residency.payments.length) {
             return (
                 <PaymentsShow payments={user.residency.payments}/>
+            )
+        } else {
+            return (
+                <p><i>No payments</i></p>
             )
         }
     }

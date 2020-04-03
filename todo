@@ -2,6 +2,7 @@ FILO (First In Last Out)
 
 - some components cannot be accessed if units/users have not been loaded
     e.g. /units/2
+- Adding user to a unit should redirect back to unit not to a different unit.
 
 X Refactor Components connect some containers to redux so we don't have to pass in props => I think this is okay for now
 

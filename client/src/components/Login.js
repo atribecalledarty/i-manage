@@ -32,7 +32,7 @@ class Login extends Component {
     render() {
         return(
             <Jumbotron id="login-jumbo">
-                {console.log(this.props.user)}
+                {/* {console.log(this.props.user)} */}
                 <Form onSubmit={this.submitHandler}>
                     <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
                     
