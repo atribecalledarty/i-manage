@@ -26,12 +26,12 @@ class NewUserForm extends React.Component {
         this.props.addUser(this.state, this.props.isManager);
     }
 
-    redirect = () => {
-        const user = this.props.users[-1]
-        if (this.props.isLoggedIn && !this.props.user.manager_status) {
-            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-        }
-    }
+    // redirect = () => {
+    //     const user = this.props.users[-1]
+    //     if (this.props.isLoggedIn && !this.props.user.manager_status) {
+    //         this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
+    //     }
+    // }
 
     componentDidUpdate(prevProps){
         const user = this.props.users[this.props.users.length - 1]

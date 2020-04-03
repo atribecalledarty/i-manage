@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { returnFormattedDate } from '../utilities/utilityFunctions'
+import { render } from 'react-dom';
 
 const AuthUserAccount = ({ match, history, users, deleteUser, isLoggedIn, logoutUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));
@@ -27,13 +28,23 @@ const AuthUserAccount = ({ match, history, users, deleteUser, isLoggedIn, logout
             )
         }
     }
+
+    const renderAccountInfo = () => {
+        if (user !== undefined) {
+            return (
+                <>
+                    <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete Account</Button></h3>
+                    {renderResidencyInfo()}
+                    <b>Email:</b> {user.email}<br/>
+                    <b>Phone:</b> {user.phone_number}<br/>
+                </>
+            )   
+        }
+    }
     
     return (
         <>
-            <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete Account</Button></h3>
-            {renderResidencyInfo()}
-            <b>Email:</b> {user.email}<br/>
-            <b>Phone:</b> {user.phone_number}<br/>
+            {renderAccountInfo()}
         </> 
     )
 }

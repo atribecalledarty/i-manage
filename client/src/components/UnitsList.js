@@ -9,7 +9,7 @@ const UnitsList = ({ history, units}) => {
             )
         } else {
             return (
-                <>- <span class="text-info">Vacant</span></>
+                <>- <span className="text-info">Vacant</span></>
             )
         }
     }

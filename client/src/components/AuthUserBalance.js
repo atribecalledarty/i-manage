@@ -18,28 +18,31 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
         }
     }
     const renderResidencyInfo = () => {
-        if (user.residency !== undefined) {
-            return (
-                <>
-                    Balance: <span id="balance">{calculateBalance(user.residency, user.unit.rent_cost_per_month)}</span>$
-                    {console.log(addPayment)}
-                    <NewPaymentForm 
-                            user={user} 
-                            users={users}
-                            addPayment={addPayment}
-                            clearErrors={clearErrors}
-                            errors={errors}/>
-                    <br/>
-                    {renderPayments()}
-                </>
-            )
-        } else {
-            return (
-                <>
-                    <i><h1>No Residency.</h1>
-                    <p>Please have your manager assign you to a unit.</p></i>
-                </>
-            )
+        if (user !== undefined) {
+            if (user.residency !== undefined) {
+                return (
+                    <>
+                        Balance: <span id="balance">{calculateBalance(user.residency, user.unit.rent_cost_per_month)}</span>$
+                        {console.log(addPayment)}
+                        <NewPaymentForm 
+                                user={user} 
+                                users={users}
+                                addPayment={addPayment}
+                                clearErrors={clearErrors}
+                                errors={errors}/>
+                        <br/>
+                        {renderPayments()}
+                    </>
+                )
+            // }
+            } else {
+                return (
+                    <>
+                        <i><h1>No Residency.</h1>
+                        <p>Please have your manager assign you to a unit.</p></i>
+                    </>
+                )
+            }
         }
     }
 

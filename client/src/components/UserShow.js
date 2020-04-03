@@ -22,6 +22,19 @@ const UserShow = ({ match, users, deleteUser, history }) => {
         }
     }
 
+    const renderUserInfo = () => {
+        if (user !== undefined) {
+            return (
+                <>
+                    <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete User</Button></h3>
+                    {renderResidencyInfo()}
+                    <b>Email:</b> {user.email}<br/>
+                    <b>Phone number:</b> {user.phone_number}<br/>
+                </>
+            )
+        }
+    }
+
     const clickHandler = () => {
         deleteUser(user.id);
         history.push('/users')
@@ -29,10 +42,7 @@ const UserShow = ({ match, users, deleteUser, history }) => {
 
     return (
         <div id="user-show">
-            <h3>{user.first_name} {user.last_name} <Button size="sm" variant="outline-danger" onClick={clickHandler}>Delete User</Button></h3>
-            {renderResidencyInfo()}
-            <b>Email:</b> {user.email}<br/>
-            <b>Phone number:</b> {user.phone_number}<br/>
+            {renderUserInfo()}
         </div>
     )
 }
