@@ -52,27 +52,6 @@ class Login extends Component {
                         Submit
                     </Button>
                 </Form>
-                {/* {console.log(this.state)} */}
-                {/* <FormErrors errors={this.props.errors}/>
-                <form onSubmit={this.submitHandler}>
-                    <label htmlFor="email">Email&nbsp;</label>
-                    <input type="text"
-                        name="email" 
-                        id="email" 
-                        onChange={this.changeHandler} 
-                        value={this.state.email}/>
-                    <br />
-                    
-                    <label htmlFor="password">Password&nbsp;</label>
-                    <input type="password" 
-                        name="password" 
-                        id="password" 
-                        onChange={this.changeHandler} 
-                        value={this.state.password}/>
-                    <br/>
-
-                    <input type="submit" value="Sign In"/>
-                </form> */}
             </Jumbotron>
         )
     }

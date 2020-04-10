@@ -1,14 +1,15 @@
 import React from 'react';
-import { returnFormattedDate } from '../utilities/utilityFunctions';
+import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Route } from 'react-router-dom';
 import NewResidencyForm from './NewResidencyForm';
 
 
-const UnitShow = ({ match, units, deleteResidency, addResidency, usersWithoutResidency }) => {
-    const unit = units.find(unit => unit.id === Number(match.params.unitId))
 
+const UnitShow = ({ match, units, users, deleteResidency, addResidency }) => {
+    const unit = units.find(unit => unit.id === Number(match.params.unitId))
+    const usersWithoutResidency = users.filter(user => user.residency === undefined)
 
     const renderResidencyInfo = () => {
         if (unit.residency !== undefined) {
@@ -16,6 +17,7 @@ const UnitShow = ({ match, units, deleteResidency, addResidency, usersWithoutRes
                 <div>
                     <p>
                         <span id="resident-name"><Link to={`/users/${unit.resident.id}`}>{unit.resident.first_name} {unit.resident.last_name}</Link></span><br/>
+                        <b>Balance:</b> {calculateBalance(unit.residency, unit.rent_cost_per_month)}$<br/>
                         Resident Since {returnFormattedDate(unit.residency.start_date)}<br/>
                         {unit.resident.email} | {unit.resident.phone_number}<br/><br/>
                         <Button size="sm" variant="outline-danger" onClick={() => deleteResidency(unit.residency.id)}>Remove Resident From Unit</Button>

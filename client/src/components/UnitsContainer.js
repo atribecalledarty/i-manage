@@ -3,6 +3,8 @@ import UnitsList from './UnitsList';
 import UnitShow from './UnitShow';
 import { Route } from 'react-router-dom';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { addResidency, deleteResidency } from '../utilities/dispatchActions';
 
 class UnitsContainer extends React.Component {
     componentDidMount(){ //need this one when units have been loaded already, and onmount we need to redirect
@@ -30,9 +32,9 @@ class UnitsContainer extends React.Component {
                         <UnitShow 
                             {...routerProps} 
                             units={this.props.units} 
+                            users={this.props.users}
                             deleteResidency={this.props.deleteResidency}
-                            addResidency={this.props.addResidency}
-                            usersWithoutResidency={this.props.usersWithoutResidency}/>}/>
+                            addResidency={this.props.addResidency}/>}/>
                         
                 </Row>
             </Jumbotron>
@@ -40,4 +42,19 @@ class UnitsContainer extends React.Component {
     }
 }
 
-export default UnitsContainer;
+const mapStateToProps = state => {
+    return {
+        units: state.units,
+        users: state.users,
+        loading_units: state.loading_units
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)),
+        deleteResidency: id => dispatch(deleteResidency(id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UnitsContainer);

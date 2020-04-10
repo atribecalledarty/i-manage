@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 import AuthUserBalance from './AuthUserBalance';
 import AuthUserAccount from './AuthUserAccount';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import { connect } from 'react-redux';
+import { addPayment, deleteUser, logoutUser, clearErrors } from '../utilities/dispatchActions';
 
 class AuthUserContainer extends React.Component {
     render(){
@@ -27,4 +29,20 @@ class AuthUserContainer extends React.Component {
     }
 }
 
-export default AuthUserContainer;
+const mapStateToProps = state => {
+    return {
+        users: state.users,
+        errors: state.errors
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPayment: (amount, residencyId) => dispatch(addPayment(amount, residencyId)),
+        deleteUser: userId => dispatch(deleteUser(userId)),
+        logoutUser: () => dispatch(logoutUser()),
+        clearErrors: () => dispatch(clearErrors())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthUserContainer);

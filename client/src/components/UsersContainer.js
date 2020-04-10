@@ -4,6 +4,8 @@ import NewUserForm from './NewUserForm';
 import UserShow from './UserShow';
 import { Switch, Route } from 'react-router-dom';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { postNewUser, deleteUser, clearErrors } from '../utilities/dispatchActions';
 
 class UsersContainer extends React.Component {
     componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect
@@ -54,4 +56,22 @@ class UsersContainer extends React.Component {
 
 }
 
-export default UsersContainer;
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        users: state.users,
+        errors: state.errors,
+        isLoggedIn: state.isLoggedIn
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addUser: (state, isManager) => dispatch(postNewUser(state, isManager)),
+        deleteUser: userId => dispatch(deleteUser(userId)),
+        clearErrors: () => dispatch(clearErrors())
+    }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

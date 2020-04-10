@@ -64,15 +64,16 @@ class App extends React.Component {
               addUser={this.props.addUser}
               isLoggedIn={this.props.isLoggedIn}
               clearErrors={this.props.clearErrors}/>}/>
-          <Route path="/units" render={routerProps => 
+          {/* <Route path="/units" render={routerProps => 
             <UnitsContainer 
               {...routerProps} 
               units={this.props.units}
               usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}
               addResidency={this.props.addResidency}
               loading_units={this.props.loading_units}
-              deleteResidency={this.props.deleteResidency}/>}/>
-          <Route path="/users" render={routerProps => 
+              deleteResidency={this.props.deleteResidency}/>}/> */}
+          <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} />}/>
+          {/* <Route path="/users" render={routerProps => 
             <UsersContainer 
               {...routerProps}
               user={this.props.user}
@@ -81,8 +82,9 @@ class App extends React.Component {
               addUser={this.props.addUser}
               errors={this.props.errors}
               deleteUser={this.props.deleteUser}
-              clearErrors={this.props.clearErrors}/>}/>
-          <Route path={`/auth_user/:userId`} render={routerProps => 
+              clearErrors={this.props.clearErrors}/>}/> */}
+            <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
+          {/* <Route path={`/auth_user/:userId`} render={routerProps => 
             <AuthUserContainer 
               {...routerProps} 
               users={this.props.users} 
@@ -92,9 +94,9 @@ class App extends React.Component {
               addPayment={this.props.addPayment}
               logoutUser={this.props.logoutUser}
               clearErrors={this.props.clearErrors}
-              errors={this.props.errors}/>}/>
-            {/* <Route path={`/auth_user/:userId/balance`} render={routerProps => 
-              <AuthUserShow}/> */}
+              errors={this.props.errors}/>}/> */}
+            <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/> 
+              
           </Router>
       </Container>
     );
