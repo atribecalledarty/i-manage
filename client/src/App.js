@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import SignupForm from './components/SignupForm';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import AuthUserContainer from './components/AuthUser/AuthUserContainer';
 import UnitsContainer from './components/Units/UnitsContainer';
 import UsersContainer from './components/Users/UsersContainer';
