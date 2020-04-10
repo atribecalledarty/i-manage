@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import ManagerNavBar from './ManagerNavBar';
 import UserNavBar from './UserNavBar';
 import NoUserNavBar from './NoUserNavBar';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../utilities/dispatchActions';
 
 const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     const redirectToHome = () => {
@@ -35,4 +37,17 @@ const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
     )
 }
 
-export default NavBar;
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        isLoggedIn: state.isLoggedIn
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logoutUser: () => dispatch(logoutUser())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

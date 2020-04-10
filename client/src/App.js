@@ -28,13 +28,7 @@ class App extends React.Component {
     return (
       <Container>
         <Router >
-          <Route path="/" render={routerProps =>
-            <NavBar 
-              {...routerProps} 
-              user={this.props.user} 
-              isLoggedIn={this.props.isLoggedIn} 
-              logoutUser={this.props.logoutUser}/>
-            }/>
+          <Route path="/" render={routerProps => <NavBar {...routerProps}/>}/>
           <Route exact path="/" render={routerProps => 
             <Home 
               {...routerProps}
@@ -87,7 +81,6 @@ const mapDispatchToProps = dispatch => {
       },
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
-      logoutUser: () => dispatch(logoutUser()),
       clearErrors: () => dispatch(clearErrors())
   }
 }
