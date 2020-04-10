@@ -11,14 +11,9 @@ import Home from './components/Home';
 import { connect } from 'react-redux';
 import { addUnits,
         addUsers,
-        postNewUser,
-        deleteUser,
-        addResidency,
-        deleteResidency,
         setLoginStatus,
         loginUser,
         logoutUser,
-        addPayment,
         clearErrors 
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container'
@@ -64,40 +59,10 @@ class App extends React.Component {
               addUser={this.props.addUser}
               isLoggedIn={this.props.isLoggedIn}
               clearErrors={this.props.clearErrors}/>}/>
-          {/* <Route path="/units" render={routerProps => 
-            <UnitsContainer 
-              {...routerProps} 
-              units={this.props.units}
-              usersWithoutResidency={this.props.users.filter(user => user.residency === undefined)}
-              addResidency={this.props.addResidency}
-              loading_units={this.props.loading_units}
-              deleteResidency={this.props.deleteResidency}/>}/> */}
           <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} />}/>
-          {/* <Route path="/users" render={routerProps => 
-            <UsersContainer 
-              {...routerProps}
-              user={this.props.user}
-              isLoggedIn={this.props.isLoggedIn} 
-              users={this.props.users} 
-              addUser={this.props.addUser}
-              errors={this.props.errors}
-              deleteUser={this.props.deleteUser}
-              clearErrors={this.props.clearErrors}/>}/> */}
-            <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
-          {/* <Route path={`/auth_user/:userId`} render={routerProps => 
-            <AuthUserContainer 
-              {...routerProps} 
-              users={this.props.users} 
-              deleteUser={this.props.deleteUser}
-              isLoggedIn={this.props.isLoggedIn}
-              loggedInUser={this.props.user}
-              addPayment={this.props.addPayment}
-              logoutUser={this.props.logoutUser}
-              clearErrors={this.props.clearErrors}
-              errors={this.props.errors}/>}/> */}
-            <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/> 
-              
-          </Router>
+          <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
+          <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>     
+        </Router>
       </Container>
     );
   }
@@ -105,8 +70,6 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-      units: state.units,
-      users: state.users,
       loading_users: state.loading_users,
       loading_units: state.loading_units,
       loading_session: state.loading_session,
@@ -122,14 +85,9 @@ const mapDispatchToProps = dispatch => {
         dispatch(addUnits());
         dispatch(addUsers());
       },
-      deleteUser: userId => dispatch(deleteUser(userId)),
-      addUser: (state, isManager) => dispatch(postNewUser(state, isManager)),
-      addResidency: (userId, unitId) => dispatch(addResidency(userId, unitId)),
-      deleteResidency: id => dispatch(deleteResidency(id)),
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
       logoutUser: () => dispatch(logoutUser()),
-      addPayment: (amount, residencyId) => dispatch(addPayment(amount, residencyId)),
       clearErrors: () => dispatch(clearErrors())
   }
 }
