@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateBalance } from '../utilities/utilityFunctions';
+import { calculateBalance } from '../../utilities/utilityFunctions';
 import NewPaymentForm from './NewPaymentForm';
 import PaymentsShow from './PaymentsShow';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnFormattedDate, calculateBalance } from '../utilities/utilityFunctions';
+import { returnFormattedDate, calculateBalance } from '../../utilities/utilityFunctions';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Route } from 'react-router-dom';

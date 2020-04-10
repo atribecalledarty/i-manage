@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import SignupForm from './components/SignupForm';
 import NavBar from './components/NavBar';
-import AuthUserContainer from './components/AuthUserContainer';
-import UnitsContainer from './components/UnitsContainer';
-import UsersContainer from './components/UsersContainer';
+import AuthUserContainer from './components/AuthUser/AuthUserContainer';
+import UnitsContainer from './components/Units/UnitsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 import Home from './components/Home';
 import { connect } from 'react-redux';
 import { addUnits,

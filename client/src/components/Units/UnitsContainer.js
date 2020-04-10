@@ -4,7 +4,7 @@ import UnitShow from './UnitShow';
 import { Route } from 'react-router-dom';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { addResidency, deleteResidency } from '../utilities/dispatchActions';
+import { addResidency, deleteResidency } from '../../utilities/dispatchActions';
 
 class UnitsContainer extends React.Component {
     componentDidMount(){ //need this one when units have been loaded already, and onmount we need to redirect

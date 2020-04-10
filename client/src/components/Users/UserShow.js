@@ -1,5 +1,5 @@
 import React from 'react';
-import { returnFormattedDate } from '../utilities/utilityFunctions';
+import { returnFormattedDate } from '../../utilities/utilityFunctions';
 import Button from 'react-bootstrap/Button';
 
 const UserShow = ({ match, users, deleteUser, history }) => {

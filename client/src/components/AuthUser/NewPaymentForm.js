@@ -1,5 +1,5 @@
 import React from 'react';
-import FormErrors from './FormErrors';
+import FormErrors from '../FormErrors';
 import Button from 'react-bootstrap/Button';
 
 class NewPaymentForm extends React.Component {
@@ -31,9 +31,6 @@ class NewPaymentForm extends React.Component {
         return(
             <div>
                 <form onSubmit={this.submitHandler}>
-                    {/* {console.log(this.props.user)} */}
-                    {/* <h5>New Payment</h5> */}
-                    {/* <label htmlFor="amount">Amount: </label> */}
                     {this.displayErrors()}
                     <input
                         onChange={this.changeHandler} 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { returnFormattedDate } from '../utilities/utilityFunctions'
-import { render } from 'react-dom';
+import { returnFormattedDate } from '../../utilities/utilityFunctions'
 
 const AuthUserAccount = ({ match, history, users, deleteUser, isLoggedIn, logoutUser }) => {
     const user = users.find(user => user.id === Number(match.params.userId));

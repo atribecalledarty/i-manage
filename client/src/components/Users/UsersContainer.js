@@ -5,7 +5,7 @@ import UserShow from './UserShow';
 import { Switch, Route } from 'react-router-dom';
 import { Jumbotron, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { postNewUser, deleteUser, clearErrors } from '../utilities/dispatchActions';
+import { postNewUser, deleteUser, clearErrors } from '../../utilities/dispatchActions';
 
 class UsersContainer extends React.Component {
     componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect

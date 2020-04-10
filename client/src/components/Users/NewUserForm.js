@@ -1,5 +1,5 @@
 import React from 'react';
-import FormErrors from './FormErrors';
+import FormErrors from '../FormErrors';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
@@ -25,13 +25,6 @@ class NewUserForm extends React.Component {
         event.preventDefault();
         this.props.addUser(this.state, this.props.isManager);
     }
-
-    // redirect = () => {
-    //     const user = this.props.users[-1]
-    //     if (this.props.isLoggedIn && !this.props.user.manager_status) {
-    //         this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-    //     }
-    // }
 
     componentDidUpdate(prevProps){
         const user = this.props.users[this.props.users.length - 1]
