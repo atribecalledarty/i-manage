@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login';
 import SignupForm from './components/SignupForm';
-import NavBar from './components/NavBar/NavBar';
+import NavBarContainer from './components/NavBar/NavBarContainer';
 import AuthUserContainer from './components/AuthUser/AuthUserContainer';
 import UnitsContainer from './components/Units/UnitsContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -13,7 +13,6 @@ import { addUnits,
         addUsers,
         setLoginStatus,
         loginUser,
-        logoutUser,
         clearErrors 
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container'
@@ -28,7 +27,7 @@ class App extends React.Component {
     return (
       <Container>
         <Router >
-          <Route path="/" render={routerProps => <NavBar {...routerProps}/>}/>
+          <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
           <Route exact path="/" render={routerProps => 
             <Home 
               {...routerProps}

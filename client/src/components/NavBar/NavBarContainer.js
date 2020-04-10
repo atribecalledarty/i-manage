@@ -7,7 +7,7 @@ import NoUserNavBar from './NoUserNavBar';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../utilities/dispatchActions';
 
-const NavBar = ({ isLoggedIn, user, logoutUser, history }) => {
+const NavBarContainer = ({ isLoggedIn, user, logoutUser, history }) => {
     const redirectToHome = () => {
         history.push('/');
     }
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);
