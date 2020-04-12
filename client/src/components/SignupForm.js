@@ -23,7 +23,7 @@ class NewUserForm extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.addUser(this.state, this.props.isManager);
+        this.props.addUser(this.state, false);
     }
 
     componentDidUpdate(){

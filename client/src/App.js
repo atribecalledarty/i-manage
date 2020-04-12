@@ -13,7 +13,8 @@ import { addUnits,
         addUsers,
         setLoginStatus,
         loginUser,
-        clearErrors 
+        clearErrors,
+        postNewUser 
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container'
 
@@ -80,7 +81,8 @@ const mapDispatchToProps = dispatch => {
       },
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
-      clearErrors: () => dispatch(clearErrors())
+      clearErrors: () => dispatch(clearErrors()),
+      addUser: (user, isManager) => dispatch(postNewUser(user, isManager))
   }
 }
 
