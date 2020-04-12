@@ -12,6 +12,9 @@ class UsersContainer extends React.Component {
         if (this.props.users[0] !== undefined && this.props.history.location.pathname === '/users') {
             this.props.history.push(`/users/${this.props.users[0].id}`)
         }
+        if(!this.props.isLoggedIn && !this.props.user.isManager){
+            this.props.history.push(`/`)
+        }
     }
 
     componentDidUpdate(){ //need both because initial loading of users will not have users loaded into props

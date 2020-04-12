@@ -11,6 +11,9 @@ class UnitsContainer extends React.Component {
         if (this.props.units[0] !== undefined && this.props.history.location.pathname === '/units') {
             this.props.history.push(`/units/${this.props.units[0].id}`)
         }
+        if(!this.props.isLoggedIn && !this.props.isManager){
+            this.props.history.push(`/`);
+        }
     }
 
     componentDidUpdate(){ //need both because initial loading of units will not have units loaded into props
@@ -46,7 +49,8 @@ const mapStateToProps = state => {
     return {
         units: state.units,
         users: state.users,
-        loading_units: state.loading_units
+        isLoggedIn: state.isLoggedIn,
+        user: state.user
     }
 }
 

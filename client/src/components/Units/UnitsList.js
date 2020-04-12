@@ -28,7 +28,7 @@ const UnitsList = ({ history, units}) => {
         <ListGroup>
             {renderUnits}
         </ListGroup>
-        )
+    )
 }
 
 export default UnitsList
