@@ -1,9 +1,9 @@
 import React from 'react';
 
 class FormErrors extends React.Component {
-    // componentWillUnmount() {
-    //     this.props.clearErrors();
-    // }
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
     
     displayErrors = () => {
         return (
