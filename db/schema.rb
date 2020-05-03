@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_03_06_135513) do
 
   create_table "payments", force: :cascade do |t|
-    t.date "transaction_date", default: "2020-03-30"
+    t.date "transaction_date", default: "2020-04-26"
     t.float "amount"
     t.integer "residency_id"
     t.datetime "created_at", precision: 6, null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_135513) do
   end
 
   create_table "residencies", force: :cascade do |t|
-    t.date "start_date", default: "2020-03-30"
+    t.date "start_date", default: "2020-04-26"
     t.integer "user_id"
     t.integer "unit_id"
     t.datetime "created_at", precision: 6, null: false
