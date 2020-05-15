@@ -1,0 +1,30 @@
+{
+  "name": "i-manage",
+  "version": "1.0.0",
+  "description": "The best package you will ever find",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd clien && npm install && npm build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm build && npm deploy && echo 'Client built!'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "npm": "6.11.3",
+    "node": "10.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atribecalledarty/i-manage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atribecalledarty/i-manage/issues"
+  },
+  "homepage": "https://github.com/atribecalledarty/i-manage#readme"
+}

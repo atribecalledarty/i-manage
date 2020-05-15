@@ -1,8 +1,9 @@
 import axios from 'axios';
+// const apiURL = 'http://localhost:3001';
 
 const fetchAndLoadUnits = dispatch => {
     dispatch({ type: 'LOADING_UNITS' })
-    fetch('http://localhost:3002/units')
+    fetch(`/units`)
             .then(resp => resp.json())
             .then(units => {
                 // console.log(units, 'in fetch request') 
@@ -12,7 +13,7 @@ const fetchAndLoadUnits = dispatch => {
 
 const fetchAndLoadUsers = dispatch => {
     dispatch({ type: 'LOADING_USERS' })
-    fetch('http://localhost:3002/users')
+    fetch(`/users`)
         .then(resp => resp.json())
         .then(users => {
             // console.log(users, 'in fetch request') 
@@ -37,7 +38,7 @@ export const postNewUser = (state, isManager) => {
         dispatch({ type: 'LOADING_USERS' })
 
         const body = JSON.stringify(state);
-        fetch('http://localhost:3002/users', {
+        fetch(`/users`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -65,7 +66,7 @@ export const postNewUser = (state, isManager) => {
 export const deleteUser = userId => {
     return dispatch => {
         // const body = JSON.stringify(userId);
-        fetch(`http://localhost:3002/users/${userId}`, {
+        fetch(`/users/${userId}`, {
             method: "DELETE"
         })
             .then(() => {
@@ -78,7 +79,7 @@ export const deleteUser = userId => {
 export const addResidency = (userId, unitId) => {
     return dispatch => {
         const body = JSON.stringify({ user_id: userId, unit_id: unitId })
-        fetch(`http://localhost:3002/residencies`, {
+        fetch(`/residencies`, {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -96,7 +97,7 @@ export const addResidency = (userId, unitId) => {
 export const deleteResidency = (id) => {
     return dispatch => {
         const body = JSON.stringify({ id })
-        fetch(`http://localhost:3002/residencies/${id}`, {
+        fetch(`/residencies/${id}`, {
             method: "DELETE",
             headers: {
                 'Accept': 'application/json',
@@ -113,7 +114,7 @@ export const deleteResidency = (id) => {
 
 export const setLoginStatus = () => {
     return dispatch => {
-        axios.get('http://localhost:3002/logged_in',{
+        axios.get(`/logged_in`,{
             withCredentials: true
         })
             .then(resp => {
@@ -129,7 +130,7 @@ export const setLoginStatus = () => {
 
 export const loginUser = user => {
     return dispatch => {
-        axios.post('http://localhost:3002/login', { user }, {withCredentials: true})
+        axios.post(`/login`, { user }, {withCredentials: true})
             .then(resp => {
                 // console.log(resp);
                 if (resp.data.logged_in) {
@@ -146,7 +147,7 @@ export const logoutUser = () => {
     return dispatch => {
         dispatch({ type: 'LOADING_SESSION' })
 
-        axios.delete('http://localhost:3002/logout', {withCredentials: true})
+        axios.delete(`/logout`, {withCredentials: true})
             .then(() => {
                 dispatch({ type: 'LOGOUT' })
             })
@@ -156,7 +157,7 @@ export const logoutUser = () => {
 export const addPayment = (amount, residency_id) => {
     return dispatch => {
         // console.log('hi');
-        axios.post('http://localhost:3002/payments', { amount, residency_id })
+        axios.post(`/payments`, { amount, residency_id })
             .then(resp => {
                 // console.log(resp)
                 if (resp.data.errors) {

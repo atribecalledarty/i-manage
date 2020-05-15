@@ -4,5 +4,7 @@ class ApplicationController < ActionController::API
     # helper_method :login!, :logged_in?, :current_user, :authorized_user?, :logout!
 
     # private 
-    
+    def fallback_index_html
+        render :file => 'public/index.html'
+    end    
 end
