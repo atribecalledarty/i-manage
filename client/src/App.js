@@ -26,7 +26,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container id="main_container">
         <Router >
           <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
           <Route exact path="/" render={routerProps => 
