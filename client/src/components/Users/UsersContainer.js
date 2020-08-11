@@ -17,9 +17,8 @@ class UsersContainer extends React.Component {
                         {...routerProps} 
                         user={this.props.user}
                         users={this.props.users} 
-                        addUser={this.props.addUser}
-                        isLoggedIn={this.props.isLoggedIn}
-                        isManager={this.props.user?.manager_status}/>}/>
+                        postNewUser={this.props.postNewUser}
+                        isLoggedIn={this.props.isLoggedIn}/>}/>
                 <Route path={`/users/:userId`} render={routerProps => 
                     <UserShow 
                         {...routerProps} 
@@ -30,22 +29,13 @@ class UsersContainer extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapState = state => ({
         user: state.user,
         users: state.users,
         errors: state.errors,
         isLoggedIn: state.isLoggedIn
-    }
-}
+})
 
-const mapDispatchToProps = dispatch => {
-    return {
-        addUser: (state, isManager) => dispatch(postNewUser(state, isManager)),
-        deleteUser: userId => dispatch(deleteUser(userId)),
-        clearErrors: () => dispatch(clearErrors())
-    }
+const mapDispatch = { postNewUser, deleteUser, clearErrors }
 
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapState, mapDispatch)(UsersContainer);

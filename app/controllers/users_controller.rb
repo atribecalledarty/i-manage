@@ -8,7 +8,15 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        # binding.pry
+        if @user.save
+            render json: { success: "User successfully created", user: @user }
+        else 
+            render json: { errors: @user.errors.full_messages }
+        end
+    end
+
+    def create_and_login
+        @user = User.new(user_params)
         if @user.save
             login!
             render json: {

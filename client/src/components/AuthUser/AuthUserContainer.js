@@ -2,7 +2,6 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import AuthUserBalance from './AuthUserBalance';
 import AuthUserAccount from './AuthUserAccount';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import { connect } from 'react-redux';
 import { addPayment, deleteUser, logoutUser, clearErrors } from '../../utilities/dispatchActions';
 

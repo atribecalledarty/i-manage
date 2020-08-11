@@ -7,3 +7,8 @@
     margin-bottom: 24px; 
     /* font-size: 40px; */
 }
+
+.newUserForm__phoneNumber {
+    font-size: 10px;
+    color: rgba(0,0,0, 0.4);
+}

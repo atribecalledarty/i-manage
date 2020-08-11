@@ -12,8 +12,7 @@ import { connect } from 'react-redux';
 import { addUnits,
         addUsers,
         setLoginStatus,
-        loginUser,
-        postNewUser 
+        loginUser
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container';
 import ProtectedRoute from './ProtectedRoute';
@@ -40,12 +39,7 @@ class App extends React.Component {
                   user={this.props.user}
                   loginUser={this.props.loginUser}
                   isLoggedIn={this.props.isLoggedIn}/>}/>
-              <Route exact path="/signup" render={routerProps => 
-                <SignupForm 
-                  {...routerProps} 
-                  user={this.props.user} 
-                  addUser={this.props.postNewUser}
-                  isLoggedIn={this.props.isLoggedIn}/>}/>
+              <Route exact path="/signup" render={routerProps => <SignupForm {...routerProps}/>}/>
               <Route path="/units" render={routerProps => <ProtectedRoute {...routerProps} component={UnitsContainer}/>}/>
               <Route path="/users" render={routerProps => <ProtectedRoute {...routerProps} component={UsersContainer}/>}/>
               {/* <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>      */}
@@ -63,6 +57,6 @@ const mapState = state => ({
   user: state.user
 })
 
-const mapDispatch = { addUnits, addUsers, setLoginStatus, loginUser, postNewUser }
+const mapDispatch = { addUnits, addUsers, setLoginStatus, loginUser }
 
 export default connect(mapState, mapDispatch)(App);

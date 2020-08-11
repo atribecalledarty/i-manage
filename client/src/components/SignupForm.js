@@ -1,9 +1,10 @@
 import React from 'react';
 import FormErrors from './FormErrors';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
+import { register } from '../utilities/dispatchActions';
 
 class NewUserForm extends React.Component {
     state = {
@@ -23,20 +24,12 @@ class NewUserForm extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.addUser(this.state, false);
-    }
-
-    componentDidUpdate(){
-        if (this.props.isLoggedIn && !this.props.user.manager_status) {
-            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-        } else if (this.props.isLoggedIn) {
-            this.props.history.push(`/users/${this.props.user.id}`)
-        }
+        this.props.register(this.state, this.props.history);
     }
 
     render() {
         return(
-            <Jumbotron id="signup-jumbo">
+            <div>
                 <Form onSubmit={this.submitHandler}>
                     <h5>Create New Account</h5>
                     <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
@@ -79,9 +72,9 @@ class NewUserForm extends React.Component {
                         Submit
                     </Button>
                 </Form>
-            </Jumbotron>
+            </div>
         )
     }
 }
 
-export default NewUserForm;
+export default connect(null, { register })(NewUserForm);

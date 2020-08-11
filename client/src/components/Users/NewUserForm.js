@@ -23,18 +23,7 @@ class NewUserForm extends React.Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.addUser(this.state, this.props.isManager);
-    }
-
-    componentDidUpdate(prevProps){
-        const user = this.props.users[this.props.users.length - 1]
-        const prevUser = prevProps.users[prevProps.users.length - 1]
-        
-        if (this.props.isLoggedIn && !this.props.user.manager_status) {
-            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-        } else if (this.props.isLoggedIn && user !== undefined && user !== prevUser) {
-            this.props.history.push(`/users/${user.id}`)
-        }
+        this.props.postNewUser(this.state, this.props.history);
     }
 
     render() {
@@ -43,36 +32,36 @@ class NewUserForm extends React.Component {
             <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
             <Form.Row>
                 <Form.Group as={Col} controlId="email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="email" placeholder="Enter email" />
+                <Form.Label>Email <small style={{ color: 'red' }}>*</small></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.email} name="email" placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="password" type="password" placeholder="Password" />
+                <Form.Label>Password <small style={{ color: 'red' }}>*</small></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.password} name="password" type="password" placeholder="Password" />
                 </Form.Group>
             </Form.Row>
 
             <Form.Row>
                 <Form.Group as={Col} controlId="first_name">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="first_name" placeholder="Harry" />
+                <Form.Label>First Name <small style={{ color: 'red' }}>*</small></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.first_name} name="first_name" placeholder="Harry" />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="last_name">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="last_name" placeholder="Potter" />
+                <Form.Label>Last Name <small style={{ color: 'red' }}>*</small></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.last_name} name="last_name" placeholder="Potter" />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as={Col} controlId="username">
-                <Form.Label>Username</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="username" placeholder="Enter Username"/>
+                <Form.Label>Username <small style={{ color: 'red' }}>*</small></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.username} name="username" placeholder="Enter Username"/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="phone_number">
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control onChange={this.changeHandler} name="phone_number" placeholder="XXX-XXX-XXXX"/>
+                <Form.Label>Phone Number <small style={{ color: 'red' }}>*</small> <span className="newUserForm__phoneNumber">123-123-1234</span></Form.Label>
+                <Form.Control onChange={this.changeHandler} value={this.state.phone_number} name="phone_number" placeholder="123-123-1234"/>
                 </Form.Group>
             </Form.Row>
 
