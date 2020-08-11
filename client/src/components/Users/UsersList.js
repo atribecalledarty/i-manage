@@ -1,31 +1,15 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
-const UsersList = ({ users, history }) => {
-    const clickHandler = user => {
-        history.push(`/users/${user.id}`)
-    }
-
-    const renderUsers = users.map(user =>
-        <div key={user.id}> 
-            <ListGroup.Item action onClick={() => clickHandler(user)}>{user.first_name} {user.last_name}</ListGroup.Item> 
-        </div>
-    );
-
-    const buttonClickHandler = () => {
-        history.push('/users/new')
-    }
-    
-    return (
-        <>
-            <ListGroup>
-                <ListGroup.Item action onClick={buttonClickHandler} variant="primary">
-                    New User
-                </ListGroup.Item>
-                {renderUsers}
-            </ListGroup>
-        </>
-    )
+function UsersList ({ users, history }) {
+    return <ListGroup>
+        <ListGroup.Item action onClick={() => history.push('/users/new')} variant="primary">
+            New User
+        </ListGroup.Item>
+        {users.map((user, index) => <ListGroup.Item key={index} action onClick={() => history.push(`/users/${user.id}`)}>
+                {user.first_name} {user.last_name}
+            </ListGroup.Item>)}
+    </ListGroup>
 }
 
 export default UsersList
