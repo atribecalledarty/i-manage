@@ -9,39 +9,31 @@ import { postNewUser, deleteUser, clearErrors } from '../../utilities/dispatchAc
 
 class UsersContainer extends React.Component {
     render() {
-        return(
-            <div>
-                {/* {console.log('in userscontainer', this.props.users[1], this.props.history.location.pathname)} */}
-                <Jumbotron id="user-container">
-                    <Row>
-                        <Col md="auto">
-                            <UsersList users={this.props.users} history={this.props.history}/>
-                        </Col>
-                        <Col>
-                            <Switch>
-                                <Route path={`/users/new`} render={routerProps => 
-                                    <NewUserForm 
-                                        {...routerProps} 
-                                        errors={this.props.errors}
-                                        user={this.props.user}
-                                        users={this.props.users} 
-                                        addUser={this.props.addUser}
-                                        isLoggedIn={this.props.isLoggedIn}
-                                        isManager={this.props.user.manager_status}
-                                        clearErrors={this.props.clearErrors}/>}/>
-                                <Route path={`/users/:userId`} render={routerProps => 
-                                    <UserShow 
-                                        {...routerProps} 
-                                        users={this.props.users} 
-                                        deleteUser={this.props.deleteUser}/>}/>
-                            </Switch>
-                        </Col>
-                    </Row>
-                </Jumbotron>
-            </div>
-        )
+        return <div className="usersContainer">
+            <Row>
+                <Col md="auto">
+                    <UsersList users={this.props.users} history={this.props.history}/>
+                </Col>
+                <Col>
+                    <Switch>
+                        <Route path={`/users/new`} render={routerProps => 
+                            <NewUserForm 
+                                {...routerProps} 
+                                user={this.props.user}
+                                users={this.props.users} 
+                                addUser={this.props.addUser}
+                                isLoggedIn={this.props.isLoggedIn}
+                                isManager={this.props.user.manager_status}/>}/>
+                        <Route path={`/users/:userId`} render={routerProps => 
+                            <UserShow 
+                                {...routerProps} 
+                                users={this.props.users} 
+                                deleteUser={this.props.deleteUser}/>}/>
+                    </Switch>
+                </Col>
+            </Row>
+        </div>
     }
-
 }
 
 const mapStateToProps = state => {

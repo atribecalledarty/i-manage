@@ -7,18 +7,9 @@ import { connect } from 'react-redux';
 import { addPayment, deleteUser, logoutUser, clearErrors } from '../../utilities/dispatchActions';
 
 class AuthUserContainer extends React.Component {
-    // componentDidMount(){
-    //     if (!this.props.isLoggedIn){
-    //         this.props.history.push(`/`);
-    //     }
-    //     if (this.props.user.id !== Number(this.props.match.params.userId)){
-    //         this.props.history.push(`/`);
-    //     }
-    // }
-
     render(){
         return(
-            <Jumbotron id="auth-user-jumbo">
+            <div id="authUserContainer">
                 <Route path={`/auth_user/:userId/balance`} render={routerProps =>
                     <AuthUserBalance 
                         {...routerProps}
@@ -33,7 +24,7 @@ class AuthUserContainer extends React.Component {
                         deleteUser={this.props.deleteUser}
                         logoutUser={this.props.logoutUser}
                         />}/>
-            </Jumbotron>
+            </div>
         )
     }
 }

@@ -1,32 +1,17 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+import './UnitsList.css'
 
 const UnitsList = ({ history, units}) => {
-    const renderUser = unit => {
-        if (unit.resident !== undefined) {
-            return (
-                <>- {unit.resident.first_name} {unit.resident.last_name}</>
-            )
-        } else {
-            return (
-                <>- <span className="text-info">Vacant</span></>
-            )
-        }
-    }
-
-    const clickHandler = unit => {
-        history.push(`/units/${unit.id}`)
-    }
-
-    const renderUnits = units.map(unit =>
-                <div key={unit.id}> 
-                    <ListGroup.Item action onClick={() => clickHandler(unit)}>#{unit.unit_number} {renderUser(unit)}</ListGroup.Item> 
-                </div>
-            )
-
     return (
         <ListGroup>
-            {renderUnits}
+            {units.map(unit => <div key={unit.id}> 
+                    <ListGroup.Item action onClick={() => history.push(`/units/${unit.id}`)}>
+                        #{unit.unit_number} 
+                        {unit.resident ? <>- {unit.resident.first_name} {unit.resident.last_name}</>
+                                    : <>- <span className="text-info">Vacant</span></>}
+                    </ListGroup.Item> 
+                </div>)}
         </ListGroup>
     )
 }

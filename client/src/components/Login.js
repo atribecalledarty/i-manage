@@ -22,17 +22,13 @@ class Login extends Component {
         this.props.loginUser(this.state, this.props.history);
     }
 
-    componentDidUpdate(){
-        if (this.props.isLoggedIn && this.props.user.manager_status) {
-            this.props.history.push('/units')
-        } else if (this.props.isLoggedIn) {
-            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-        }
+    componentDidUpdate(){ 
+        if (this.props.isLoggedIn) this.props.history.push(`/auth_user/${this.props.user.id}/balance`);
     }
 
     render() {
         return(
-            <Jumbotron className="login">
+            <div className="login">
                 <h1>Sign In</h1>
                 <Form onSubmit={this.submitHandler}>
                     <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
@@ -59,7 +55,7 @@ class Login extends Component {
                         Submit
                     </Button>
                 </Form>
-            </Jumbotron>
+            </div>
         )
     }
 }
