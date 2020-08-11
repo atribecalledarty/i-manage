@@ -28,7 +28,7 @@ class NewUserForm extends React.Component {
 
     render() {
         return <Form className="newUserForm" onSubmit={this.submitHandler}>
-            <h3 className="newUserForm__header">Create New Account</h3>
+            <h3>Create New Account</h3>
             <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
             <Form.Row>
                 <Form.Group as={Col} controlId="email">

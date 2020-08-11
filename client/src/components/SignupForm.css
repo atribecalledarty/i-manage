@@ -1,0 +1,9 @@
+.signupForm__phoneNumber {
+    font-size: 10px;
+    color: rgba(0,0,0, 0.4);
+}
+
+.signupForm h3 {
+    font-weight: 800;
+    margin-bottom: 24px; 
+}

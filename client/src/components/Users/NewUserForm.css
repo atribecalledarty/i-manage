@@ -2,10 +2,9 @@
     margin-left: 10%;
 }
 
-.newUserForm__header {
+.newUserForm h3 {
     font-weight: 800;
     margin-bottom: 24px; 
-    /* font-size: 40px; */
 }
 
 .newUserForm__phoneNumber {

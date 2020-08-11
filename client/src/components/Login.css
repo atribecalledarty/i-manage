@@ -5,6 +5,8 @@
     margin-bottom: 16px;
 }
 
-.login {
+.login h3 {
+    font-weight: 800;
+    margin-bottom: 24px; 
 }
   
