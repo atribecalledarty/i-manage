@@ -3,6 +3,7 @@ import FormErrors from './FormErrors';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './Login.css';
 
 class Login extends Component {
     state = {
@@ -32,10 +33,15 @@ class Login extends Component {
     render() {
         return(
             <Jumbotron id="login-jumbo">
-                {/* {console.log(this.props.user)} */}
                 <Form onSubmit={this.submitHandler}>
                     <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
-                    
+
+                    <div className="login__userInfo">
+                        Please sign in with manager account, Luna<br/>
+                        username: itsluna@owl.com<br/>
+                        password: nargles
+                    </div>
+
                     <Form.Group controlId="email">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control onChange={this.changeHandler} name="email" type="text" placeholder="Enter email" />

@@ -1,0 +1,27 @@
+.unitShow {
+    padding: 32px 115px;
+}
+
+.unitShow__header {
+    font-weight: 800;
+}
+
+.unitShow__unitInfo {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.unitShow__residentName {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.unitShow__balanceInfo {
+    
+}
+
+.unitShow__residentInfo {
+    margin-bottom: 24px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+}

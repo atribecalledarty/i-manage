@@ -13,6 +13,8 @@ class Home extends React.Component {
         return (
             <Jumbotron id="welcome-jumbo">
                     <h1>Welcome to Luna's Cabins</h1>
+                    <p>Test users please sign in as Luna<br/>
+                    username: itsluna@owl.com, password: nargles</p>
                     <p>Please <Button onClick={() => this.props.history.push('/login')} size="sm" variant="outline-primary">Login</Button> or 
                     &nbsp;<Button onClick={() => this.props.history.push('/signup')} size="sm" variant="outline-secondary">Register</Button> to continue!</p>
             </Jumbotron>

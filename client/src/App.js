@@ -13,7 +13,6 @@ import { addUnits,
         addUsers,
         setLoginStatus,
         loginUser,
-        clearErrors,
         postNewUser 
       } from './utilities/dispatchActions';
 import Container from 'react-bootstrap/Container'
@@ -26,7 +25,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container id="main_container">
+      <Container>
         <Router >
           <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
           <Route exact path="/" render={routerProps => 
@@ -42,17 +41,13 @@ class App extends React.Component {
               {...routerProps}
               user={this.props.user}
               loginUser={this.props.loginUser}
-              isLoggedIn={this.props.isLoggedIn}
-              errors={this.props.errors}
-              clearErrors={this.props.clearErrors}/>}/>
+              isLoggedIn={this.props.isLoggedIn}/>}/>
           <Route exact path="/signup" render={routerProps => 
             <SignupForm 
               {...routerProps} 
-              errors={this.props.errors}
               user={this.props.user} 
               addUser={this.props.addUser}
-              isLoggedIn={this.props.isLoggedIn}
-              clearErrors={this.props.clearErrors}/>}/>
+              isLoggedIn={this.props.isLoggedIn}/>}/>
           <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} />}/>
           <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
           <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>     
@@ -67,7 +62,6 @@ const mapStateToProps = state => {
       loading_users: state.loading_users,
       loading_units: state.loading_units,
       loading_session: state.loading_session,
-      errors: state.errors,
       isLoggedIn: state.isLoggedIn,
       user: state.user
   }
@@ -81,7 +75,6 @@ const mapDispatchToProps = dispatch => {
       },
       setLoginStatus: () => dispatch(setLoginStatus()),
       loginUser: user => dispatch(loginUser(user)),
-      clearErrors: () => dispatch(clearErrors()),
       addUser: (user, isManager) => dispatch(postNewUser(user, isManager))
   }
 }
