@@ -11,12 +11,12 @@ class AuthUserContainer extends React.Component {
             <Route path={`/auth_user/:userId/balance`} render={routerProps =>
                 <AuthUserBalance 
                     {...routerProps}
-                    users={this.props.users}
+                    user={this.props.user}
                     addPayment={this.props.addPayment}/>}/>
             <Route path={`/auth_user/:userId/account`} render={routerProps => 
                 <AuthUserAccount
                     {...routerProps}
-                    users={this.props.users}
+                    user={this.props.user}
                     deleteUser={this.props.deleteUser}
                     logoutUser={this.props.logoutUser}
                     />}/>

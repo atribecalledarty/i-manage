@@ -10,6 +10,7 @@ class UnitSerializer
                     except: [:updated_at, :created_at, :password_digest]
                 },
                 residency: {
+                    methods: [:balance],
                     include: {
                         payments: {
                             except: [:updated_at, :created_at]

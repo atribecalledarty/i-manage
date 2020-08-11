@@ -10,6 +10,7 @@ class UserSerializer
                     except: [:updated_at, :created_at, :type_of_unit, :sq_ft]
                 },
                 residency: {
+                    methods: [:balance],
                     include: {
                         payments: {
                             except: [:updated_at, :created_at]

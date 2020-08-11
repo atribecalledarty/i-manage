@@ -3,12 +3,11 @@ import Button from 'react-bootstrap/Button';
 import { returnFormattedDate } from '../../utilities/utilityFunctions'
 import './AuthUserAccount.css';
 
-const AuthUserAccount = ({ match, users, deleteUser, logoutUser }) => {
-    const user = users.find(user => user.id === Number(match.params.userId));
+const AuthUserAccount = ({ history, user, deleteUser, logoutUser }) => {
     
     const clickHandler = () => {
         deleteUser(user.id);
-        logoutUser();
+        logoutUser(history);
     }
 
     return <div className="authUserAccount">

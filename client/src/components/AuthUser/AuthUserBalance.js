@@ -4,9 +4,7 @@ import NewPaymentForm from './NewPaymentForm';
 import PaymentsShow from './PaymentsShow';
 import './AuthUserBalance.css';
 
-const AuthUserShowBalance = ({ match, users, addPayment }) => {
-    const user = users.find(user => user.id === Number(match.params.userId));
-
+const AuthUserShowBalance = ({ user, addPayment }) => {
     return <div className="authUserBalance">
         {user?.residency ? <>
             <div className="authUserBalance__balance">
@@ -16,7 +14,7 @@ const AuthUserShowBalance = ({ match, users, addPayment }) => {
                     <strong>{calculateBalance(user.residency, user.unit.rent_cost_per_month)}</strong>
                 </span>
             </div>
-            <NewPaymentForm user={user} users={users}addPayment={addPayment}/>
+            <NewPaymentForm user={user} addPayment={addPayment}/>
             {user.residency.payments ? <PaymentsShow payments={user.residency.payments}/> : <p><i>No payments</i></p>}
         </> : <>
             <i><h1>No Residency.</h1>

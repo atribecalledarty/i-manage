@@ -106,11 +106,12 @@ export const deleteResidency = id => dispatch => {
 export const setLoginStatus = () => dispatch => {
     axios.get(`/logged_in`, { withCredentials: true })
         .then(resp => {
-            if (resp.data.logged_in) {
-                dispatch({ type: 'LOGIN', user: resp.data.user })
-                localStorage.setItem('user', resp.data.user.id);
+            if (resp.data.id) {
+                dispatch({ type: 'LOGIN', user: resp.data })
+                localStorage.setItem('user', resp.data.id);
             } else {
                 dispatch({ type: 'LOGOUT' })
+                localStorage.setItem('user', undefined);
             }
         })
     
@@ -119,10 +120,10 @@ export const setLoginStatus = () => dispatch => {
 export const loginUser = (user, history)  => dispatch => {
     axios.post(`/login`, { user }, {withCredentials: true})
         .then(resp => {
-            if (resp.data.logged_in) {
-                dispatch({ type: 'LOGIN', user: resp.data.user })
-                localStorage.setItem('user', resp.data.user.id);
-                history.push(`/auth_user/${resp.data.user.id}/balance`)
+            if (resp.data.id) {
+                dispatch({ type: 'LOGIN', user: resp.data })
+                localStorage.setItem('user', resp.data.id);
+                history.push(`/auth_user/${resp.data.id}/balance`)
             } else {
                 dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
             }
@@ -141,6 +142,7 @@ export const logoutUser = history => dispatch => {
 export const addPayment = (amount, residency_id) => dispatch => {
     axios.post(`/payments`, { amount, residency_id })
         .then(resp => {
+            console.log(resp.data);
             if (resp.data.errors) {
                 dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
             } else {
