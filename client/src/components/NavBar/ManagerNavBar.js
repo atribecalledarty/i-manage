@@ -8,12 +8,12 @@ const ManagerNavBar = ({ user, history, logoutUser }) => {
         <Nav onSelect={selectedKey => history.push(selectedKey)}>
             <Nav.Link eventKey="/units">Units</Nav.Link>&nbsp;
             <Nav.Link eventKey="/users">Users</Nav.Link>&nbsp;
-            <Nav.Link eventKey={`/auth_user/${user.id}/balance`}>Balance</Nav.Link>&nbsp;
-            <Nav.Link eventKey={`/auth_user/${user.id}/account`}>Account</Nav.Link>&nbsp;
+            <Nav.Link eventKey={`/auth_user/balance`}>Balance</Nav.Link>&nbsp;
+            <Nav.Link eventKey={`/auth_user/account`}>Account</Nav.Link>&nbsp;
         </Nav>
         <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-                <Button onClick={() => history.push(`/auth_user/${user.id}/balance`)} 
+                <Button onClick={() => history.push(`/auth_user/balance`)} 
                 size="sm" variant="link">{user.first_name} {user.last_name},</Button> 
                 <Button onClick={() => logoutUser(history)} size="sm" variant="outline-secondary">Logout</Button>
             </Navbar.Text>

@@ -8,12 +8,12 @@ import { addPayment, deleteUser, logoutUser } from '../../utilities/dispatchActi
 class AuthUserContainer extends React.Component {
     render() {
         return <div className="authUserContainer">
-            <Route path={`/auth_user/:userId/balance`} render={routerProps =>
+            <Route path={`/auth_user/balance`} render={routerProps =>
                 <AuthUserBalance 
                     {...routerProps}
                     user={this.props.user}
                     addPayment={this.props.addPayment}/>}/>
-            <Route path={`/auth_user/:userId/account`} render={routerProps => 
+            <Route path={`/auth_user/account`} render={routerProps => 
                 <AuthUserAccount
                     {...routerProps}
                     user={this.props.user}

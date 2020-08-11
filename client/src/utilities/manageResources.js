@@ -78,29 +78,20 @@ export default function manageResources (
                 isLoggedIn: false,
                 user: undefined,
             }
-        // case 'LOADING_SESSION':
-        //     console.log('in loading session reduce case', {
-        //         ...state,
-        //         units: [ ...state.units ],
-        //         users: [ ...state.users ],
-        //         loading_units: state.loading_units,
-        //         loading_users: state.loading_users,
-        //         loading_session: true,
-        //         isLoggedIn: state.isLoggedIn,
-        //         user: {},
-        //         errors: [ ]
-        //     })
-        //     return {
-        //         ...state,
-        //         units: [ ...state.units ],
-        //         users: [ ...state.users ],
-        //         loading_units: state.loading_units,
-        //         loading_users: state.loading_users,
-        //         loading_session: true,
-        //         isLoggedIn: state.isLoggedIn,
-        //         user: {},
-        //         errors: [ ]
-        //     }
+        case 'ADJUST_BALANCE':
+            // amount, residency_id
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    residency: {
+                        ...state.user.residency,
+                        balance: state.user.residency.balance - action.payment.amount,
+                        payments: [...state.user.residency.payments, action.payment]
+                    }
+                }
+            }
+
         default:
             return state;
     }

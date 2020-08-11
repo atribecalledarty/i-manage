@@ -10,7 +10,6 @@ const AuthUserShowBalance = ({ user, addPayment }) => {
                 Balance&nbsp;
                 <span className="authUserBalance__amount">
                     <small>$</small>
-                    {/* <strong>{calculateBalance(user.residency, user.unit.rent_cost_per_month)}</strong> */}
                     <strong>{user.residency.balance}</strong>
                 </span>
             </div>

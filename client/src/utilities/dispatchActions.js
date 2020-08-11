@@ -56,7 +56,7 @@ export const register = (state, history)=> dispatch => {
                 dispatch({ type: 'ADD_USER', user: json.user })
                 dispatch({ type: 'LOGIN', user: json.user })
                 localStorage.setItem('user', json.user.id);
-                history.push(`/auth_user/${json.user.id}/balance`)
+                history.push(`/auth_user/balance`)
             }
         })
 }
@@ -123,7 +123,7 @@ export const loginUser = (user, history)  => dispatch => {
             if (resp.data.id) {
                 dispatch({ type: 'LOGIN', user: resp.data })
                 localStorage.setItem('user', resp.data.id);
-                history.push(`/auth_user/${resp.data.id}/balance`)
+                history.push(`/auth_user/balance`)
             } else {
                 dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
             }
@@ -146,8 +146,7 @@ export const addPayment = (amount, residency_id) => dispatch => {
             if (resp.data.errors) {
                 dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
             } else {
-                fetchAndLoadUnits(dispatch);
-                fetchAndLoadUsers(dispatch);
+                dispatch({ type: 'ADJUST_BALANCE', payment: resp.data.payment })
             }
         })
 }

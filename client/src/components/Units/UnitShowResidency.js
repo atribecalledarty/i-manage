@@ -10,7 +10,6 @@ function UnitShowResidency({ unit, match, deleteResidency }) {
                 <Link to={`/users/${unit.resident.id}`}>{unit.resident.first_name} {unit.resident.last_name}</Link>
             </div>
             <div>
-                {/* <b>Balance</b> <small>$</small><strong>{calculateBalance(unit.residency, unit.rent_cost_per_month)}</strong> */}
                 <b>Balance</b> <small>$</small><strong>{unit.residency.balance.toFixed(2)}</strong>
             </div>
             <div className="unitShow__residentInfo">
