@@ -15,7 +15,8 @@ import { addUnits,
         loginUser,
         postNewUser 
       } from './utilities/dispatchActions';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
+import ProtectedRoute from './ProtectedRoute';
 
 class App extends React.Component {  
   componentDidMount(){
@@ -25,9 +26,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container className="app">
         <Router >
           <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
+          {/* <Route path="/" render={routerProps => <SetLogin {...routerProps}/>}/> */}
           <Route exact path="/" render={routerProps => 
             <Home 
               {...routerProps}
@@ -48,8 +50,8 @@ class App extends React.Component {
               user={this.props.user} 
               addUser={this.props.addUser}
               isLoggedIn={this.props.isLoggedIn}/>}/>
-          <Route path="/units" render={routerProps => <UnitsContainer {...routerProps} />}/>
-          <Route path="/users" render={routerProps => <UsersContainer {...routerProps}/>}/>
+          <Route path="/units" render={routerProps => <ProtectedRoute {...routerProps} component={UnitsContainer}/>}/>
+          <Route path="/users" render={routerProps => <ProtectedRoute {...routerProps} component={UsersContainer}/>}/>
           <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>     
         </Router>
       </Container>

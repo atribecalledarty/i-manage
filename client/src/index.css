@@ -12,3 +12,6 @@ code {
     monospace;
 }
 
+.jumbotron {
+  margin-bottom: 0 !important;
+}
