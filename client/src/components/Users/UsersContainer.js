@@ -19,7 +19,7 @@ class UsersContainer extends React.Component {
                         users={this.props.users} 
                         addUser={this.props.addUser}
                         isLoggedIn={this.props.isLoggedIn}
-                        isManager={this.props.user.manager_status}/>}/>
+                        isManager={this.props.user?.manager_status}/>}/>
                 <Route path={`/users/:userId`} render={routerProps => 
                     <UserShow 
                         {...routerProps} 

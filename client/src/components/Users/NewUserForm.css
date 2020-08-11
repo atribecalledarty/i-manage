@@ -1,0 +1,9 @@
+.newUserForm {
+    margin-left: 10%;
+}
+
+.newUserForm__header {
+    font-weight: 800;
+    margin-bottom: 24px; 
+    /* font-size: 40px; */
+}

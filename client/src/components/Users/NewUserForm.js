@@ -1,8 +1,8 @@
 import React from 'react';
 import FormErrors from '../FormErrors';
-import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import './NewUserForm.css';
 import Button from 'react-bootstrap/Button';
 
 class NewUserForm extends React.Component {
@@ -38,52 +38,48 @@ class NewUserForm extends React.Component {
     }
 
     render() {
-        return(
-            <Jumbotron id="new-user-jumbo">
-                <Form onSubmit={this.submitHandler}>
-                    <h5>Create New Account</h5>
-                    <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="email" placeholder="Enter email" />
-                        </Form.Group>
+        return <Form className="newUserForm" onSubmit={this.submitHandler}>
+            <h3 className="newUserForm__header">Create New Account</h3>
+            <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
+            <Form.Row>
+                <Form.Group as={Col} controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="email" placeholder="Enter email" />
+                </Form.Group>
 
-                        <Form.Group as={Col} controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="password" type="password" placeholder="Password" />
-                        </Form.Group>
-                    </Form.Row>
+                <Form.Group as={Col} controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="password" type="password" placeholder="Password" />
+                </Form.Group>
+            </Form.Row>
 
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="first_name">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="first_name" placeholder="Harry" />
-                        </Form.Group>
+            <Form.Row>
+                <Form.Group as={Col} controlId="first_name">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="first_name" placeholder="Harry" />
+                </Form.Group>
 
-                        <Form.Group as={Col} controlId="last_name">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="last_name" placeholder="Potter" />
-                        </Form.Group>
-                    </Form.Row>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="username" placeholder="Enter Username"/>
-                        </Form.Group>
+                <Form.Group as={Col} controlId="last_name">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="last_name" placeholder="Potter" />
+                </Form.Group>
+            </Form.Row>
+            <Form.Row>
+                <Form.Group as={Col} controlId="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="username" placeholder="Enter Username"/>
+                </Form.Group>
 
-                        <Form.Group as={Col} controlId="phone_number">
-                        <Form.Label>Phone Number</Form.Label>
-                        <Form.Control onChange={this.changeHandler} name="phone_number" placeholder="XXX-XXX-XXXX"/>
-                        </Form.Group>
-                    </Form.Row>
+                <Form.Group as={Col} controlId="phone_number">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control onChange={this.changeHandler} name="phone_number" placeholder="XXX-XXX-XXXX"/>
+                </Form.Group>
+            </Form.Row>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
-            </Jumbotron>
-        )
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
     }
 }
 

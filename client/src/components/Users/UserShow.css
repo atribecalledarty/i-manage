@@ -4,8 +4,13 @@
 
 .userShow__residency {
     margin-top: 18px;
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .userShow__info {
     margin-top: 16px;
+}
+
+.userShow h3 {
+    font-weight: 800;
 }
