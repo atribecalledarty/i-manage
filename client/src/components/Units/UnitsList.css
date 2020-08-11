@@ -1,3 +1,7 @@
 .list-group {
     width: 30% !important;
 }
+
+.unitsList__item {
+    /* color: rgba(0, 0, 0) !important; */
+}

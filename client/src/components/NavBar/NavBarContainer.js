@@ -8,46 +8,20 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../utilities/dispatchActions';
 
 const NavBarContainer = ({ isLoggedIn, user, logoutUser, history }) => {
-    const redirectToHome = () => {
-        history.push('/');
-    }
-
     const renderNav = () => {
-        if (isLoggedIn && user.manager_status) {
-            return (
-                <ManagerNavBar user={user} history={history} logoutUser={logoutUser}/>
-            )
-        } else if (isLoggedIn) {
-            return (
-                <UserNavBar user={user} history={history} logoutUser={logoutUser}/>            
-            )
-        } else {
-            return (
-                <NoUserNavBar history={history}/>
-            )
+        if (isLoggedIn && user.manager_status) { return <ManagerNavBar user={user} history={history} logoutUser={logoutUser}/>
+        } else if (isLoggedIn) { return <UserNavBar user={user} history={history} logoutUser={logoutUser}/>            
+        } else { return <NoUserNavBar history={history}/>
         }
     }
-    return (
-        <Navbar bg="light" variant="light">
+    return <Navbar bg="light" variant="light">
             <Container>
-                <Navbar.Brand ><a href="#" id="brand" onClick={redirectToHome}>Luna's Cabins</a></Navbar.Brand>
+                <Navbar.Brand ><a href="#" id="brand" onClick={() => history.push('/')}>Luna's Cabins</a></Navbar.Brand>
                 {renderNav()}
             </Container>
-        </Navbar>
-    )
+    </Navbar>
 }
 
-const mapStateToProps = state => {
-    return {
-        user: state.user,
-        isLoggedIn: state.isLoggedIn
-    }
-}
+const mapState = state => ({ user: state.user, isLoggedIn: state.isLoggedIn })
 
-const mapDispatchToProps = dispatch => {
-    return {
-        logoutUser: () => dispatch(logoutUser())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);
+export default connect(mapState, { logoutUser })(NavBarContainer);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
+import './UsersList.css'
 
 function UsersList ({ users, history }) {
     return <ListGroup>

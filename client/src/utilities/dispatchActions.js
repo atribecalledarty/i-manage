@@ -129,11 +129,12 @@ export const loginUser = (user, history)  => dispatch => {
         })
 }
 
-export const logoutUser = () => dispatch => {
+export const logoutUser = history => dispatch => {
     axios.delete(`/logout`, { withCredentials: true })
         .then(() => {
             dispatch({ type: 'LOGOUT' })
             localStorage.setItem('user', undefined);
+            history.push('/');
         })
 }
 
