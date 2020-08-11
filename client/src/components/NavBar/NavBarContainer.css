@@ -1,0 +1,9 @@
+.navBarContainer__brand {
+    text-decoration: none;
+    color: #000000;
+}
+
+.navBarContainer__brand:hover {
+    text-decoration: none;
+    color: #000;
+}

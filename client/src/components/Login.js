@@ -3,6 +3,8 @@ import FormErrors from './FormErrors';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './Login.css';
+import { connect } from 'react-redux';
+import { loginUser } from '../utilities/dispatchActions';
 
 class Login extends Component {
     state = {
@@ -10,11 +12,7 @@ class Login extends Component {
         password: ''
     }
 
-    changeHandler = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+    changeHandler = event => this.setState({ [event.target.name]: event.target.value })
 
     submitHandler = event => {
         event.preventDefault();
@@ -22,7 +20,7 @@ class Login extends Component {
     }
 
     componentDidUpdate(){ 
-        if (this.props.isLoggedIn) this.props.history.push(`/auth_user/${this.props.user.id}/balance`);
+        if (this.props.isLoggedIn) this.props.history.push(`/auth_user/balance`);
     }
 
     render() {
@@ -59,4 +57,5 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapState = state => ({ isLoggedIn: state.isLoggedIn });
+export default connect(mapState, { loginUser })(Login);

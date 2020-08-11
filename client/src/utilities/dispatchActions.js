@@ -61,19 +61,16 @@ export const register = (state, history)=> dispatch => {
         })
 }
 
-export const deleteUser = userId => {
-    return dispatch => {
-        fetch(`/users/${userId}`, { method: "DELETE" })
-            .then(() => {
-                fetchAndLoadUsers(dispatch);
-                fetchAndLoadUnits(dispatch);        
-            })
-        }
+export const deleteUser = userId => dispatch => {
+    fetch(`/users/${userId}`, { method: "DELETE" })
+        .then(() => {
+            fetchAndLoadUsers(dispatch);
+            fetchAndLoadUnits(dispatch);        
+        })
 }
 
-export const addResidency = (userId, unitId) => dispatch => {
+export const addResidency = (userId, unitId, history) => dispatch => {
     const body = JSON.stringify({ user_id: userId, unit_id: unitId })
-    // console.log(body);
     fetch(`/residencies`, {
         method: "POST",
         headers: {
@@ -83,7 +80,11 @@ export const addResidency = (userId, unitId) => dispatch => {
         body
     })
         .then(resp => resp.json())
-        .then(json => { if (json.id) dispatch({ type: 'ADD_RESIDENCY', residency: json})})    
+        .then(json => { 
+            if (json.id) {
+                dispatch({ type: 'ADD_RESIDENCY', residency: json})
+                history.push(`/units/${json.unit_id}`)
+        }})    
 }
 
 export const deleteResidency = id => dispatch => {
@@ -111,7 +112,6 @@ export const setLoginStatus = () => dispatch => {
                 localStorage.setItem('user', undefined);
             }
         })
-    
 }
 
 export const loginUser = (user, history)  => dispatch => {
