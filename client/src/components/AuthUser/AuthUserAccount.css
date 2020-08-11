@@ -1,0 +1,7 @@
+.authUserAccount h3 {
+    font-weight: 800;
+}
+
+.authUserAccount__residency {
+    color: rgba(0,0,0, 0.6);
+}

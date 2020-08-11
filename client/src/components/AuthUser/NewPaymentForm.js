@@ -1,16 +1,11 @@
 import React from 'react';
 import FormErrors from '../FormErrors';
 import Button from 'react-bootstrap/Button';
+import './NewPaymentForm.css';
 
 class NewPaymentForm extends React.Component {
     state = {
         amount: ""
-    }
-
-    changeHandler = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
     }
 
     submitHandler = event => {
@@ -19,30 +14,20 @@ class NewPaymentForm extends React.Component {
         this.props.addPayment(this.state.amount, userFromUsers.residency.id);
     }
 
-    displayErrors = () => {
-        if (this.props.errors !== null) {
-            return (
-                <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
-            )
-        }
-    }
-    
     render() {
-        return(
-            <div>
-                <form onSubmit={this.submitHandler}>
-                    {this.displayErrors()}
-                    <input
-                        onChange={this.changeHandler} 
-                        type="text"
-                        id="amount"
-                        name="amount"
-                        placeholder="100.00"/>&nbsp;
+        return <div className="newPaymentForm">
+            <form onSubmit={this.submitHandler}>
+                <FormErrors />
+                <input
+                    onChange={e => this.setState({ amount: e.target.value })} 
+                    type="text"
+                    id="amount"
+                    name="amount"
+                    placeholder="100.00"/>&nbsp;
 
-                    <Button size="sm" variant="outline-primary" type="submit">Submit Payment</Button>
-                </form>
-            </div>
-        )
+                <Button size="sm" variant="outline-primary" type="submit">Submit Payment</Button>
+            </form>
+        </div>
     }
 }
 

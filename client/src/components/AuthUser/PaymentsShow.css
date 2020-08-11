@@ -1,0 +1,7 @@
+.paymentsShow h3 {
+    font-weight: 600;
+}
+
+.paymentsShow td {
+    color: rgba(0, 0, 0, 0.6);
+}

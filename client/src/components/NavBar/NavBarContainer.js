@@ -14,6 +14,7 @@ const NavBarContainer = ({ isLoggedIn, user, logoutUser, history }) => {
         } else { return <NoUserNavBar history={history}/>
         }
     }
+    
     return <Navbar bg="light" variant="light">
             <Container>
                 <Navbar.Brand ><a href="#" id="brand" onClick={() => history.push('/')}>Luna's Cabins</a></Navbar.Brand>
