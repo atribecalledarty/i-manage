@@ -25,7 +25,8 @@ class NewResidencyForm extends React.Component {
                 <Form onSubmit={this.submitHandler}>
                     <Form.Group controlId="userId">
                         <Form.Control onChange={this.changeHandler} as="select" size="sm" custom>
-                            <option selected defaultValue disabled hidden>Choose User</option>
+                            <option defaultValue hidden>Choose User</option>
+                            {/* {this.setState({ userId: this.props.usersWithoutResidency[0]?.id })} */}
                             {this.props.usersWithoutResidency.map(user => <option key={user.id} value={user.id}>{user.first_name} {user.last_name}</option>)}
                         </Form.Control>
                         <Form.Text className="text-muted">

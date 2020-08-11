@@ -73,6 +73,7 @@ export const deleteUser = userId => {
 
 export const addResidency = (userId, unitId) => dispatch => {
     const body = JSON.stringify({ user_id: userId, unit_id: unitId })
+    // console.log(body);
     fetch(`/residencies`, {
         method: "POST",
         headers: {
@@ -81,10 +82,8 @@ export const addResidency = (userId, unitId) => dispatch => {
         },
         body
     })
-        .then(() => {
-            fetchAndLoadUsers(dispatch);
-            fetchAndLoadUnits(dispatch);        
-        })    
+        .then(resp => resp.json())
+        .then(json => { if (json.id) dispatch({ type: 'ADD_RESIDENCY', residency: json})})    
 }
 
 export const deleteResidency = id => dispatch => {
@@ -97,10 +96,8 @@ export const deleteResidency = id => dispatch => {
         },
         body
     })
-        .then(() => {
-            fetchAndLoadUsers(dispatch);
-            fetchAndLoadUnits(dispatch);        
-        })   
+        .then(resp => resp.json())
+        .then(json => { if (json.id) dispatch({ type: 'REMOVE_RESIDENCY', residency: json })})   
 }
 
 export const setLoginStatus = () => dispatch => {

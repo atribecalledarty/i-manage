@@ -4,7 +4,7 @@ class Residency < ApplicationRecord
     has_many :payments
 
     def as_json(options = {})
-        super(methods: [:balance])
+        super(methods: [:balance], include: [:resident, :unit])
     end 
 
     def balance

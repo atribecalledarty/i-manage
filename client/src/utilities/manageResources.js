@@ -79,7 +79,6 @@ export default function manageResources (
                 user: undefined,
             }
         case 'ADJUST_BALANCE':
-            // amount, residency_id
             return {
                 ...state,
                 user: {
@@ -90,6 +89,36 @@ export default function manageResources (
                         payments: [...state.user.residency.payments, action.payment]
                     }
                 }
+            }
+        case 'ADD_RESIDENCY':
+            
+            const units = [...state.units]
+            units[action.residency.unit_id - 1].residency = action.residency
+            units[action.residency.unit_id - 1].resident = action.residency.resident
+
+            const i = state.users.findIndex(e => e.id === action.residency.user_id)
+            const users = [...state.users]
+            users[i].residency = action.residency
+            users[i].unit = action.residency.unit
+            
+            return {
+                ...state,
+                units: units,
+                users: users
+            }
+        case 'REMOVE_RESIDENCY':
+            const unitsR = [...state.units]
+            unitsR[action.residency.unit_id - 1].residency = undefined;
+            unitsR[action.residency.unit_id - 1].resident = undefined;
+            
+            const iR = state.users.findIndex(e => e.id === action.residency.user_id);
+            const usersR = [...state.users]
+            usersR[iR].residency = undefined
+            usersR[iR].unit = undefined
+            return {
+                ...state,
+                units: unitsR,
+                users: usersR
             }
 
         default:
