@@ -8,21 +8,6 @@ import { connect } from 'react-redux';
 import { postNewUser, deleteUser, clearErrors } from '../../utilities/dispatchActions';
 
 class UsersContainer extends React.Component {
-    componentDidMount(){ //need this one when users have been loaded already, and onmount we need to redirect
-        if (this.props.users[0] !== undefined && this.props.history.location.pathname === '/users') {
-            this.props.history.push(`/users/${this.props.users[0].id}`)
-        }
-        if(!this.props.isLoggedIn && !this.props.user.isManager){
-            this.props.history.push(`/`)
-        }
-    }
-
-    componentDidUpdate(){ //need both because initial loading of users will not have users loaded into props
-        if (this.props.users[0] !== undefined && this.props.history.location.pathname === '/users') {
-            this.props.history.push(`/users/${this.props.users[0].id}`)
-        }
-    }
-
     render() {
         return(
             <div>

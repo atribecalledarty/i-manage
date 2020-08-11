@@ -10,7 +10,6 @@ class UnitsContainer extends React.Component {
     render() {
         return(
             <Jumbotron id="unit-container">
-                {/* {console.log(units)} */}
                 <Row>
                     <Col md="auto">
                         <UnitsList units={this.props.units} history={this.props.history} />

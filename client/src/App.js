@@ -20,7 +20,8 @@ import ProtectedRoute from './ProtectedRoute';
 
 class App extends React.Component {  
   componentDidMount(){
-    this.props.fetchResources();
+    this.props.addUnits();
+    this.props.addUsers();
     this.props.setLoginStatus();
   }
 
@@ -29,15 +30,7 @@ class App extends React.Component {
       <Container className="app">
         <Router >
           <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
-          {/* <Route path="/" render={routerProps => <SetLogin {...routerProps}/>}/> */}
-          <Route exact path="/" render={routerProps => 
-            <Home 
-              {...routerProps}
-              loading_users={this.props.loading_users}
-              loading_units={this.props.loading_units}
-              user={this.props.user}
-              isLoggedIn={this.props.isLoggedIn}
-              loading_session={this.props.loading_session} />}/>
+          <Route exact path="/" render={routerProps => <Home {...routerProps}/>}/>
           <Route exact path="/login" render={routerProps => 
             <Login 
               {...routerProps}
@@ -48,37 +41,23 @@ class App extends React.Component {
             <SignupForm 
               {...routerProps} 
               user={this.props.user} 
-              addUser={this.props.addUser}
+              addUser={this.props.postNewUser}
               isLoggedIn={this.props.isLoggedIn}/>}/>
           <Route path="/units" render={routerProps => <ProtectedRoute {...routerProps} component={UnitsContainer}/>}/>
           <Route path="/users" render={routerProps => <ProtectedRoute {...routerProps} component={UsersContainer}/>}/>
-          <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>     
+          {/* <Route path={`/auth_user/:userId`} render={routerProps => <AuthUserContainer {...routerProps} />}/>      */}
+          <Route path={`/auth_user/:userId`} render={routerProps => <ProtectedRoute {...routerProps} component={AuthUserContainer}/>}/>     
         </Router>
       </Container>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-      loading_users: state.loading_users,
-      loading_units: state.loading_units,
-      loading_session: state.loading_session,
-      isLoggedIn: state.isLoggedIn,
-      user: state.user
-  }
-}
+const mapState = state => ({
+  isLoggedIn: state.isLoggedIn,
+  user: state.user
+})
 
-const mapDispatchToProps = dispatch => {
-  return {
-      fetchResources: () => { 
-        dispatch(addUnits());
-        dispatch(addUsers());
-      },
-      setLoginStatus: () => dispatch(setLoginStatus()),
-      loginUser: user => dispatch(loginUser(user)),
-      addUser: (user, isManager) => dispatch(postNewUser(user, isManager))
-  }
-}
+const mapDispatch = { addUnits, addUsers, setLoginStatus, loginUser, postNewUser }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapState, mapDispatch)(App);

@@ -4,18 +4,11 @@
   padding: 0 !important;
   border-radius: 5px;
   overflow: hidden;
+  width: 80% !important;
 }
 
 #balance {
   font-size: 40px;
-}
-
-#welcome-jumbo{
-  padding: 64px 180px;
-}
-
-#login-jumbo {
-  padding: 64px 120px;
 }
 
 #new-user-jumbo {

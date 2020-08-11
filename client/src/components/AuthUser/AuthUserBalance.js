@@ -46,11 +46,9 @@ const AuthUserShowBalance = ({ match, users, addPayment, errors, clearErrors }) 
         }
     }
 
-    return (
-            <>
-                {renderResidencyInfo()}
-            </>
-            )
+    return <>
+        {renderResidencyInfo()}
+    </>
 
 }
 

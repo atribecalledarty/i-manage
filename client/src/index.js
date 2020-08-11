@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const store = createStore(manageResources, applyMiddleware(thunk));
+window.store = store
 
 ReactDOM.render(
     <Provider store={store} >

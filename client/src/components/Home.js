@@ -1,17 +1,17 @@
 import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
+import './Home.css';
+import { connect } from 'react-redux';
 
 class Home extends React.Component {
     componentDidUpdate() {
-        if (this.props.isLoggedIn && !this.props.loading_users && !this.props.loading_units &&!this.props.loading_session) {
-            this.props.history.push(`/auth_user/${this.props.user.id}/balance`)
-        }
+        if (this.props.isLoggedIn) this.props.history.push(`/auth_user/${this.props.user.id}/balance`);
     }
     
     render() {
         return (
-            <Jumbotron id="welcome-jumbo">
+            <Jumbotron className="home">
                     <h1>Welcome to Luna's Cabins</h1>
                     <p>Test users please sign in as Luna<br/>
                     username: itsluna@owl.com, password: nargles</p>
@@ -20,8 +20,8 @@ class Home extends React.Component {
             </Jumbotron>
         )
     }
-
-    
 }
 
-export default Home;
+const mapState = state => ({ isLoggedIn: state.isLoggedIn, user: state.user })
+
+export default connect(mapState)(Home);

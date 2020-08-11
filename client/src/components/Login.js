@@ -19,7 +19,7 @@ class Login extends Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.loginUser(this.state);
+        this.props.loginUser(this.state, this.props.history);
     }
 
     componentDidUpdate(){
@@ -32,7 +32,8 @@ class Login extends Component {
 
     render() {
         return(
-            <Jumbotron id="login-jumbo">
+            <Jumbotron className="login">
+                <h1>Sign In</h1>
                 <Form onSubmit={this.submitHandler}>
                     <FormErrors errors={this.props.errors} clearErrors={this.props.clearErrors}/>
 

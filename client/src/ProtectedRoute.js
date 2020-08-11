@@ -5,16 +5,16 @@ import { connect } from 'react-redux';
 class ProtectedRoute extends React.Component {
     render() {
         const Component = this.props.component;
-        const isAuthenticated = this.props.isLoggedIn;
+        const isAuthenticated = localStorage.getItem('user') !== "undefined";
        
         return isAuthenticated ? (
-            <Component />
+            <Component history={this.props.history} match={this.props.match}/>
         ) : (
             <Redirect to={{ pathname: '/login' }} />
         );
     }
 }
 
-const mapState = state => state.isLoggedIn
+const mapState = state => ({ isLoggedIn: state.isLoggedIn })
 
 export default connect(mapState)(ProtectedRoute);

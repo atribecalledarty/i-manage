@@ -2,7 +2,7 @@ import axios from 'axios';
 // const apiURL = 'http://localhost:3001';
 
 const fetchAndLoadUnits = dispatch => {
-    dispatch({ type: 'LOADING_UNITS' })
+    // dispatch({ type: 'LOADING_UNITS' })
     fetch(`/units`)
             .then(resp => resp.json())
             .then(units => {
@@ -12,7 +12,7 @@ const fetchAndLoadUnits = dispatch => {
 }
 
 const fetchAndLoadUsers = dispatch => {
-    dispatch({ type: 'LOADING_USERS' })
+    // dispatch({ type: 'LOADING_USERS' })
     fetch(`/users`)
         .then(resp => resp.json())
         .then(users => {
@@ -35,7 +35,7 @@ export const addUsers = () => {
 
 export const postNewUser = (state, isManager) => {
     return dispatch => {
-        dispatch({ type: 'LOADING_USERS' })
+        // dispatch({ type: 'LOADING_USERS' })
 
         const body = JSON.stringify(state);
         fetch(`/users`, {
@@ -121,6 +121,7 @@ export const setLoginStatus = () => {
                 // console.log('in axios req', resp)
                 if (resp.data.logged_in) {
                     dispatch({ type: 'LOGIN', user: resp.data.user })
+                    localStorage.setItem('user', resp.data.user.id);
                 } else {
                     dispatch({ type: 'LOGOUT' })
                 }
@@ -128,13 +129,17 @@ export const setLoginStatus = () => {
     }
 }
 
-export const loginUser = user => {
+export const loginUser = (user, history)  => {
     return dispatch => {
         axios.post(`/login`, { user }, {withCredentials: true})
             .then(resp => {
                 // console.log(resp);
                 if (resp.data.logged_in) {
                     dispatch({ type: 'LOGIN', user: resp.data.user })
+                    // console.log(resp.data.user.id);
+                    localStorage.setItem('user', resp.data.user.id);
+                    // console.log('hello??');
+                    history.push(`/auth_user/${resp.data.user.id}/balance`)
                 } else {
                     // console.log(resp.data.errors);
                     dispatch({ type: 'ADD_ERRORS', errors: resp.data.errors })
@@ -145,11 +150,12 @@ export const loginUser = user => {
 
 export const logoutUser = () => {
     return dispatch => {
-        dispatch({ type: 'LOADING_SESSION' })
+        // dispatch({ type: 'LOADING_SESSION' })
 
         axios.delete(`/logout`, {withCredentials: true})
             .then(() => {
                 dispatch({ type: 'LOGOUT' })
+                localStorage.setItem('user', undefined);
             })
     }
 }
