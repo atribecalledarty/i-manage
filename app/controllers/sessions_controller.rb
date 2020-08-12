@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: session_params[:email])
     if @user && @user.authenticate(session_params[:password])
       login!
-      render json: { user: UserSerializer.new(@user) } 
+      render json: UserSerializer.new(@user).to_serialized_json 
     else
       render json: { errors: ["Invalid combination of email and password. Try again"] }
     end
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
   def is_logged_in?
     if logged_in? && current_user
-      render json: UserSerializer.new(current_user)
+      render json: UserSerializer.new(current_user).to_serialized_json
     else
       render json: { logged_in: false }
     end

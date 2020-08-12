@@ -3,17 +3,17 @@ require 'pry'
 class UsersController < ApplicationController
     def index
         users = User.all
-        render json: UserSerializer.new(users)
+        render json: UserSerializer.new(users).to_serialized_json
     end
 
     def create
         @user = User.new(user_params)
-        render json: (@user.save ? UserSerializer.new(@user) : { errors: @user.errors.full_messages })
+        render json: (@user.save ? UserSerializer.new(@user).to_serialized_json : { errors: @user.errors.full_messages })
     end
 
     def create_and_login
         @user = User.new(user_params)
-        render json: (@user.save ? UserSerializer.new(@user) : { errors: @user.errors.full_messages })
+        render json: (@user.save ? UserSerializer.new(@user).to_serialized_json : { errors: @user.errors.full_messages })
     end
 
     def destroy
