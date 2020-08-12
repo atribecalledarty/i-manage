@@ -24,9 +24,6 @@ class AuthUserContainer extends React.Component {
     }
 }
 
-const mapState = state => ({
-        users: state.users,
-        user: state.user
-})
+const mapState = state => ({ user: state.user })
 
 export default connect(mapState, { addPayment, deleteUser, logoutUser })(AuthUserContainer);

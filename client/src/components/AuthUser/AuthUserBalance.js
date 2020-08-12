@@ -16,8 +16,10 @@ const AuthUserShowBalance = ({ user, addPayment }) => {
             <NewPaymentForm user={user} addPayment={addPayment}/>
             {user.residency.payments?.length ? <PaymentsShow payments={user.residency.payments}/> : <p><i>No payments</i></p>}
         </> : <>
-            <i><h1>No Residency.</h1>
-            <p>Please have your manager assign you to a unit.</p></i>
+            <i>
+                <h1>No Residency.</h1>
+                <p>Please have your manager assign you to a unit.</p>
+            </i>
         </>}
     </div>
 

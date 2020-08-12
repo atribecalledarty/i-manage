@@ -26,6 +26,4 @@ const mapStateToProps = state => ({
     users: state.users,
 })
 
-const mapDispatchToProps = { addResidency, deleteResidency }
-
-export default connect(mapStateToProps, mapDispatchToProps)(UnitsContainer);
+export default connect(mapStateToProps, { addResidency, deleteResidency })(UnitsContainer);

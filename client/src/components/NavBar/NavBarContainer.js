@@ -20,10 +20,10 @@ const NavBarContainer = ({ isLoggedIn, user, logoutUser, history }) => {
     }
 
     return <Navbar bg="light" variant="light">
-            <Container>
-                <Navbar.Brand ><a href="#" className="navBarContainer__brand" onClick={() => history.push('/')}>Luna's Cabins</a></Navbar.Brand>
-                {renderNav()}
-            </Container>
+        <Container>
+            <Navbar.Brand ><a href="#" className="navBarContainer__brand" onClick={() => history.push('/')}>Luna's Cabins</a></Navbar.Brand>
+            {renderNav()}
+        </Container>
     </Navbar>
 }
 

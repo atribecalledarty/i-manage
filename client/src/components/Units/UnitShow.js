@@ -13,9 +13,11 @@ const UnitShow = ({ match, units, users, deleteResidency, addResidency }) => {
             {unit && <>
                 <h3 className="unitShow__header">Unit {unit.unit_number}</h3>
                 <p className="unitShow__unitInfo">
-                    <i>{unit.type_of_unit}<br/>
-                    {unit.sq_ft} sq ft<br/>
-                    ${unit.rent_cost_per_month}/month</i>
+                    <i>
+                        {unit.type_of_unit}<br/>
+                        {unit.sq_ft} sq ft<br/>
+                        <small>$</small>{unit.rent_cost_per_month}/month
+                    </i>
                 </p>
                 <UnitShowResidency match={match} unit={unit} deleteResidency={deleteResidency}/>
             </>}

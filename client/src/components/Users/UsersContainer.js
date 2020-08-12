@@ -16,9 +16,7 @@ class UsersContainer extends React.Component {
                     <NewUserForm 
                         {...routerProps} 
                         user={this.props.user}
-                        users={this.props.users} 
-                        postNewUser={this.props.postNewUser}
-                        isLoggedIn={this.props.isLoggedIn}/>}/>
+                        postNewUser={this.props.postNewUser}/>}/>
                 <Route path={`/users/:userId`} render={routerProps => 
                     <UserShow 
                         {...routerProps} 
@@ -36,6 +34,4 @@ const mapState = state => ({
         isLoggedIn: state.isLoggedIn
 })
 
-const mapDispatch = { postNewUser, deleteUser, clearErrors }
-
-export default connect(mapState, mapDispatch)(UsersContainer);
+export default connect(mapState, { postNewUser, deleteUser, clearErrors })(UsersContainer);

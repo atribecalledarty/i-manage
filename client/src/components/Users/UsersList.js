@@ -8,8 +8,8 @@ function UsersList ({ users, history }) {
             New User
         </ListGroup.Item>
         {users.map((user, index) => <ListGroup.Item key={index} action onClick={() => history.push(`/users/${user.id}`)}>
-                {user.first_name} {user.last_name}
-            </ListGroup.Item>)}
+            {user.first_name} {user.last_name}
+        </ListGroup.Item>)}
     </ListGroup>
 }
 

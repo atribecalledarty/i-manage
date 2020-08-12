@@ -22,26 +22,22 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <Container className="app">
-        <Router >
-          <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
-          <Jumbotron>
-            <Switch>
-              <Route exact path="/" render={routerProps => <Home {...routerProps}/>}/>
-              <Route exact path="/login" render={routerProps => <Login {...routerProps}/>}/>
-              <Route exact path="/signup" render={routerProps => <SignupForm {...routerProps}/>}/>
-              <Route path="/units" render={routerProps => <ProtectedRoute {...routerProps} component={UnitsContainer}/>}/>
-              <Route path="/users" render={routerProps => <ProtectedRoute {...routerProps} component={UsersContainer}/>}/>
-              <Route path={`/auth_user/:userId`} render={routerProps => <ProtectedRoute {...routerProps} component={AuthUserContainer}/>}/>    
-            </Switch>
-          </Jumbotron>
-        </Router>
-      </Container>
-    );
+    return <Container className="app">
+      <Router >
+        <Route path="/" render={routerProps => <NavBarContainer {...routerProps}/>}/>
+        <Jumbotron>
+          <Switch>
+            <Route exact path="/" render={routerProps => <Home {...routerProps}/>}/>
+            <Route exact path="/login" render={routerProps => <Login {...routerProps}/>}/>
+            <Route exact path="/signup" render={routerProps => <SignupForm {...routerProps}/>}/>
+            <Route path="/units" render={routerProps => <ProtectedRoute {...routerProps} component={UnitsContainer}/>}/>
+            <Route path="/users" render={routerProps => <ProtectedRoute {...routerProps} component={UsersContainer}/>}/>
+            <Route path={`/auth_user/:userId`} render={routerProps => <ProtectedRoute {...routerProps} component={AuthUserContainer}/>}/>    
+          </Switch>
+        </Jumbotron>
+      </Router>
+    </Container>
   }
 }
 
-const mapDispatch = { addUnits, addUsers, setLoginStatus }
-
-export default connect(null, mapDispatch)(App);
+export default connect(null, { addUnits, addUsers, setLoginStatus })(App);

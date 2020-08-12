@@ -8,8 +8,11 @@ const UnitsList = ({ history, units}) => {
             {units.map(unit => <div key={unit.id}> 
                 <ListGroup.Item className="unitsList__item" action onClick={() => history.push(`/units/${unit.id}`)}>
                     #{unit.unit_number} 
-                    {unit.resident ? <> {unit.resident.first_name} {unit.resident.last_name}</>
-                                : <> <span className="text-info">Vacant</span></>}
+                    {unit.resident ? <> 
+                        &nbsp;{unit.resident.first_name} {unit.resident.last_name}
+                    </> : <> 
+                        &nbsp;<span className="text-info">Vacant</span>
+                    </>}
                 </ListGroup.Item> 
             </div>)}
         </ListGroup>
