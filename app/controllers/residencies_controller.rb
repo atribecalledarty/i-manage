@@ -1,7 +1,6 @@
 require 'pry'
 
 class ResidenciesController < ApplicationController
-
     def create
         r = Residency.new(user_id: residency_params[:user_id], unit_id: residency_params[:unit_id], start_date: Date.today)
         render json: (r.save ? r : { errors: r.errors.full_messages })
