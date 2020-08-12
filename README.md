@@ -1,6 +1,6 @@
 # iManage
 
-iManage is a project I built at Flatiron school for the React and Redux section of the course. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager could use to manage units and tenants in her apartment complex. I also wanted the tenants of the apartment complex to be able to sign in and make payments towards their rent balance.
+iManage is a project I built at Flatiron school for the React and Redux section of the course. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager could use to manage units and tenants in her apartment complex. Secondly, I wanted tenants of the apartment complex to be able to sign in and make payments towards their rent balance.
 
 iManage consists of a React front end (React files are located in /client) and Rails API back end. Other technologies: Client-sided Routing, AJAX, Styling using React Bootstrap and CSS, React class components, custom JSON serializers, and Rails ActiveRecord ORM connected PostgreSQL DB.
 
@@ -12,7 +12,7 @@ Application deployed using Heroku: https://i-manage.herokuapp.com/
 
 ## Usage
 
-I ended up seeding the data with characters from Harry Potter. Luna is the apartment manager and has manager access to all the users an units. There is a fixed number of units (12 units) in her apartment complex, "Luna's Cabins". She can create and delete new residents that want to move in to her apartment, and assign them to a unit. Once tenants have been assigned to a unit, the application will start to calculate and display users' balance.
+I ended up seeding the data with characters from Harry Potter. Luna is the apartment manager and has manager access to all the users an units. There is a fixed number of units (12 units) in her apartment complex, "Luna's Cabins". Luna can create and delete new residents that want to move in to her apartment, and assign them to a unit. Once tenants have been assigned to a unit, the application will start to calculate and display users' balance.
 
 Residents can sign in to their accounts and submit payments. They can also browse their previous payments.
 
