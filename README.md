@@ -2,13 +2,13 @@
 
 iManage is a project I built at Flatiron school for the React and Redux section of the course. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager could use to manage units and tenants in her apartment complex. I also wanted the tenants of the apartment complex to be able to sign in and make payments towards their rent balance.
 
-iManage consists of a React front end (React files are located in /client) and Rails API back end.
+iManage consists of a React front end (React files are located in /client) and Rails API back end. Other technologies: Client-sided Routing, AJAX, Styling using React Bootstrap and CSS, React class components, custom JSON serializers, and Rails ActiveRecord ORM connected PostgreSQL DB.
 
-Deployed Website: https://i-manage.herokuapp.com/ 
+Application deployed using Heroku: https://i-manage.herokuapp.com/ 
 
 ## Screenshot
 
-![](i-manage.webp)
+![screenshot](i-manage.webp)
 
 ## Usage
 
@@ -18,10 +18,7 @@ Residents can sign in to their accounts and submit payments. They can also brows
 
 ### Manager Access
 
-1. Sign in as Luna
-username: itsluna@owl.com
-password: nargles
-
+1. Sign in as Luna: email: itsluna@owl.com, password: nargles
 2. Browse tenants and units
 3. Create a new resident account
 4. Assign user to an empty unit.
@@ -29,7 +26,7 @@ password: nargles
 
 ### Resident Access
 
-1. Sign in / Register
+1. Sign in / Register (Nymphadora: email: nymphaaaa@owl.com, password: icanchange)
 2. Manager needs to assign user to a unit
 3. Once assigned to a unit, check your balance, and past payment history
 4. Submit a new payment
