@@ -8,7 +8,7 @@ Deployed Website: https://i-manage.herokuapp.com/
 
 ## Screenshot
 
-![](i-manage.png)
+![](i-manage.webp)
 
 ## Usage
 
