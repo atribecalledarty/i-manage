@@ -117,6 +117,7 @@ export const setLoginStatus = () => dispatch => {
 export const loginUser = (user, history)  => dispatch => {
     axios.post(`/login`, { user }, {withCredentials: true})
         .then(resp => {
+            console.log(resp.data);
             if (resp.data.id) {
                 dispatch({ type: 'LOGIN', user: resp.data })
                 localStorage.setItem('user', resp.data.id);
