@@ -1,6 +1,6 @@
 # iManage
 
-Welcome to my React/Rails Demo Project!
+iManage is a project I built to solidify my understanding of React & Redux. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager, Dalia, could use. How could I build an application that would help my apartment manager track the tenants and units in her apartment complex? Lastly, I wanted tenants to be able to sign in to the website and make payments through the website.
 
 iManage is used to help Luna manage her fellow wizards and witches that reside in her apartment complex, Luna's Cabins.
 
@@ -9,9 +9,16 @@ on previous payments and how many months have passed since the move-in date. Lun
 users from units. Tenants/Residents can also login to their accounts, make payments to his/her balance, and 
 see payment history.
 
-iManage consists of a React front end (React files are located in /client) that communicates with Rails API backend.
+iManage consists of a React front end (React files are located in /client) and Rails API back end.
 
-## Installations And Migrations
+Deployed Website: 
+
+## Usage
+
+
+
+
+## Cloning and running the application locally:
 
 1. Install Ruby Gems
 
@@ -39,15 +46,15 @@ $ rails db:seed:payments_3
 $ rails db:seed:payments_4
 ```
 
-## Usage
-
-1. Run both Rails server and React server!
+4. Run Rails server and React server using `rake start`
 
 ```bash
 $ rake start
 ```
 
-2. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)!
+
+
+5. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)!
 
 ```bash
 Luna 
