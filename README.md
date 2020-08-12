@@ -1,19 +1,17 @@
 # iManage
 
-iManage is a project I built to solidify my understanding of React & Redux. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager, Dalia, could use. How could I build an application that would help my apartment manager track the tenants and units in her apartment complex? Lastly, I wanted tenants to be able to sign in to the website and make payments through the website.
-
-iManage is used to help Luna manage her fellow wizards and witches that reside in her apartment complex, Luna's Cabins.
-
-Luna's Cabins is an apartment complex with 12 units. The application calculates the tenant's balance based 
-on previous payments and how many months have passed since the move-in date. Luna can login and assign/remove
-users from units. Tenants/Residents can also login to their accounts, make payments to his/her balance, and 
-see payment history.
+iManage is a project I built at Flatiron school for the React and Redux section of the course. Using React and Redux, I wanted to build an application that hypothetically, my apartment manager could use to manage units and tenants in her apartment complex. 
 
 iManage consists of a React front end (React files are located in /client) and Rails API back end.
 
-Deployed Website: 
+Deployed Website: https://i-manage.herokuapp.com/ 
+
+## Screenshot
+
+
 
 ## Usage
+
 
 
 
@@ -52,9 +50,7 @@ $ rails db:seed:payments_4
 $ rake start
 ```
 
-
-
-5. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident)!
+5. Navigate to localhost:3000 in your browser, login to either Luna (manager) or Nymphadora (resident).
 
 ```bash
 Luna 
